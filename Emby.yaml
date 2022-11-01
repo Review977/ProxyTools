@@ -1,5 +1,4 @@
 # 内容：Emby Proxy
-# 比较全面的各家 Emby 地址
 payload:
 #  
   - DOMAIN-KEYWORD,embymv.tk
