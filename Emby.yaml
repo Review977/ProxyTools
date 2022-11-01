@@ -3,3 +3,5 @@ payload:
 #  
   - DOMAIN-KEYWORD,embymv.tk
   - IP-CIDR,140.83.63.238/24,no-resolve
+  - DOMAIN-SUFFIX,pub1.emby.wtf
+  - DOMAIN-SUFFIX,pub2.emby.wtf
