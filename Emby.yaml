@@ -1,7 +1,7 @@
 # 内容：Emby Proxy
 payload:
 #  
-  - DOMAIN-KEYWORD,embymv.tk
+  - DOMAIN,embymv.tk
   - IP-CIDR,140.83.63.238/24,no-resolve
   - DOMAIN,sg.embymv.tk
   - DOMAIN,hk.embymv.tk
