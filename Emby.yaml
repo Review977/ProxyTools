@@ -14,4 +14,5 @@ payload:
   - DOMAIN,catfishemby.club
   - IP-CIDR,45.83.244.99/24,no-resolve
   - DOMAIN,infinityfly.top
-  - DOMAIN,https://cf2.misakaf.org
+  - DOMAIN,cf2.misakaf.org
+  - DOMAIN,embyx.one
