@@ -9,6 +9,7 @@ DOMAIN,cf.mjjemby.org
 DOMAIN,sg01.mjjemby.org
 DOMAIN,kr01.mjjemby.org
 DOMAIN,catfishemby.club
+IP-CIDR,125.124.254.173/24,no-resolve
 IP-CIDR,45.83.244.99/24,no-resolve
 DOMAIN,infinityfly.top
 DOMAIN,cf2.misakaf.org
