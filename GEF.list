@@ -5,11 +5,14 @@ IP-CIDR,140.83.63.238/24,no-resolve
 
 DOMAIN,pub1.emby.wtf
 DOMAIN,pub2.emby.wtf
+DOMAIN,pub3.emby.wtf
 
 DOMAIN,de.mjjemby.org
 DOMAIN,cf.mjjemby.org
 DOMAIN,sg01.mjjemby.org
-DOMAIN,kr01.mjjemby.org
+DOMAIN,jp01.mjjemby.org
+DOMAIN,kr02.mjjemby.org
+DOMAIN,fl01.mjjemby.org
 
 DOMAIN,catfishemby.club
 IP-CIDR,45.83.244.99/24,no-resolve
