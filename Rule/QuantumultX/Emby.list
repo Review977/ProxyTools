@@ -2,7 +2,7 @@
 DOMAIN,embymv.tk,Emby
 DOMAIN,us.embymv.tk,Emby
 DOMAIN,kr.embymv.tk,Emby
-IP-CIDR,140.83.63.238/24,no-resolve,Emby
+IP-CIDR,140.83.63.238/24,Emby
 
 DOMAIN,pub1.emby.wtf,Emby
 DOMAIN,pub2.emby.wtf,Emby
@@ -16,7 +16,7 @@ DOMAIN,kr02.mjjemby.org,Emby
 DOMAIN,fl01.mjjemby.org,Emby
 
 DOMAIN,catfishemby.club,Emby
-IP-CIDR,45.83.244.99/24,no-resolve,Emby
+IP-CIDR,45.83.244.99/24,Emby
 
 DOMAIN,infinityfly.top,Emby
 
