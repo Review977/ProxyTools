@@ -1,6 +1,8 @@
 # NAME: Emby
 DOMAIN,embymv.tk
 DOMAIN,us.embymv.tk
+DOMAIN,sg.embymv.tk
+DOMAIN,jp.embymv.tk
 DOMAIN,kr.embymv.tk
 IP-CIDR,140.83.63.238/24,no-resolve
 
