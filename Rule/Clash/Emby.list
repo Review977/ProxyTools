@@ -17,7 +17,7 @@ DOMAIN,kr02.mjjemby.org
 DOMAIN,fl01.mjjemby.org
 
 DOMAIN,catfishemby.club
-IP-CIDR,112.30.145.72/24,no-resolve
+IP-CIDR,54.222.246.145/24,no-resolve
 
 DOMAIN,infinityfly.top
 
