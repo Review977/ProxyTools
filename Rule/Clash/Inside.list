@@ -1,2 +1,2 @@
 DOMAIN,alist.xiaoya.pro
-IP-CIDR,8.210.63.12,no-res
+IP-CIDR,8.210.63.12/24,no-resolve
