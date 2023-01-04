@@ -1,0 +1,21 @@
+# ======= 高德地图 ======= #
+# 2023-01-04 17:48
+
+# 首页卡片
+^https:\/\/m5\.amap\.com\/ws\/faas\/amap-navigation\/main-page-assets\? url script-response-body https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/myBlockAds.js
+
+# 首页顶部消息横幅
+^https:\/\/m5\.amap\.com\/ws\/faas\/amap-navigation\/main-page(-location)?\? url script-response-body https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/myBlockAds.js
+^https:\/\/sns\.amap\.com\/ws\/msgbox\/pull(3|_mp)\? url script-response-body https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/myBlockAds.js
+
+# 我的页面卡片
+^https:\/\/m5\.amap\.com\/ws\/shield\/dsp\/profile\/index\/nodefaasv3\? url script-response-body https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/myBlockAds.js
+
+# 其他
+^https:\/\/m5\.amap\.com\/ws\/asa\/ads_attribution url reject-dict
+^https:\/\/m5\.amap\.com\/ws\/shield\/scene\/recommend url reject-dict
+
+# 开屏广告
+^https:\/\/m5\.amap\.com\/ws\/valueadded\/alimama\/splash_screen\? url reject-dict
+
+hostname = m5.amap.com, sns.amap.com
