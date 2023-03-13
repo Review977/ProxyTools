@@ -32,3 +32,5 @@ DOMAIN,ha.jmsooo.com,Emby
 
 
 DOMAIN,direct.nebula-emby.com,Emby
+
+IP-CIDR,202.61.255.248/24,no-resolve,Emby
