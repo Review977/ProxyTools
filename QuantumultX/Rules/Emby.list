@@ -1,7 +1,5 @@
 # NAME: Emby
 DOMAIN,embymv.tk,Emby
-DOMAIN,us.embymv.tk,Emby
-DOMAIN,sg.embymv.tk,Emby
 DOMAIN,jp.embymv.tk,Emby
 DOMAIN,kr.embymv.tk,Emby
 
@@ -16,7 +14,6 @@ DOMAIN,jp01.mjjemby.org,Emby
 DOMAIN,kr02.mjjemby.org,Emby
 DOMAIN,fl01.mjjemby.org,Emby
 
-DOMAIN,catfishemby.club,Emby
 
 
 DOMAIN,infinityfly.top,Emby
