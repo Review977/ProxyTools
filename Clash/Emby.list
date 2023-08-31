@@ -1,6 +1,4 @@
 # NAME: Emby
-payload:
-
 - DOMAIN-SUFFIX,embymv.tk
 - IP-CIDR,193.123.232.141/32,no-resolve
 - IP-CIDR,168.138.161.143/32,no-resolve
