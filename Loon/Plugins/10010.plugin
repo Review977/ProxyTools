@@ -1,7 +1,7 @@
 #!name = 中国联通去广告
 #!desc = 去除中国联通App广告
 #!author = Review977[https://github.com/Review977]
-#!icon = 
+#!icon = https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/ChinaUnicom.png
 #!date = 2024-09-30 23:30
 [Rewrite]
 # > 中国联通
