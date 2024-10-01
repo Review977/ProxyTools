@@ -63,13 +63,3 @@ rules:
   - MATCH,全球加速
 
   
-# dns服务
-dns:
-  enable: true
-  ipv6: true
-  nameserver:
-    - https://doh.pub/dns-query
-    - https://dns.alidns.com/dns-query
-    - tls://223.5.5.5
-    - tls://119.29.29.29
-  
