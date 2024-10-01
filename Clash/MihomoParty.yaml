@@ -4,6 +4,17 @@
 # @howtouse          主界面添加本配置[覆写]，然后使用内置的[SubStore]添加机场，之后去[订阅管理]，在配置的[编辑信息]中绑定机场订阅，开启系统代理即可使用
 #==========================================
 
+
+
+
+dns:
+  enable: true
+  ipv6: true
+  default-nameserver:
+    - 223.5.5.5
+    - 223.6.6.6
+
+    
 proxy-groups:
 #分流分组
   - {name: 全球加速, type: select, proxies: [香港节点, 日本节点, 台湾节点, 美国节点, 狮城节点, 手动切换], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png }
