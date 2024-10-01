@@ -4,15 +4,6 @@
 #==========================================
 
 
-
-
-dns:
-  enable: true
-  ipv6: true
-  nameserver:
-    - tls://223.5.5.5
-    - tls://119.29.29.29
-
     
 proxy-groups:
 #分流分组
