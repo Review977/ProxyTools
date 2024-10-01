@@ -1,0 +1,19 @@
+payload:
+
+- PROCESS-NAME,electron.exe
+
+- DOMAIN,pub1.emby.wtf
+- DOMAIN,pub2.emby.wtf
+- DOMAIN,pub3.emby.wtf
+
+- DOMAIN,789.123456.al
+
+- DOMAIN,free.emby.eu.org
+- DOMAIN,9wfree.emby.eu.org
+
+- DOMAIN,emby.bangumi.ca
+
+- DOMAIN,stream4.misakaf.org
+- DOMAIN,emby.aca.best
+
+- DOMAIN,emby.cn2gias.uk
