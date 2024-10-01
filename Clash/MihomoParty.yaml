@@ -10,9 +10,9 @@
 dns:
   enable: true
   ipv6: true
-  default-nameserver:
+  nameserver:
     - 223.5.5.5
-    - 223.6.6.6
+    - 119.29.29.29
 
     
 proxy-groups:
