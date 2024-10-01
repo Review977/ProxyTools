@@ -61,7 +61,9 @@ rules:
   - RULE-SET,ChinaIP,DIRECT
   - GEOIP,CN,DIRECT
   - MATCH,全球加速
+
   
+# dns服务
 dns:
   enable: true
   ipv6: true
