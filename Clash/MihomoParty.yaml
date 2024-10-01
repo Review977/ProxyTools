@@ -6,31 +6,34 @@
 
 proxy-groups:
 #分流分组
-  - {name: 手动切换, type: select, include-all: true, icon: https://mirror.ghproxy.com/https://raw.githubusercontent.com/Orz-3/mini/master/Color/shadowrocket.png }
-  - {name: 全球加速, type: select, proxies: [手动切换, DIRECT, 自动选择, 香港节点, 日本节点, 台湾节点, 美国节点, 狮城节点], icon: https://mirror.ghproxy.com/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png }
-  - {name: Telegram, type: select, proxies: [手动切换, DIRECT, 自动选择, 香港节点, 日本节点, 台湾节点, 美国节点, 狮城节点], icon: https://mirror.ghproxy.com/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Telegram.png }
-  - {name: OpenAi,   type: select, proxies: [美国节点, 手动切换], icon: https://mirror.ghproxy.com/https://raw.githubusercontent.com/Orz-3/mini/master/Color/OpenAI.png }
-  - {name: 谷歌服务, type: select, proxies: [手动切换, DIRECT, 自动选择, 香港节点, 日本节点, 台湾节点, 美国节点, 狮城节点], icon: https://mirror.ghproxy.com/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Google.png }
-  - {name: 游戏平台, type: select, proxies: [DIRECT, 手动切换, 自动选择, 香港节点, 日本节点, 台湾节点, 美国节点, 狮城节点], icon: https://mirror.ghproxy.com/https://raw.githubusercontent.com/Orz-3/mini/master/Color/GAME.png }
+  - {name: 全球加速, type: select, proxies: [香港节点, 日本节点, 台湾节点, 美国节点, 狮城节点, 手动切换], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png }
+  - {name: Telegram, type: select, proxies: [香港节点, 日本节点, 台湾节点, 美国节点, 狮城节点, 手动切换], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Telegram.png }
+  - {name: YouTube, type: select, proxies: [香港节点, 日本节点, 台湾节点, 美国节点, 狮城节点, 手动切换], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/YouTube.png }
+  - {name: 谷歌服务, type: select, proxies: [美国节点, 手动切换], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Google.png }
+  - {name: OpenAi,   type: select, proxies: [美国节点, 手动切换], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/OpenAI.png }
+  - {name: SpeedTest, type: select, proxies: [DIRECT, 手动切换], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Speedtest.png }
+  - {name: 游戏平台, type: select, proxies: [DIRECT, 手动切换, 香港节点, 日本节点, 台湾节点, 美国节点, 狮城节点], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/GAME.png }
   
 #节点分组
-  - {name: 自动选择, type: url-test, include-all: true, interval: 300, tolerance: 50,  icon: https://mirror.ghproxy.com/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Urltest.png }
-  - {name: 香港节点, type: url-test, include-all: true, interval: 300, tolerance: 50,  filter: "港|HK|(?i)Hong", icon: https://mirror.ghproxy.com/https://raw.githubusercontent.com/Orz-3/mini/master/Color/HK.png }             
-  - {name: 日本节点, type: url-test, include-all: true, interval: 300, tolerance: 50,  filter: "日|东京|JP|(?i)Japan", icon: https://mirror.ghproxy.com/https://raw.githubusercontent.com/Orz-3/mini/master/Color/JP.png }
-  - {name: 台湾节点, type: url-test, include-all: true, interval: 300, tolerance: 50,  filter: "台|湾|TW|(?i)Taiwan", icon: https://mirror.ghproxy.com/https://raw.githubusercontent.com/Orz-3/mini/master/Color/TW.png }
-  - {name: 美国节点, type: url-test, include-all: true, interval: 300, tolerance: 50,  filter: "美|US|(?i)States|American", icon: https://mirror.ghproxy.com/https://raw.githubusercontent.com/Orz-3/mini/master/Color/US.png }
-  - {name: 狮城节点, type: url-test, include-all: true, interval: 300, tolerance: 50,  filter: "新|坡|SG|(?i)Singapore", icon: https://mirror.ghproxy.com/https://raw.githubusercontent.com/Orz-3/mini/master/Color/SG.png }
+  - {name: 手动切换, type: select, include-all: true, interval: 300, tolerance: 50,  icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/shadowrocket.png }
+  - {name: 香港节点, type: select, include-all: true, interval: 300, tolerance: 50,  filter: "港|HK|(?i)Hong", icon: https://mirror.ghproxy.com/https://raw.githubusercontent.com/Orz-3/mini/master/Color/HK.png }             
+  - {name: 日本节点, type: select, include-all: true, interval: 300, tolerance: 50,  filter: "日|东京|JP|(?i)Japan", icon: https://mirror.ghproxy.com/https://raw.githubusercontent.com/Orz-3/mini/master/Color/JP.png }
+  - {name: 台湾节点, type: select, include-all: true, interval: 300, tolerance: 50,  filter: "台|湾|TW|(?i)Taiwan", icon: https://mirror.ghproxy.com/https://raw.githubusercontent.com/Orz-3/mini/master/Color/TW.png }
+  - {name: 美国节点, type: select, include-all: true, interval: 300, tolerance: 50,  filter: "美|US|(?i)States|American", icon: https://mirror.ghproxy.com/https://raw.githubusercontent.com/Orz-3/mini/master/Color/US.png }
+  - {name: 狮城节点, type: select, include-all: true, interval: 300, tolerance: 50,  filter: "新|坡|SG|(?i)Singapore", icon: https://mirror.ghproxy.com/https://raw.githubusercontent.com/Orz-3/mini/master/Color/SG.png }
 
 # 分流规则 
 rule-providers:
   Direct:      {behavior: classical, interval: 86400, format: yaml, type: http, url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Direct/Direct.yaml ,                      path: ./ruleset/Direct.yaml       }
   Lan:         {behavior: classical, interval: 86400, format: yaml, type: http, url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Lan/Lan.yaml ,                            path: ./ruleset/Lan.yaml          }
   Download:    {behavior: classical, interval: 86400, format: yaml, type: http, url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Download/Download.yaml ,                  path: ./ruleset/Download.yaml     }
-  OpenAi:      {behavior: classical, interval: 86400, format: yaml, type: http, url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/OpenAI/OpenAI.yaml ,                      path: ./ruleset/OpenAi.yaml       }
-  Github:      {behavior: classical, interval: 86400, format: yaml, type: http, url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GitHub/GitHub.yaml ,                      path: ./ruleset/Github.yaml       }
   Microsoft:   {behavior: classical, interval: 86400, format: yaml, type: http, url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Microsoft/Microsoft.yaml ,                path: ./ruleset/Microsoft.yaml    }
+  SpeedTest:   {behavior: classical, interval: 86400, format: yaml, type: http, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Speedtest/Speedtest.yaml ,          path: ./ruleset/SpeedTest.yaml    }
+  OpenAi:      {behavior: classical, interval: 86400, format: yaml, type: http, url: https://raw.githubusercontent.com/luestr/ProxyResource/main/Tool/Clash/Rule/AI.yaml ,                                path: ./ruleset/OpenAi.yaml       }
+  Github:      {behavior: classical, interval: 86400, format: yaml, type: http, url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GitHub/GitHub.yaml ,                      path: ./ruleset/Github.yaml       }
   Google:      {behavior: classical, interval: 86400, format: yaml, type: http, url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Google/Google.yaml ,                      path: ./ruleset/Google.yaml       }
   Telegram:    {behavior: classical, interval: 86400, format: yaml, type: http, url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Telegram/Telegram.yaml ,                  path: ./ruleset/Telegram.yaml     }
+  YouTube:     {behavior: classical, interval: 86400, format: yaml, type: http, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/YouTube/YouTube.yaml ,              path: ./ruleset/Youtube.yaml      }
   Game:        {behavior: classical, interval: 86400, format: yaml, type: http, url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Game/Game.yaml ,                          path: ./ruleset/Game.yaml         }
   ChinaIP:     {behavior: ipcidr,    interval: 86400, format: yaml, type: http, url: https://cdn.jsdelivr.net/gh/soffchen/GeoIP2-CN@release/clash-rule-provider.yml ,                                     path: ./ruleset/ChinaIP.yaml      }
   ProxyLite:   {behavior: classical, interval: 86400, format: yaml, type: http, url: https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ProxyLite/ProxyLite.yaml ,                path: ./ruleset/ProxyLite.yaml    }
@@ -41,11 +44,13 @@ rules:
   - RULE-SET,Lan,DIRECT
   - RULE-SET,Download,DIRECT
   - RULE-SET,Microsoft,DIRECT
+  - RULE-SET,SpeedTest,SpeedTest
+  - RULE-SET,Emby,Emby
   - RULE-SET,OpenAi,OpenAi
   - RULE-SET,Github,全球加速
   - RULE-SET,Google,谷歌服务
   - RULE-SET,Telegram,Telegram
-  - RULE-SET,Twitter,全球加速
+  - RULE-SET,YouTube,YouTube
   - RULE-SET,Game,游戏平台
   - RULE-SET,ProxyLite,全球加速
   - RULE-SET,ChinaIP,DIRECT
