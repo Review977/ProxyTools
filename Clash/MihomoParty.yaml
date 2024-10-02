@@ -52,13 +52,13 @@ rules:
   - RULE-SET,Lan,DIRECT
   - RULE-SET,Download,DIRECT
   - RULE-SET,Microsoft,DIRECT
-  - RULE-SET,SpeedTest,SpeedTest
-  - RULE-SET,Emby,Emby
-  - RULE-SET,OpenAi,OpenAi
   - RULE-SET,Github,全球加速
   - RULE-SET,Telegram,Telegram
   - RULE-SET,YouTube,YouTube
   - RULE-SET,Google,谷歌服务
+  - RULE-SET,SpeedTest,SpeedTest
+  - RULE-SET,Emby,Emby
+  - RULE-SET,OpenAi,OpenAi
   - RULE-SET,Game,游戏平台
   - RULE-SET,ProxyLite,全球加速
   - RULE-SET,ChinaIP,DIRECT
