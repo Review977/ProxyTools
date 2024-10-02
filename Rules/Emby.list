@@ -2,7 +2,7 @@
 
 PROCESS-NAME,electron.exe
 
-
+#终点站
 DOMAIN-SUFFIX,pub1.emby.wtf
 DOMAIN-SUFFIX,pub2.emby.wtf
 DOMAIN-SUFFIX,pub3.emby.wtf
@@ -23,3 +23,12 @@ DOMAIN-SUFFIX,stream4.misakaf.org
 DOMAIN-SUFFIX,emby.aca.best
 
 DOMAIN-SUFFIX,emby.cn2gias.uk
+
+#hkaemby
+DOMAIN-SUFFIX,hka-emby.aliz.work
+DOMAIN-SUFFIX,hka-emby1.aliz.work
+DOMAIN-SUFFIX,hka-emby2.aliz.work
+
+
+
+
