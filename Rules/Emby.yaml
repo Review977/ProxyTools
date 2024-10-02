@@ -17,3 +17,9 @@ payload:
 - DOMAIN,emby.aca.best
 
 - DOMAIN,emby.cn2gias.uk
+
+
+#hkaemby
+- DOMAIN-SUFFIX,hka-emby.aliz.work
+- DOMAIN-SUFFIX,hka-emby1.aliz.work
+- DOMAIN-SUFFIX,hka-emby2.aliz.work
