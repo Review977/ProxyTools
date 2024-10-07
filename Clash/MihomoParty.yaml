@@ -13,9 +13,9 @@ proxy-groups:
   - {name: 谷歌服务, type: select, proxies: [美国节点, 手动切换], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Google.png }
   - {name: OpenAi,   type: select, proxies: [美国节点, 手动切换], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/OpenAI.png }
   - {name: Emby,   type: select, proxies: [DIRECT, 日用低倍, 手动切换], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Emby.png }
-  - {name: 国际媒体, type: select, proxies: [手动切换, DIRECT, 香港节点, 日本节点, 台湾节点, 美国节点, 狮城节点], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Streaming.png }
+  - {name: 国际媒体, type: select, proxies: [香港节点, 狮城节点, 日本节点, 台湾节点, 美国节点], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Streaming.png }
   - {name: SpeedTest, type: select, proxies: [DIRECT, 手动切换], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Speedtest.png }
-  - {name: 微软服务, type: select, proxies: [手动切换, DIRECT, 香港节点, 日本节点, 台湾节点, 美国节点, 狮城节点], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Microsoft.png }
+  - {name: 微软服务, type: select, proxies: [DIRECT, 香港节点, 日本节点, 台湾节点, 美国节点, 狮城节点], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Microsoft.png }
   - {name: 游戏平台, type: select, proxies: [DIRECT, 手动切换, 香港节点, 日本节点, 台湾节点, 美国节点, 狮城节点], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/GAME.png }
   
 #节点分组
