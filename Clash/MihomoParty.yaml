@@ -6,6 +6,12 @@
     
 proxy-groups:
 #分流分组
+
+#常用节点分组
+  - {name: 香港节点, type: select, include-all: true, interval: 300, tolerance: 50,  filter: '^(?=.*((?i)🇭🇰|香港|(\b(HK|Hong)\b)))(?!.*((?i)回国|校园|0.2|游戏|🎮|(\b(GAME)\b))).*$', icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/HK.png }
+  - {name: 美国节点, type: select, include-all: true, interval: 300, tolerance: 50,  filter: '^(?=.*((?i)🇺🇸|美国|(\b(US|United States)\b)))(?!.*((?i)0.01|回国|校园|游戏|🎮|(\b(GAME)\b))).*$', icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/US.png }
+
+  
   - {name: 全球加速, type: select, proxies: [香港节点, 日本节点, 台湾节点, 美国节点, 狮城节点, 手动切换], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png }
   - {name: Telegram, type: select, proxies: [香港节点, 日本节点, 台湾节点, 美国节点, 狮城节点, 手动切换], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Telegram.png }
   - {name: YouTube, type: select, proxies: [香港节点, 日本节点, 台湾节点, 美国节点, 狮城节点, 手动切换], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/YouTube.png }
@@ -16,11 +22,10 @@ proxy-groups:
   - {name: SpeedTest, type: select, proxies: [DIRECT, 手动切换], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Speedtest.png }
   - {name: 微软服务, type: select, proxies: [DIRECT, 香港节点, 日本节点, 台湾节点, 美国节点, 狮城节点], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Microsoft.png }
   - {name: 游戏平台, type: select, proxies: [DIRECT, 手动切换, 香港节点, 日本节点, 台湾节点, 美国节点, 狮城节点], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/GAME.png }
+
   
 #节点分组
-  
-  - {name: 香港节点, type: select, include-all: true, interval: 300, tolerance: 50,  filter: '^(?=.*((?i)🇭🇰|香港|(\b(HK|Hong)\b)))(?!.*((?i)回国|校园|0.2|游戏|🎮|(\b(GAME)\b))).*$', icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/HK.png }
-  - {name: 美国节点, type: select, include-all: true, interval: 300, tolerance: 50,  filter: '^(?=.*((?i)🇺🇸|美国|(\b(US|United States)\b)))(?!.*((?i)0.01|回国|校园|游戏|🎮|(\b(GAME)\b))).*$', icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/US.png }
+
   - {name: 日用低倍, type: select, include-all: true, interval: 300, tolerance: 50,  filter: '^(?=.*((?i)日用|0.20|0.01)).*$', icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/shadowrocket.png }
   - {name: 日本节点, type: select, include-all: true, interval: 300, tolerance: 50,  filter: '^(?=.*((?i)🇯🇵|日本|(\b(JP|Japan)\b)))(?!.*((?i)0.2|回国|校园|游戏|🎮|(\b(GAME)\b))).*$', icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/JP.png }
   - {name: 狮城节点, type: select, include-all: true, interval: 300, tolerance: 50,  filter: '^(?=.*((?i)🇸🇬|新加坡|狮|(\b(SG|Singapore)\b)))(?!.*((?i)0.2|回国|校园|游戏|🎮|(\b(GAME)\b))).*$', icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/SG.png }
