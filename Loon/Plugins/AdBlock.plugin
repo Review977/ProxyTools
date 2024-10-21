@@ -1,4 +1,6 @@
 #!name = AdBlock
+#!icon = https://raw.githubusercontent.com/Orz-3/mini/master/Color/Adblock.png
+
 
 [Rule]
 # ======= A ======= #
