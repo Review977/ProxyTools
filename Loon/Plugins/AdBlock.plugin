@@ -1,14 +1,6 @@
 [Rule]
 # ======= A ======= #
-# 阿里巴巴
-DOMAIN-SUFFIX, ut.taobao.com, REJECT
-DOMAIN, dns.alidns.com, REJECT
-DOMAIN, ems.youku.com, REJECT
-DOMAIN, hudong.alicdn.com, REJECT
-DOMAIN, ossgw.alicdn.com, REJECT
 
-# 阿里云盘
-IP-CIDR, 203.107.1.1/24, REJECT, no-resolve
 
 # 爱奇艺
 DOMAIN, api.iqiyi.com, REJECT
@@ -68,9 +60,6 @@ DOMAIN, adttrackingprd.hwwt8.com, REJECT
 DOMAIN, adservice.sigmob.cn, REJECT
 
 # ======= G ======= #
-# 工商银行
-DOMAIN-SUFFIX, mall.icbc.com.cn, REJECT
-DOMAIN, pageviewp.icbc.com.cn, REJECT
 
 # 广告联盟
 AND, ((OR,((DOMAIN-SUFFIX, amemv.com), (DOMAIN-SUFFIX, zijieapi.com))), (DOMAIN-KEYWORD,-misc-)), REJECT
@@ -129,16 +118,8 @@ DOMAIN, hdns.ksyun.com, REJECT
 
 # ======= J ======= #
 
-# 京东
-DOMAIN, dns.jd.com, REJECT
-IP-CIDR, 101.124.19.122/32, REJECT, no-resolve
-IP-CIDR6, 2402:db40:5100:1011::5/128, REJECT, no-resolve
 
 # ======= K ======= #
-# 酷狗音乐
-DOMAIN, adserviceretry.kglink.cn, DIRECT
-DOMAIN, ads.service.kugou.com, REJECT
-DOMAIN, adserviceretry.kugou.com, REJECT
 
 # 酷我音乐
 DOMAIN, ad.tencentmusic.com, REJECT
@@ -250,23 +231,6 @@ URL-REGEX, ^http:\/\/\w{32}\.jddebug\.com\/diagnose\?, REJECT
 # 爱思助手 //list-app-m.i4.cn
 ^https:\/\/list-app-m\.i4\.cn\/(?:adclickcb|getHotSearchList|getopfstadinfo)\.xhtml reject
 
-# 阿里云盘 //*api.alipan.com, member.alipan.com
-^https:\/\/api\.alipan\.com\/adrive\/v1\/file\/getTopFolders reject-dict
-^https:\/\/member\.alipan\.com\/v2\/activity\/sign_in_luckyBottle reject-dict
-
-# 阿里巴巴 //acs.m.taobao.com, heic.alicdn.com, guide-acs.m.taobao.com, poplayer.template.alibaba.com
-^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.fliggy\.crm\.screen\.(?:allresource|predict) reject-dict
-^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.alibaba\.advertisementservice\.getadv reject-dict
-^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.alimama\.etao\.config\.query\/.+?etao_advertise reject-dict
-^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.alimusic\.common\.mobileservice\.startinit reject-dict
-^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.etao\.noah\.query\/.+tao_splash reject-dict
-^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.film\.mtopadvertiseapi\.queryadvertise reject-dict
-^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.o2o\.ad\.gateway\.get reject-dict
-^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.trip\.activity\.querytmsresources reject-dict
-^https:\/\/heic\.alicdn\.com\/imgextra\/i\d\/\d*\/?[\w!]+-\d-(?:octopus|tps-1125-1602|tps-1080-1920)\.(?:jpg|png)_(?:1\d{3}|9\d{2})x(?:1\d{3}|9\d{2})q[59]0 reject-dict
-^https:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.cainiao\.adx\.flyad\.getad reject-dict
-^https:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.taobao\.(?:volvo\.secondfloor\.getconfig|wireless\.home\.newface\.awesome\.get) reject-dict
-
 # 百度云 //pan.baidu.com
 ^https:\/\/pan\.baidu\.com\/(?:act\/|aipic\/|aisearch\/|api\/getsyscfg\?|rest\/) reject-dict
 
@@ -282,9 +246,6 @@ URL-REGEX, ^http:\/\/\w{32}\.jddebug\.com\/diagnose\?, REJECT
 # 盒马 //acs-m.freshippo.com
 ^https:\/\/acs-m\.freshippo\.com\/gw\/mtop\.wdk\.render\.querysinglepage\/ reject-dict
 
-
-# 京东 //api.m.jd.com
-^https:\/\/api\.m\.jd\.com\/client\.action\?functionId=(?:searchBoxWord|stationPullService|uniformRecommend[06]) reject-dict
 
 # 交管12123 //gab.122.gov.cn
 ^https:\/\/gab\.122\.gov\.cn\/eapp\/m\/sysquery\/adver reject-dict
@@ -323,4 +284,4 @@ URL-REGEX, ^http:\/\/\w{32}\.jddebug\.com\/diagnose\?, REJECT
 
 
 [MITM]
-hostname = list-app-m.i4.cn, *api.alipan.com, member.alipan.com, acs.m.taobao.com, heic.alicdn.com, guide-acs.m.taobao.com, poplayer.template.alibaba.com, pan.baidu.com, api.douban.com, img3.doubanio.com, qnmob3.doubanio.com, hfapp-service.qweather.net, acs-m.freshippo.com, api.m.jd.com, gab.122.gov.cn, p0.pipi.cn, flowplus.meituan.net, img.meituan.net, s3plus.meituan.net, osg-service.sgcc.com.cn, mp.weixin.qq.com, api.m.mi.com, shop-api.retail.mi.com, home.mi.com, wallet.95516.com    
+hostname = list-app-m.i4.cn, pan.baidu.com, api.douban.com, img3.doubanio.com, qnmob3.doubanio.com, hfapp-service.qweather.net, acs-m.freshippo.com, gab.122.gov.cn, p0.pipi.cn, flowplus.meituan.net, img.meituan.net, s3plus.meituan.net, osg-service.sgcc.com.cn, mp.weixin.qq.com, api.m.mi.com, shop-api.retail.mi.com, home.mi.com, wallet.95516.com    
