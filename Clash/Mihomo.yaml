@@ -38,26 +38,17 @@ proxy-groups:
   
 #节点分组
 
-  - {name: 香港节点, type: select, proxies: [⏱香港时延优选策略组]}
-  - {name: 台湾节点, type: select, proxies: [⏱台湾时延优选策略组]}
-  - {name: 日本节点, type: select, proxies: [⏱日本时延优选策略组]}
-  - {name: 韩国节点, type: select, proxies: [⏱韩国时延优选策略组]}
-  - {name: 狮城节点, type: select, proxies: [⏱新国时延优选策略组]}
-  - {name: 美国节点, type: select, proxies: [⏱美国时延优选策略组]}
-  - {name: 英国节点, type: select, proxies: [⏱英国时延优选策略组]}
-  - {name: 法国节点, type: select, proxies: [⏱法国时延优选策略组]}
-  - {name: 德国节点, type: select, proxies: [⏱德国时延优选策略组]}
+  - {name: 香港节点, type: select, filter: *FilterHK}
+  - {name: 台湾节点, type: select, filter: *FilterTW}
+  - {name: 日本节点, type: select, filter: *FilterJP}
+  - {name: 韩国节点, type: select, filter: *FilterKR}
+  - {name: 狮城节点, type: select, filter: *FilterSG}
+  - {name: 美国节点, type: select, filter: *FilterUS}
+  - {name: 英国节点, type: select, filter: *FilterUK}
+  - {name: 法国节点, type: select, filter: *FilterFR}
+  - {name: 德国节点, type: select, filter: *FilterDE}
 
-# 时延优选策略组
-  - {name: ⏱香港时延优选策略组, <<: *UrlTest, filter: *FilterHK}
-  - {name: ⏱台湾时延优选策略组, <<: *UrlTest, filter: *FilterTW}
-  - {name: ⏱日本时延优选策略组, <<: *UrlTest, filter: *FilterJP}
-  - {name: ⏱韩国时延优选策略组, <<: *UrlTest, filter: *FilterKR}
-  - {name: ⏱新国时延优选策略组, <<: *UrlTest, filter: *FilterSG}
-  - {name: ⏱美国时延优选策略组, <<: *UrlTest, filter: *FilterUS}
-  - {name: ⏱英国时延优选策略组, <<: *UrlTest, filter: *FilterUK}
-  - {name: ⏱法国时延优选策略组, <<: *UrlTest, filter: *FilterFR}
-  - {name: ⏱德国时延优选策略组, <<: *UrlTest, filter: *FilterDE}
+
 
 # 分流规则 
 rule-providers:
