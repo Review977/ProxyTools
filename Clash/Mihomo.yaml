@@ -14,15 +14,16 @@ FilterFR: &FilterFR '^(?=.*((?i)🇫🇷|法国|(\b(FR|France)\b)))(?!.*((?i)回
 FilterDE: &FilterDE '^(?=.*((?i)🇩🇪|德国|(\b(DE|Germany)\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$'
 FilterGame: &FilterGame '^(?=.*((?i)游戏|🎮|(\b(GAME)\b)))(?!.*((?i)回国|校园)).*$'
 FilterAll: &FilterAll '^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author)\b|(\d{4}-\d{2}-\d{2}|\d+G)))).*$'
-    
+
+# 策略组参数锚点
+# 锚点 - 时延优选参数 [每 6 秒一次惰性健康检查，容差 20ms，时延超过 2 秒判定为失败，失败 3 次则自动触发健康检查]
+UrlTest: &UrlTest {type: url-test, interval: 6, tolerance: 20, lazy: true, url: 'http://www.google.com/blank.html', disable-udp: false, timeout: 2000, max-failed-times: 3, hidden: true, include-all-providers: true}
+
 proxy-groups:
 #分流分组
 
 #常用节点分组
-  - {name: 香港节点, type: select, include-all: true, interval: 300, tolerance: 50,  filter: '^(?=.*((?i)🇭🇰|香港|(\b(HK|Hong)\b)))(?!.*((?i)回国|校园|0.2|游戏|🎮|(\b(GAME)\b))).*$', icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/HK.png }
-  - {name: 美国节点, type: select, include-all: true, interval: 300, tolerance: 50,  filter: '^(?=.*((?i)🇺🇸|美国|(\b(US|United States)\b)))(?!.*((?i)0.01|0.2|回国|校园|游戏|🎮|(\b(GAME)\b))).*$', icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/US.png }
-  - {name: 亚洲自选, type: select, include-all: true, interval: 300, tolerance: 50,  filter: '^(?=.*((?i)(🇭🇰|香港|\b(HK|Hong)\b|🇸🇬|新加坡|狮|\b(SG|Singapore)\b|🇯🇵|日本|\b(JP|Japan)\b|🇹🇼|台湾|\b(TW|Tai|Taiwan)\b)))(?!.*((?i)回国|校园|0.2|游戏|🎮|\b(GAME)\b)).*$', icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Asia_Map.png }
-  
+
   - {name: 全球加速, type: select, proxies: [香港节点, 日本节点, 狮城节点, 台湾节点, 美国节点, 亚洲自选, 手动切换], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png }
   - {name: Telegram, type: select, proxies: [香港节点, 日本节点, 狮城节点, 台湾节点, 美国节点, 亚洲自选, 手动切换], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Telegram.png }
   - {name: YouTube, type: select, proxies: [香港节点, 日本节点, 狮城节点, 台湾节点, 美国节点, 亚洲自选, 日用低倍, 手动切换], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/YouTube.png }
@@ -37,12 +38,26 @@ proxy-groups:
   
 #节点分组
 
-  - {name: 日用低倍, type: select, include-all: true, interval: 300, tolerance: 50,  filter: '^(?=.*((?i)日用|0.20|0.01)).*$', icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/shadowrocket.png }
-  - {name: 狮城节点, type: select, include-all: true, interval: 300, tolerance: 50,  filter: '^(?=.*((?i)🇸🇬|新加坡|狮|(\b(SG|Singapore)\b)))(?!.*((?i)0.2|回国|校园|游戏|🎮|(\b(GAME)\b))).*$', icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/SG.png }
-  - {name: 日本节点, type: select, include-all: true, interval: 300, tolerance: 50,  filter: '^(?=.*((?i)🇯🇵|日本|(\b(JP|Japan)\b)))(?!.*((?i)0.2|回国|校园|游戏|🎮|(\b(GAME)\b))).*$', icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/JP.png }
-  - {name: 台湾节点, type: select, include-all: true, interval: 300, tolerance: 50,  filter: '^(?=.*((?i)🇹🇼|台湾|(\b(TW|Tai|Taiwan)\b)))(?!.*((?i)0.2|回国|校园|游戏|🎮|(\b(GAME)\b))).*$', icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/TW.png }
-  - {name: 手动切换, type: select, include-all: true, interval: 300, tolerance: 50,  filter: '^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author)\b|(\d{4}-\d{2}-\d{2}|\d+G)))).*$', icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/shadowrocket.png }
-  
+  - {name: 香港节点, type: select, proxies: [⏱香港时延优选策略组]}
+  - {name: 台湾节点, type: select, proxies: [⏱台湾时延优选策略组]}
+  - {name: 日本节点, type: select, proxies: [⏱日本时延优选策略组]}
+  - {name: 韩国节点, type: select, proxies: [⏱韩国时延优选策略组]}
+  - {name: 狮城节点, type: select, proxies: [⏱新国时延优选策略组]}
+  - {name: 美国节点, type: select, proxies: [⏱美国时延优选策略组]}
+  - {name: 英国节点, type: select, proxies: [⏱英国时延优选策略组]}
+  - {name: 法国节点, type: select, proxies: [⏱法国时延优选策略组]}
+  - {name: 德国节点, type: select, proxies: [⏱德国时延优选策略组]}
+
+# 时延优选策略组
+  - {name: ⏱香港时延优选策略组, <<: *UrlTest, filter: *FilterHK}
+  - {name: ⏱台湾时延优选策略组, <<: *UrlTest, filter: *FilterTW}
+  - {name: ⏱日本时延优选策略组, <<: *UrlTest, filter: *FilterJP}
+  - {name: ⏱韩国时延优选策略组, <<: *UrlTest, filter: *FilterKR}
+  - {name: ⏱新国时延优选策略组, <<: *UrlTest, filter: *FilterSG}
+  - {name: ⏱美国时延优选策略组, <<: *UrlTest, filter: *FilterUS}
+  - {name: ⏱英国时延优选策略组, <<: *UrlTest, filter: *FilterUK}
+  - {name: ⏱法国时延优选策略组, <<: *UrlTest, filter: *FilterFR}
+  - {name: ⏱德国时延优选策略组, <<: *UrlTest, filter: *FilterDE}
 
 # 分流规则 
 rule-providers:
