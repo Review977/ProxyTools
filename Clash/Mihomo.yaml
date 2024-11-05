@@ -38,15 +38,15 @@ proxy-groups:
   
 #节点分组
 
-  - {name: 香港节点, type: select, proxies: *FilterHK}
-  - {name: 台湾节点, type: select, proxies: *FilterTW}
-  - {name: 日本节点, type: select, proxies: *FilterJP}
-  - {name: 韩国节点, type: select, proxies: *FilterKR}
-  - {name: 狮城节点, type: select, proxies: *FilterSG}
-  - {name: 美国节点, type: select, proxies: *FilterUS}
-  - {name: 英国节点, type: select, proxies: *FilterUK}
-  - {name: 法国节点, type: select, proxies: *FilterFR}
-  - {name: 德国节点, type: select, proxies: *FilterDE}
+  - {name: 香港节点, type: select, proxies: [*FilterHK]}
+  - {name: 台湾节点, type: select, proxies: [*FilterTW]}
+  - {name: 日本节点, type: select, proxies: [*FilterJP]}
+  - {name: 韩国节点, type: select, proxies: [*FilterKR]}
+  - {name: 狮城节点, type: select, proxies: [*FilterSG]}
+  - {name: 美国节点, type: select, proxies: [*FilterUS]}
+  - {name: 英国节点, type: select, proxies: [*FilterUK]}
+  - {name: 法国节点, type: select, proxies: [*FilterFR]}
+  - {name: 德国节点, type: select, proxies: [*FilterDE]}
 
 
 
