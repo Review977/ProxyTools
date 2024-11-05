@@ -12,14 +12,14 @@ proxy-groups:
   - {name: 美国节点, type: select, include-all: true, interval: 300, tolerance: 50,  filter: '^(?=.*((?i)🇺🇸|美国|(\b(US|United States)\b)))(?!.*((?i)0.01|0.2|回国|校园|游戏|🎮|(\b(GAME)\b))).*$', icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/US.png }
   - {name: 亚洲自选, type: select, include-all: true, interval: 300, tolerance: 50,  filter: '^(?=.*((?i)(🇭🇰|香港|\b(HK|Hong)\b|🇸🇬|新加坡|狮|\b(SG|Singapore)\b|🇯🇵|日本|\b(JP|Japan)\b|🇹🇼|台湾|\b(TW|Tai|Taiwan)\b)))(?!.*((?i)回国|校园|0.2|游戏|🎮|\b(GAME)\b)).*$', icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Asia_Map.png }
   
-  - {name: 全球加速, type: select, proxies: [香港节点, 日本节点, 狮城节点, 台湾节点, 美国节点, 手动切换], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png }
-  - {name: Telegram, type: select, proxies: [香港节点, 日本节点, 狮城节点, 台湾节点, 美国节点, 手动切换], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Telegram.png }
+  - {name: 全球加速, type: select, proxies: [香港节点, 日本节点, 狮城节点, 台湾节点, 美国节点, 亚洲自选, 手动切换], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png }
+  - {name: Telegram, type: select, proxies: [香港节点, 日本节点, 狮城节点, 台湾节点, 美国节点, 亚洲自选, 手动切换], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Telegram.png }
   - {name: YouTube, type: select, proxies: [香港节点, 日本节点, 狮城节点, 台湾节点, 美国节点, 亚洲自选, 日用低倍, 手动切换], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/YouTube.png }
-  - {name: OpenAi,   type: select, proxies: [香港节点, 日本节点, 狮城节点, 台湾节点, 美国节点, 手动切换], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/OpenAI.png }
+  - {name: OpenAi,   type: select, proxies: [香港节点, 日本节点, 狮城节点, 台湾节点, 美国节点, 亚洲自选, 手动切换], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/OpenAI.png }
   - {name: 谷歌服务, type: select, proxies: [美国节点, 香港节点, 日本节点, 狮城节点, 台湾节点, 手动切换], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Google.png }
-  - {name: 国际媒体, type: select, proxies: [香港节点, 日本节点, 狮城节点, 台湾节点, 美国节点, 日用低倍, 手动切换], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Streaming.png }
-  - {name: Emby,   type: select, proxies: [DIRECT, 日用低倍, 香港节点, 日本节点, 狮城节点, 台湾节点, 手动切换], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Emby.png }
-  - {name: SpeedTest, type: select, proxies: [DIRECT, 香港节点, 日本节点, 狮城节点, 台湾节点, 美国节点, 手动切换], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Speedtest.png }
+  - {name: 国际媒体, type: select, proxies: [香港节点, 日本节点, 狮城节点, 台湾节点, 美国节点, 亚洲自选, 日用低倍, 手动切换], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Streaming.png }
+  - {name: Emby,   type: select, proxies: [DIRECT, 日用低倍, 香港节点, 日本节点, 狮城节点, 台湾节点, 亚洲自选, 手动切换], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Emby.png }
+  - {name: SpeedTest, type: select, proxies: [DIRECT, 香港节点, 日本节点, 狮城节点, 台湾节点, 美国节点, 亚洲自选, 手动切换], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Speedtest.png }
   - {name: 微软服务, type: select, proxies: [DIRECT, 香港节点, 日本节点, 狮城节点, 台湾节点, 美国节点], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Microsoft.png }
   - {name: 游戏平台, type: select, proxies: [DIRECT, 香港节点, 日本节点, 狮城节点, 台湾节点, 美国节点], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/GAME.png }
 
