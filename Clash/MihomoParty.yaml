@@ -70,6 +70,7 @@ rule-providers:
 # 分流Policy 
 rules:
   - RULE-SET,Inside,DIRECT
+  - IP-CIDR,95.161.76.100/31,REJECT-DROP,no-resolve
   - RULE-SET,Telegram,Telegram
   - RULE-SET,YouTube,YouTube
   - RULE-SET,OpenAi,OpenAi
