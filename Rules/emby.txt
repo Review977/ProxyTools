@@ -1,19 +1,18 @@
-payload:
 
 
-- 'pub1.emby.wtf'
-- 'pub2.emby.wtf'
-- 'pub3.emby.wtf'
+pub1.emby.wtf
+pub2.emby.wtf
+pub3.emby.wtf
 
 
 
-- 'emby.bangumi.ca'
+emby.bangumi.ca
 
-- 'stream4.misakaf.org'
-- 'stream3.misakaf.org'
-- 'stream2.misakaf.org'
-- 'stream1.misakaf.org'
-- 'misakaf.org'
-- 'emby.aca.best'
+stream4.misakaf.org
+stream3.misakaf.org
+stream2.misakaf.org
+stream1.misakaf.org
+.misakaf.org
+emby.aca.best
 
-- 'emby.cn2gias.uk'
+emby.cn2gias.uk
