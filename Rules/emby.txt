@@ -1,20 +1,20 @@
 payload:
 
-- PROCESS-NAME,electron.exe
+- 'electron.exe'
 
-- DOMAIN,pub1.emby.wtf
-- DOMAIN,pub2.emby.wtf
-- DOMAIN,pub3.emby.wtf
+- 'pub1.emby.wtf'
+- 'pub2.emby.wtf'
+- 'pub3.emby.wtf'
 
 
 
-- DOMAIN,emby.bangumi.ca
+- 'emby.bangumi.ca'
 
-- DOMAIN,stream4.misakaf.org
-- DOMAIN,stream3.misakaf.org
-- DOMAIN,stream2.misakaf.org
-- DOMAIN,stream1.misakaf.org
-- DOMAIN,misakaf.org
-- DOMAIN,emby.aca.best
+- 'stream4.misakaf.org'
+- 'stream3.misakaf.org'
+- 'stream2.misakaf.org'
+- 'stream1.misakaf.org'
+- 'misakaf.org'
+- 'emby.aca.best'
 
-- DOMAIN,emby.cn2gias.uk
+- 'emby.cn2gias.uk'
