@@ -1,10 +1,7 @@
 
-
 pub1.emby.wtf
 pub2.emby.wtf
 pub3.emby.wtf
-
-
 
 emby.bangumi.ca
 
