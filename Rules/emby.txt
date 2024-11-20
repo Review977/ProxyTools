@@ -1,6 +1,5 @@
 payload:
 
-- 'electron.exe'
 
 - 'pub1.emby.wtf'
 - 'pub2.emby.wtf'
