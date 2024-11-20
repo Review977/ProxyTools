@@ -12,6 +12,9 @@ payload:
 
 - DOMAIN,stream4.misakaf.org
 - DOMAIN,stream3.misakaf.org
+- DOMAIN,stream2.misakaf.org
+- DOMAIN,stream1.misakaf.org
+- DOMAIN,misakaf.org
 - DOMAIN,emby.aca.best
 
 - DOMAIN,emby.cn2gias.uk
