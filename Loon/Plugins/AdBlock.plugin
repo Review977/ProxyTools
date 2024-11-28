@@ -234,8 +234,8 @@ DOMAIN, sdkconfig.ad.xiaomi.com, REJECT
 # ======= Y ======= #
 
 # 云闪付 开屏广告
-DOMAIN, ads.95516.com, REJECT
-DOMAIN, switch.cup.com.cn, REJECT
+# DOMAIN, ads.95516.com, REJECT
+# DOMAIN, switch.cup.com.cn, REJECT
 
 # Yandex
 DOMAIN, yandexmetrica.com, REJECT
@@ -295,7 +295,7 @@ URL-REGEX, ^http:\/\/\w{32}\.jddebug\.com\/diagnose\?, REJECT
 ^https:\/\/home\.mi\.com\/cgi-op\/api\/v1\/recommendation\/(?:banner|carousel\/banners|myTab|openingBanner) reject-dict
 
 # 云闪付 //wallet.95516.com
-^https:\/\/wallet\.95516\.com(:10533)?\/s\/wl\/icon\/large\/1 reject
+# ^https:\/\/wallet\.95516\.com(:10533)?\/s\/wl\/icon\/large\/1 reject
 
 
 
