@@ -234,8 +234,8 @@ DOMAIN, sdkconfig.ad.xiaomi.com, REJECT
 # ======= Y ======= #
 
 # 云闪付 开屏广告
-# DOMAIN, ads.95516.com, REJECT
-# DOMAIN, switch.cup.com.cn, REJECT
+DOMAIN, ads.95516.com, REJECT
+DOMAIN, switch.cup.com.cn, REJECT
 
 # Yandex
 DOMAIN, yandexmetrica.com, REJECT
