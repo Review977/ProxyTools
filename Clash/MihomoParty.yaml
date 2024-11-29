@@ -48,6 +48,7 @@ proxy-groups:
 # 分流规则 
 rule-providers:
   Inside:      {behavior: classical, interval: 86400, format: yaml, type: http, url: https://raw.githubusercontent.com/Review977/ProxyTools/main/Rules/Inside.yaml ,                                            path: ./ruleset/Inside.yaml       }
+  Outside:      {behavior: classical, interval: 86400, format: yaml, type: http, url: https://raw.githubusercontent.com/Review977/ProxyTools/main/Rules/Proxy.txt ,                                             path: ./ruleset/Outside.yaml      }
   Direct:      {behavior: classical, interval: 86400, format: yaml, type: http, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Direct/Direct.yaml ,                      path: ./ruleset/Direct.yaml       }
   Lan:         {behavior: classical, interval: 86400, format: yaml, type: http, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Lan/Lan.yaml ,                            path: ./ruleset/Lan.yaml          }
   Download:    {behavior: classical, interval: 86400, format: yaml, type: http, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Download/Download.yaml ,                  path: ./ruleset/Download.yaml     }
@@ -70,6 +71,7 @@ rule-providers:
 # 分流Policy 
 rules:
   - RULE-SET,Inside,DIRECT
+  - RULE-SET,Outside,全球加速
   - RULE-SET,Direct,DIRECT
   - RULE-SET,Lan,DIRECT
   - RULE-SET,Download,DIRECT
