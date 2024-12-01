@@ -28,7 +28,6 @@ proxy-groups:
   - {name: Telegram, type: select, proxies: [香港, 流媒体, 日本, 狮城, 台湾, 美国], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Telegram.png }
   - {name: OpenAi,   type: select, proxies: [香港, 流媒体, 日本, 狮城, 台湾, 美国], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/OpenAI.png }
   - {name: YouTube, type: select, proxies: [香港, 流媒体, 日本, 狮城, 台湾, 美国, 日用低倍], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/YouTube.png }
-  - {name: 国际媒体, type: select, proxies: [香港, 流媒体, 日本, 狮城, 台湾, 美国, 日用低倍], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Streaming.png }
   - {name: Emby,   type: select, proxies: [DIRECT, 日用低倍, 流媒体, 香港, 日本, 狮城, 台湾, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Emby.png }
   - {name: 微软服务, type: select, proxies: [DIRECT, 香港, 流媒体, 日本, 狮城, 台湾, 美国], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Microsoft.png }
   - {name: 苹果服务, type: select, proxies: [DIRECT, 香港, 流媒体, 日本, 狮城, 台湾, 美国], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Apple.png }
@@ -53,7 +52,6 @@ rule-providers:
   Google:      {behavior: classical, interval: 86400, format: yaml, type: http, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google.yaml ,                      path: ./ruleset/Google.yaml       }
   OpenAi:      {behavior: classical, interval: 86400, format: yaml, type: http, url: https://kelee.one/Tool/Clash/Rule/AI.yaml ,                                                                                path: ./ruleset/OpenAi.yaml       }
   Github:      {behavior: classical, interval: 86400, format: yaml, type: http, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GitHub/GitHub.yaml ,                      path: ./ruleset/Github.yaml       }
-  GlobalMedia: {behavior: classical, interval: 86400, format: yaml, type: http, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GlobalMedia/GlobalMedia_Classical.yaml ,  path: ./ruleset/GlobalMedia.yaml  }
   Emby:        {behavior: domain,    interval: 86400, format: text, type: http, url: https://raw.githubusercontent.com/Review977/ProxyTools/main/Rules/Emby.txt ,                                               path: ./ruleset/Emby.yaml         }
   SpeedTest:   {behavior: classical, interval: 86400, format: yaml, type: http, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Speedtest/Speedtest.yaml ,                path: ./ruleset/SpeedTest.yaml    }
   Microsoft:   {behavior: classical, interval: 86400, format: yaml, type: http, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Microsoft/Microsoft.yaml ,                path: ./ruleset/Microsoft.yaml    }
@@ -76,7 +74,6 @@ rules:
   - RULE-SET,OpenAi,OpenAi
   - RULE-SET,Google,谷歌服务
   - RULE-SET,Github,全球加速
-  - RULE-SET,GlobalMedia,国际媒体
   - RULE-SET,Emby,Emby
   - RULE-SET,SpeedTest,DIRECT
   - RULE-SET,Microsoft,微软服务
