@@ -70,6 +70,7 @@ DOMAIN, adttrackingprd.hwwt8.com, REJECT
 # 得力e+开屏
 DOMAIN, s3plus.meituan.net, REJECT
 DOMAIN, cdn.1rtb.com, REJECT
+DOMAIN, qh-material.taobao.com, REJECT
 
 # ======= F ======= #
 # 放松双眼
