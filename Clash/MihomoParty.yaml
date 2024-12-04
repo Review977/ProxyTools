@@ -24,20 +24,20 @@ proxy-groups:
   - {name: 台湾, type: select, include-all: true, interval: 300, tolerance: 50,  filter: '^(?=.*((?i)🇹🇼|台湾|(\b(TW|Tai|Taiwan)\b)))(?!.*((?i)0.2|回国|校园|游戏|🎮|(\b(GAME)\b))).*$', icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/TW.png }
   - {name: 狮城, type: select, include-all: true, interval: 300, tolerance: 50,  filter: '^(?=.*((?i)🇸🇬|新加坡|狮|(\b(SG|Singapore)\b)))(?!.*((?i)0.2|回国|校园|游戏|🎮|(\b(GAME)\b))).*$', icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/SG.png }
   - {name: 流媒体, type: select, include-all: true, interval: 300, tolerance: 50,  filter: '^(?=.*(?i)Aca)(?!.*(?i)(回国|校园|游戏|🎮|(\b(GAME)\b))).*$', icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Streaming.png }
-  - {name: 全球加速, type: select, proxies: [香港, 日本, 狮城, 台湾, 美国, 流媒体, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png }
+  - {name: 全球加速, type: select, proxies: [香港, 日本, 台湾, 狮城, 美国, 流媒体, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png }
   - {name: 谷歌服务, type: select, proxies: [美国, 香港, 日本, 狮城, 台湾, 流媒体, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Google.png }
-  - {name: Telegram, type: select, proxies: [香港, 流媒体, 日本, 狮城, 台湾, 美国], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Telegram.png }
-  - {name: OpenAi,   type: select, proxies: [香港, 流媒体, 日本, 狮城, 台湾, 美国], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/OpenAI.png }
-  - {name: YouTube, type: select, proxies: [香港, 流媒体, 日本, 狮城, 台湾, 美国, 日用低倍], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/YouTube.png }
-  - {name: Emby,   type: select, proxies: [DIRECT, 日用低倍, 流媒体, 香港, 日本, 狮城, 台湾, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Emby.png }
-  - {name: 微软服务, type: select, proxies: [DIRECT, 香港, 流媒体, 日本, 狮城, 台湾, 美国], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Microsoft.png }
-  - {name: 苹果服务, type: select, proxies: [DIRECT, 香港, 流媒体, 日本, 狮城, 台湾, 美国], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Apple.png }
-  - {name: 游戏平台, type: select, proxies: [DIRECT, 香港, 流媒体, 日本, 狮城, 台湾, 美国], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/GAME.png }
+  - {name: Telegram, type: select, proxies: [香港, 日本, 台湾, 狮城, 美国, 流媒体, 低倍率, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Telegram.png }
+  - {name: OpenAi,   type: select, proxies: [香港, 日本, 台湾, 狮城, 美国, 流媒体, 低倍率, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/OpenAI.png }
+  - {name: YouTube, type: select, proxies: [香港, 日本, 台湾, 狮城, 美国, 流媒体, 低倍率, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/YouTube.png }
+  - {name: Emby,   type: select, proxies: [DIRECT, 流媒体, 低倍率, 香港, 日本, 台湾, 狮城, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Emby.png }
+  - {name: 微软服务, type: select, proxies: [DIRECT, 香港, 日本, 台湾, 狮城, 美国, 流媒体, 低倍率, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Microsoft.png }
+  - {name: 苹果服务, type: select, proxies: [DIRECT, 香港, 日本, 台湾, 狮城, 美国, 流媒体, 低倍率, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Apple.png }
+  - {name: 游戏平台, type: select, proxies: [DIRECT, 香港, 日本, 台湾, 狮城, 美国, 流媒体, 低倍率, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/GAME.png }
 
   
 #节点分组
 
-  - {name: 日用低倍, type: select, include-all: true, interval: 300, tolerance: 50,  filter: '^(?=.*((?i)日用|0.20|0.01)).*$', icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/shadowrocket.png }
+  - {name: 低倍率, type: select, include-all: true, interval: 300, tolerance: 50,  filter: '^(?=.*((?i)日用|0.20|0.01)).*$', icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/shadowrocket.png }
   - {name: 手动选择, type: select, include-all: true, interval: 300, tolerance: 50,  filter: '^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author)\b|(\d{4}-\d{2}-\d{2}|\d+G)))).*$', icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/shadowrocket.png }
   
 
