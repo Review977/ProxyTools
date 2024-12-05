@@ -19,7 +19,7 @@ proxy-groups:
   - {name: 香港, type: select, include-all: true, interval: 300, tolerance: 50,  filter: '^(?=.*((?i)🇭🇰|香港|(\b(HK|Hong)\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$', icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/HK.png }
   - {name: 日本, type: select, include-all: true, interval: 300, tolerance: 50,  filter: '^(?=.*((?i)🇯🇵|日本|(\b(JP|Japan)\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$', icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/JP.png }
   - {name: 大流量, type: select, include-all: true, interval: 300, tolerance: 50,  filter: '^(?=.*((?i)Aca|0.20|0.01)).*$', icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Streaming.png }
-  - {name: Google, type: select, proxies: [美国, 香港, 日本, 狮城, 台湾, 大流量, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Google.png }
+  - {name: 谷歌服务, type: select, proxies: [美国, 香港, 日本, 狮城, 台湾, 大流量, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Google.png }
   - {name: 全球加速, type: select, proxies: [香港, 日本, 台湾, 狮城, 美国, 大流量, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png }
   - {name: Telegram, type: select, proxies: [香港, 日本, 台湾, 狮城, 美国, 大流量, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Telegram.png }
   - {name: OpenAi,   type: select, proxies: [香港, 日本, 台湾, 狮城, 美国, 大流量, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/OpenAI.png }
@@ -66,7 +66,7 @@ rules:
   - RULE-SET,Telegram,Telegram
   - RULE-SET,YouTube,YouTube
   - RULE-SET,OpenAi,OpenAi
-  - RULE-SET,Google,Google
+  - RULE-SET,Google,谷歌服务
   - RULE-SET,Emby,Emby
   - RULE-SET,Outside,全球加速
   - RULE-SET,Github,全球加速
