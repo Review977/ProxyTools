@@ -30,9 +30,9 @@ proxy-groups:
   - {name: OpenAi,   type: select, proxies: [香港, 日本, 台湾, 狮城, 美国, 流媒体, 低倍率, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/OpenAI.png }
   - {name: YouTube, type: select, proxies: [香港, 日本, 台湾, 狮城, 美国, 流媒体, 低倍率, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/YouTube.png }
   - {name: Emby,   type: select, proxies: [DIRECT, 流媒体, 低倍率, 香港, 日本, 台湾, 狮城, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Emby.png }
-  ;- {name: 微软服务, type: select, proxies: [DIRECT, 香港, 日本, 台湾, 狮城, 美国, 流媒体, 低倍率, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Microsoft.png }
-  ;- {name: 苹果服务, type: select, proxies: [DIRECT, 香港, 日本, 台湾, 狮城, 美国, 流媒体, 低倍率, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Apple.png }
-  ;- {name: 游戏平台, type: select, proxies: [DIRECT, 香港, 日本, 台湾, 狮城, 美国, 流媒体, 低倍率, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/GAME.png }
+  #- {name: 微软服务, type: select, proxies: [DIRECT, 香港, 日本, 台湾, 狮城, 美国, 流媒体, 低倍率, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Microsoft.png }
+  #- {name: 苹果服务, type: select, proxies: [DIRECT, 香港, 日本, 台湾, 狮城, 美国, 流媒体, 低倍率, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Apple.png }
+  #- {name: 游戏平台, type: select, proxies: [DIRECT, 香港, 日本, 台湾, 狮城, 美国, 流媒体, 低倍率, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/GAME.png }
 
   
 #节点分组
