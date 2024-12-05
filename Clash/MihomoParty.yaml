@@ -63,12 +63,12 @@ rule-providers:
 # 分流Policy 
 rules:
   - RULE-SET,Inside,DIRECT
-  - RULE-SET,Outside,全球加速
   - RULE-SET,Telegram,Telegram
   - RULE-SET,YouTube,YouTube
   - RULE-SET,OpenAi,OpenAi
   - RULE-SET,Google,谷歌服务
   - RULE-SET,Emby,Emby
+  - RULE-SET,Outside,全球加速
   - RULE-SET,Github,全球加速
   - RULE-SET,ProxyLite,全球加速
   - RULE-SET,SpeedTest,DIRECT
