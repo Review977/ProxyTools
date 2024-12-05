@@ -30,9 +30,9 @@ proxy-groups:
   - {name: OpenAi,   type: select, proxies: [香港, 日本, 台湾, 狮城, 美国, 流媒体, 低倍率, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/OpenAI.png }
   - {name: YouTube, type: select, proxies: [香港, 日本, 台湾, 狮城, 美国, 流媒体, 低倍率, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/YouTube.png }
   - {name: Emby,   type: select, proxies: [DIRECT, 流媒体, 低倍率, 香港, 日本, 台湾, 狮城, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Emby.png }
-  - {name: 微软服务, type: select, proxies: [DIRECT, 香港, 日本, 台湾, 狮城, 美国, 流媒体, 低倍率, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Microsoft.png }
-  - {name: 苹果服务, type: select, proxies: [DIRECT, 香港, 日本, 台湾, 狮城, 美国, 流媒体, 低倍率, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Apple.png }
-  - {name: 游戏平台, type: select, proxies: [DIRECT, 香港, 日本, 台湾, 狮城, 美国, 流媒体, 低倍率, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/GAME.png }
+  ;- {name: 微软服务, type: select, proxies: [DIRECT, 香港, 日本, 台湾, 狮城, 美国, 流媒体, 低倍率, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Microsoft.png }
+  ;- {name: 苹果服务, type: select, proxies: [DIRECT, 香港, 日本, 台湾, 狮城, 美国, 流媒体, 低倍率, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Apple.png }
+  ;- {name: 游戏平台, type: select, proxies: [DIRECT, 香港, 日本, 台湾, 狮城, 美国, 流媒体, 低倍率, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/GAME.png }
 
   
 #节点分组
@@ -67,21 +67,21 @@ rule-providers:
 rules:
   - RULE-SET,Inside,DIRECT
   - RULE-SET,Outside,全球加速
-  - RULE-SET,Direct,DIRECT
-  - RULE-SET,Lan,DIRECT
-  - RULE-SET,Download,DIRECT
   - RULE-SET,Telegram,Telegram
   - RULE-SET,YouTube,YouTube
   - RULE-SET,OpenAi,OpenAi
   - RULE-SET,Google,谷歌服务
   - RULE-SET,Github,全球加速
   - RULE-SET,Emby,Emby
-  - RULE-SET,SpeedTest,DIRECT
-  - RULE-SET,Microsoft,微软服务
-  - RULE-SET,Apple,苹果服务
-  - RULE-SET,iCloudChina,DIRECT
-  - RULE-SET,Game,游戏平台
   - RULE-SET,ProxyLite,全球加速
+  - RULE-SET,SpeedTest,DIRECT
+  - RULE-SET,Microsoft,DIRECT
+  - RULE-SET,Apple,DIRECT
+  - RULE-SET,iCloudChina,DIRECT
+  - RULE-SET,Game,DIRECT
+  - RULE-SET,Direct,DIRECT
+  - RULE-SET,Lan,DIRECT
+  - RULE-SET,Download,DIRECT
   - RULE-SET,ChinaMax,DIRECT
   - GEOIP,CN,DIRECT
   - MATCH,全球加速
