@@ -25,13 +25,12 @@ proxy-groups:
   #- {name: 微软服务, type: select, proxies: [DIRECT, 香港, 日本, 台湾, 狮城, 美国, 大流量, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Microsoft.png }
   #- {name: 苹果服务, type: select, proxies: [DIRECT, 香港, 日本, 台湾, 狮城, 美国, 大流量, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Apple.png }
   #- {name: 游戏平台, type: select, proxies: [DIRECT, 香港, 日本, 台湾, 狮城, 美国, 大流量, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/GAME.png }
-  - {name: 美国, type: select, include-all: true, interval: 300, tolerance: 50,  filter: '^(?=.*((?i)🇺🇸|美国|(\b(US|United States)\b)))(?!.*((?i)0.01|回国|校园|游戏|🎮|(\b(GAME)\b))).*$', icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/US.png }
+  
   - {name: 香港, type: select, include-all: true, interval: 300, tolerance: 50,  filter: '^(?=.*((?i)🇭🇰|香港|(\b(HK|Hong)\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$', icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/HK.png }
   - {name: 日本, type: select, include-all: true, interval: 300, tolerance: 50,  filter: '^(?=.*((?i)🇯🇵|日本|(\b(JP|Japan)\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$', icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/JP.png }
-  
   - {name: 台湾, type: select, include-all: true, interval: 300, tolerance: 50,  filter: '^(?=.*((?i)🇹🇼|台湾|(\b(TW|Tai|Taiwan)\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$', icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/TW.png }
   - {name: 狮城, type: select, include-all: true, interval: 300, tolerance: 50,  filter: '^(?=.*((?i)🇸🇬|新加坡|狮|(\b(SG|Singapore)\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$', icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/SG.png }
-
+  - {name: 美国, type: select, include-all: true, interval: 300, tolerance: 50,  filter: '^(?=.*((?i)🇺🇸|美国|(\b(US|United States)\b)))(?!.*((?i)0.01|回国|校园|游戏|🎮|(\b(GAME)\b))).*$', icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/US.png }
   - {name: 大流量, type: select, include-all: true, interval: 300, tolerance: 50,  filter: '^(?=.*((?i)Aca|0.20|0.01)).*$', icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Streaming.png }
 #节点分组
 
