@@ -6,7 +6,6 @@
 [Rule]
 
 # 规则修正
-DOMAIN-SUFFIX, log.umtrack.com, DIRECT
 
 DOMAIN-SUFFIX, oslogs.umeng.com, REJECT
 
