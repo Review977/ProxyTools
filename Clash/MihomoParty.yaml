@@ -64,10 +64,10 @@ rule-providers:
 rules:
   - RULE-SET,Inside,DIRECT
   - IP-CIDR,95.161.76.100/31,REJECT
+  - RULE-SET,Google,谷歌服务
   - RULE-SET,Telegram,Telegram
   - RULE-SET,YouTube,YouTube
   - RULE-SET,OpenAi,OpenAi
-  - RULE-SET,Google,谷歌服务
   - RULE-SET,Emby,Emby
   - RULE-SET,Outside,全球加速
   - RULE-SET,Github,全球加速
