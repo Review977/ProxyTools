@@ -9,7 +9,6 @@
 DOMAIN-SUFFIX, log.umtrack.com, DIRECT
 
 # 防止TG转圈
-[Rule]
 IP-CIDR,95.161.76.100/31,REJECT-NO-DROP,no-resolve
 # ======= A ======= #
 
