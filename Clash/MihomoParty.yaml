@@ -63,7 +63,6 @@ rule-providers:
 # 分流Policy 
 rules:
   - RULE-SET,Inside,DIRECT
-  - IP-CIDR,95.161.76.100/31,REJECT
   - RULE-SET,Google,谷歌服务
   - RULE-SET,Telegram,Telegram
   - RULE-SET,YouTube,YouTube
