@@ -41,12 +41,10 @@ proxy-groups:
 
 # 分流规则 
 rule-providers:
-  Inside:      {behavior: classical, interval: 86400, format: yaml, type: http, url: https://raw.githubusercontent.com/Review977/ProxyTools/main/Rules/Direct.yaml ,                                            path: ./ruleset/Inside.yaml       }
+  
   Outside:     {behavior: classical, interval: 86400, format: yaml, type: http, url: https://raw.githubusercontent.com/Review977/ProxyTools/main/Rules/Proxy.yaml ,                                             path: ./ruleset/Outside.yaml      }
- 
   Telegram:    {behavior: classical, interval: 86400, format: yaml, type: http, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.yaml ,                  path: ./ruleset/Telegram.yaml     }
   YouTube:     {behavior: classical, interval: 86400, format: yaml, type: http, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/YouTube/YouTube.yaml ,                    path: ./ruleset/YouTube.yaml      }
-  
   OpenAi:      {behavior: classical, interval: 86400, format: yaml, type: http, url: https://kelee.one/Tool/Clash/Rule/AI.yaml ,                                                                                path: ./ruleset/OpenAi.yaml       }
   Google:      {behavior: classical, interval: 86400, format: yaml, type: http, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google.yaml ,                      path: ./ruleset/Google.yaml       }
   Github:      {behavior: classical, interval: 86400, format: yaml, type: http, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GitHub/GitHub.yaml ,                      path: ./ruleset/Github.yaml       }
@@ -65,8 +63,6 @@ rule-providers:
   
 # 分流Policy 
 rules:
-  - RULE-SET,Inside,DIRECT
-  
   - RULE-SET,Telegram,Telegram
   - RULE-SET,YouTube,YouTube
   - RULE-SET,OpenAi,OpenAi
