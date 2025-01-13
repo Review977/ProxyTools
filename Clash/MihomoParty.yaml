@@ -17,22 +17,21 @@ proxy-groups:
  
   
   
-  - {name: 全球加速, type: select, proxies: [香港, 日本, 台湾, 新加坡, 美国, Aca, 自建, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png }
-  - {name: Telegram, type: select, proxies: [香港, 日本, 台湾, 新加坡, 美国, Aca, 自建, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Telegram.png }
-  - {name: OpenAi,   type: select, proxies: [香港, 日本, 台湾, 新加坡, 美国, Aca, 自建, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/OpenAI.png }
-  - {name: YouTube, type: select, proxies: [香港, 日本, 台湾, 新加坡, 美国, Aca, 自建, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/YouTube.png }
-  - {name: 谷歌服务, type: select, proxies: [美国, 香港, 日本, 新加坡, 台湾, Aca, 自建, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Google.png }
+  - {name: 全球加速, type: select, proxies: [香港, 日本, 台湾, 新加坡, 美国, 自建, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png }
+  - {name: Telegram, type: select, proxies: [香港, 日本, 台湾, 新加坡, 美国, 自建, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Telegram.png }
+  - {name: OpenAi,   type: select, proxies: [香港, 日本, 台湾, 新加坡, 美国, 自建, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/OpenAI.png }
+  - {name: YouTube, type: select, proxies: [香港, 日本, 台湾, 新加坡, 美国, 自建, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/YouTube.png }
+  - {name: 谷歌服务, type: select, proxies: [美国, 香港, 日本, 新加坡, 台湾, 自建, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Google.png }
   - {name: Emby,   type: select, proxies: [DIRECT, Aca, 自建, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Emby.png }
-  #- {name: 微软服务, type: select, proxies: [DIRECT, 香港, 日本, 台湾, 新加坡, 美国, Aca, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Microsoft.png }
-  #- {name: 苹果服务, type: select, proxies: [DIRECT, 香港, 日本, 台湾, 新加坡, 美国, Aca, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Apple.png }
-  #- {name: 游戏平台, type: select, proxies: [DIRECT, 香港, 日本, 台湾, 新加坡, 美国, Aca, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/GAME.png }
+  #- {name: 微软服务, type: select, proxies: [DIRECT, 香港, 日本, 台湾, 新加坡, 美国, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Microsoft.png }
+  #- {name: 苹果服务, type: select, proxies: [DIRECT, 香港, 日本, 台湾, 新加坡, 美国, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Apple.png }
+  #- {name: 游戏平台, type: select, proxies: [DIRECT, 香港, 日本, 台湾, 新加坡, 美国, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/GAME.png }
   
   - {name: 香港, type: select, include-all: true, interval: 300, tolerance: 50,  filter: '^(?=.*((?i)🇭🇰|香港|(\b(HK|Hong)\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$', icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/HK.png }
   - {name: 日本, type: select, include-all: true, interval: 300, tolerance: 50,  filter: '^(?=.*((?i)🇯🇵|日本|(\b(JP|Japan)\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$', icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/JP.png }
   - {name: 台湾, type: select, include-all: true, interval: 300, tolerance: 50,  filter: '^(?=.*((?i)🇹🇼|台湾|(\b(TW|Tai|Taiwan)\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$', icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/TW.png }
   - {name: 新加坡, type: select, include-all: true, interval: 300, tolerance: 50,  filter: '^(?=.*((?i)🇸🇬|新加坡|狮|(\b(SG|Singapore)\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$', icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/SG.png }
   - {name: 美国, type: select, include-all: true, interval: 300, tolerance: 50,  filter: '^(?=.*((?i)🇺🇸|美国|(\b(US|United States)\b)))(?!.*((?i)0.01|回国|校园|游戏|🎮|(\b(GAME)\b))).*$', icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/US.png }
-  - {name: Aca, type: select, include-all: true, interval: 300, tolerance: 50,  filter: '^(?=.*((?i)Aca|0.20|0.01)).*$', icon: https://raw.githubusercontent.com/lige47/QuanX-icon-rule/main/icon/aca.png }
   - {name: 自建, type: select, include-all: true, interval: 300, tolerance: 50,  filter: '^(?=.*((?i)自建)).*$', icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/shadowrocket.png }
 #节点分组
 
