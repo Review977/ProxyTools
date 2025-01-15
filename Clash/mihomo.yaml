@@ -22,11 +22,11 @@ proxy-groups:
  
   
   
-  - {name: 全球加速, type: select, proxies: [🇭🇰 香港, 🇯🇵 日本, 🇲🇾 台湾, 🇸🇬 新加坡, 🇺🇸 美国, 🛩️ 自建, 🛩️ 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png }
-  - {name: Telegram, type: select, proxies: [🇭🇰 香港, 🇯🇵 日本, 🇲🇾 台湾, 🇸🇬 新加坡, 🇺🇸 美国, 🛩️ 自建, 🛩️ 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Telegram.png }
-  - {name: OpenAi,   type: select, proxies: [🇭🇰 香港, 🇯🇵 日本, 🇲🇾 台湾, 🇸🇬 新加坡, 🇺🇸 美国, 🛩️ 自建, 🛩️ 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/OpenAI.png }
-  - {name: YouTube, type: select, proxies: [🇭🇰 香港, 🇯🇵 日本, 🇲🇾 台湾, 🇸🇬 新加坡, 🇺🇸 美国, 🛩️ 自建, 🛩️ 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/YouTube.png }
-  - {name: 谷歌服务, type: select, proxies: [🇺🇸 美国, 🇭🇰 香港, 🇯🇵 日本, 🇸🇬 新加坡, 🇲🇾 台湾, 🛩️ 自建, 🛩️ 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Google.png }
+  - {name: 全球加速, type: select, proxies: [香港, 🇯🇵 日本, 🇲🇾 台湾, 🇸🇬 新加坡, 🇺🇸 美国, 🛩️ 自建, 🛩️ 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png }
+  - {name: Telegram, type: select, proxies: [香港, 🇯🇵 日本, 🇲🇾 台湾, 🇸🇬 新加坡, 🇺🇸 美国, 🛩️ 自建, 🛩️ 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Telegram.png }
+  - {name: OpenAi,   type: select, proxies: [香港, 🇯🇵 日本, 🇲🇾 台湾, 🇸🇬 新加坡, 🇺🇸 美国, 🛩️ 自建, 🛩️ 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/OpenAI.png }
+  - {name: YouTube, type: select, proxies: [香港, 🇯🇵 日本, 🇲🇾 台湾, 🇸🇬 新加坡, 🇺🇸 美国, 🛩️ 自建, 🛩️ 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/YouTube.png }
+  - {name: 谷歌服务, type: select, proxies: [🇺🇸 美国, 香港, 🇯🇵 日本, 🇸🇬 新加坡, 🇲🇾 台湾, 🛩️ 自建, 🛩️ 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Google.png }
   - {name: Emby,   type: select, proxies: [DIRECT, 🛩️ 自建, 🛩️ 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Emby.png }
   #- {name: 微软服务, type: select, proxies: [DIRECT, 香港, 日本, 台湾, 新加坡, 美国, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Microsoft.png }
   #- {name: 苹果服务, type: select, proxies: [DIRECT, 香港, 日本, 台湾, 新加坡, 美国, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Apple.png }
@@ -39,7 +39,7 @@ proxy-groups:
   - {name: 🇲🇾 台湾自动, <<: *Auto, filter: *FilterTW}
 
   # 手动选择
-  - {name: 🇭🇰 香港, <<: *Select, filter: *FilterHK}
+  - {name: 香港, <<: *Select, filter: *FilterHK , icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/HK.png}
   - {name: 🇯🇵 日本, <<: *Select, filter: *FilterJP}
   - {name: 🇸🇬 新加坡, <<: *Select, filter: *FilterSG}
   - {name: 🇺🇸 美国, <<: *Select, filter: *FilterUS}
