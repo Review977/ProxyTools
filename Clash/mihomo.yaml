@@ -1,3 +1,5 @@
+#节点筛选
+
 FilterHK: &FilterHK '^(?=.*(香港|HK|Hong|🇭🇰))^(?!.*(网站|地址|剩余|过期|时间|有效|网址|禁止|邮箱|发布|客服|订阅|节点)).*$'
 FilterJP: &FilterJP '^(?=.*(日本|JP|Japan|🇯🇵))^(?!.*(网站|地址|剩余|过期|时间|有效|网址|禁止|邮箱|发布|客服|订阅|节点)).*$'
 FilterKR: &FilterKR '^(?=.*(韩国|韓|KR|Korea|🇰🇷))^(?!.*(网站|地址|剩余|过期|时间|有效|网址|禁止|邮箱|发布|客服|订阅|节点)).*$'
@@ -22,32 +24,36 @@ proxy-groups:
  
   
   
-  - {name: 全球加速, type: select, proxies: [香港, 🇯🇵 日本, 🇲🇾 台湾, 🇸🇬 新加坡, 🇺🇸 美国, 🛩️ 自建, 🛩️ 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png }
-  - {name: Telegram, type: select, proxies: [香港, 🇯🇵 日本, 🇲🇾 台湾, 🇸🇬 新加坡, 🇺🇸 美国, 🛩️ 自建, 🛩️ 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Telegram.png }
-  - {name: OpenAi,   type: select, proxies: [香港, 🇯🇵 日本, 🇲🇾 台湾, 🇸🇬 新加坡, 🇺🇸 美国, 🛩️ 自建, 🛩️ 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/OpenAI.png }
-  - {name: YouTube, type: select, proxies: [香港, 🇯🇵 日本, 🇲🇾 台湾, 🇸🇬 新加坡, 🇺🇸 美国, 🛩️ 自建, 🛩️ 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/YouTube.png }
-  - {name: 谷歌服务, type: select, proxies: [🇺🇸 美国, 香港, 🇯🇵 日本, 🇸🇬 新加坡, 🇲🇾 台湾, 🛩️ 自建, 🛩️ 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Google.png }
-  - {name: Emby,   type: select, proxies: [DIRECT, 🛩️ 自建, 🛩️ 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Emby.png }
+  - {name: 全球加速, type: select, proxies: [香港, 日本, 台湾, 新加坡, 美国, 自建, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png }
+  - {name: Telegram, type: select, proxies: [香港, 日本, 台湾, 新加坡, 美国, 自建, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Telegram.png }
+  - {name: OpenAi,   type: select, proxies: [香港, 日本, 台湾, 新加坡, 美国, 自建, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/OpenAI.png }
+  - {name: YouTube, type: select, proxies: [香港, 日本, 台湾, 新加坡, 美国, 自建, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/YouTube.png }
+  - {name: 谷歌服务, type: select, proxies: [美国, 香港, 日本, 新加坡, 台湾, 自建, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Google.png }
+  - {name: Emby,   type: select, proxies: [DIRECT, 自建, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Emby.png }
   #- {name: 微软服务, type: select, proxies: [DIRECT, 香港, 日本, 台湾, 新加坡, 美国, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Microsoft.png }
   #- {name: 苹果服务, type: select, proxies: [DIRECT, 香港, 日本, 台湾, 新加坡, 美国, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Apple.png }
   #- {name: 游戏平台, type: select, proxies: [DIRECT, 香港, 日本, 台湾, 新加坡, 美国, 手动选择], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/GAME.png }
   
-   # 自动选择
-  - {name: 🇭🇰 香港自动, <<: *Auto, filter: *FilterHK}
-  - {name: 🇯🇵 日本自动, <<: *Auto, filter: *FilterJP}
-  - {name: 🇸🇬 新加坡自动, <<: *Auto, filter: *FilterSG}
-  - {name: 🇲🇾 台湾自动, <<: *Auto, filter: *FilterTW}
+ 
 
   # 手动选择
   - {name: 香港, <<: *Select, filter: *FilterHK , icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/HK.png}
-  - {name: 🇯🇵 日本, <<: *Select, filter: *FilterJP}
-  - {name: 🇸🇬 新加坡, <<: *Select, filter: *FilterSG}
-  - {name: 🇺🇸 美国, <<: *Select, filter: *FilterUS}
-  - {name: 🇲🇾 台湾, <<: *Select, filter: *FilterTW}
-  - {name: 🛩️ 自建, <<: *Select, filter: *FilterZJ}
+  - {name: 日本, <<: *Select, filter: *FilterJP , icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/JP.png}
+  - {name: 新加坡, <<: *Select, filter: *FilterSG , icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/SG.png}
+  - {name: 美国, <<: *Select, filter: *FilterUS , icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/US.png}
+  - {name: 台湾, <<: *Select, filter: *FilterTW, icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/TW.png}
+  - {name: 自建, <<: *Select, filter: *FilterZJ, icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/shadowrocket.png}
 
+  
+  # 自动选择
+  - {name: 香港自动, <<: *Auto, filter: *FilterHK}
+  - {name: 日本自动, <<: *Auto, filter: *FilterJP}
+  - {name: 新加坡自动, <<: *Auto, filter: *FilterSG}
+  - {name: 台湾自动, <<: *Auto, filter: *FilterTW}
+
+  
   # 全部节点
-  - {name: 🛩️ 手动选择, <<: *Select, filter: *FilterAll}
+  - {name: 手动选择, <<: *Select, filter: *FilterAll, icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/shadowrocket.png}
   
 
 # 分流规则 
