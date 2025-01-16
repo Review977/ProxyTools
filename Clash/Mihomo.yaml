@@ -55,8 +55,8 @@ proxy-groups:
   
 # 锚点 - 规则参数 [每小时更新一次订阅规则，更新规则时使用直连策略]
 RuleSet_classical: &RuleSet_classical {type: http, behavior: classical, interval: 43200, format: yaml, proxy: 全球加速}
-RuleSet_domain: &RuleSet_domain {type: http, behavior: domain, interval: 43200, format: text, proxy: 全球加速}
-RuleSet_ipcidr: &RuleSet_ipcidr {type: http, behavior: ipcidr, interval: 43200, format: text, proxy: 全球加速}
+RuleSet_domain: &RuleSet_domain {type: http, behavior: domain, interval: 43200, format: yaml, proxy: 全球加速}
+RuleSet_ipcidr: &RuleSet_ipcidr {type: http, behavior: ipcidr, interval: 43200, format: yaml, proxy: 全球加速}
 
 # 分流规则 
 rule-providers:
