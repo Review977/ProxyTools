@@ -57,16 +57,16 @@ proxy-groups:
 rule-anchor:
 # 锚点 - 规则参数 [每小时更新一次订阅规则，更新规则时使用代理策略]
 
-RuleSet_classical: &RuleSet_classical {type: http, behavior: classical, interval: 86400, format: yaml, proxy: 全球加速}
-RuleSet_domain: &RuleSet_domain {type: http, behavior: domain, interval: 86400, format: mrs, proxy: 全球加速}
-RuleSet_ipcidr: &RuleSet_ipcidr {type: http, behavior: ipcidr, interval: 86400, format: mrs, proxy: 全球加速}
+  RuleSet_classical: &RuleSet_classical {type: http, behavior: classical, interval: 86400, format: yaml, proxy: 全球加速}
+  RuleSet_domain: &RuleSet_domain {type: http, behavior: domain, interval: 86400, format: mrs, proxy: 全球加速}
+  RuleSet_ipcidr: &RuleSet_ipcidr {type: http, behavior: ipcidr, interval: 86400, format: mrs, proxy: 全球加速}
 
 
 
-ip: &ip {type: http, interval: 86400, behavior: ipcidr, format: yaml, proxy: 全球加速}
-domain: &domain {type: http, interval: 86400, behavior: domain, format: yaml, proxy: 全球加速}
-domaintxt: &domaintxt {type: http, interval: 86400, behavior: domain, format: text, proxy: 全球加速}
-classicaltxt: &classicaltxt {type: http, interval: 86400, behavior: classical, format: text, proxy: 全球加速}
+  ip: &ip {type: http, interval: 86400, behavior: ipcidr, format: yaml, proxy: 全球加速}
+  domain: &domain {type: http, interval: 86400, behavior: domain, format: yaml, proxy: 全球加速}
+  domaintxt: &domaintxt {type: http, interval: 86400, behavior: domain, format: text, proxy: 全球加速}
+  classicaltxt: &classicaltxt {type: http, interval: 86400, behavior: classical, format: text, proxy: 全球加速}
 
 
 
