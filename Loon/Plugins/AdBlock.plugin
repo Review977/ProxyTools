@@ -233,9 +233,6 @@ DOMAIN, sdkconfig.ad.xiaomi.com, REJECT
 
 # ======= Y ======= #
 
-# 云闪付 开屏广告
-DOMAIN, ads.95516.com, REJECT
-DOMAIN, switch.cup.com.cn, REJECT
 
 # Yandex
 DOMAIN, yandexmetrica.com, REJECT
@@ -294,10 +291,8 @@ URL-REGEX, ^http:\/\/\w{32}\.jddebug\.com\/diagnose\?, REJECT
 # 米家 //home.mi.com
 ^https:\/\/home\.mi\.com\/cgi-op\/api\/v1\/recommendation\/(?:banner|carousel\/banners|myTab|openingBanner) reject-dict
 
-# 云闪付 //wallet.95516.com
-# ^https:\/\/wallet\.95516\.com(:10533)?\/s\/wl\/icon\/large\/1 reject
 
 
 
 [MITM]
-hostname = list-app-m.i4.cn, pan.baidu.com, api.douban.com, img3.doubanio.com, qnmob3.doubanio.com, hfapp-service.qweather.net, acs-m.freshippo.com, gab.122.gov.cn, p0.pipi.cn, flowplus.meituan.net, img.meituan.net, s3plus.meituan.net, osg-service.sgcc.com.cn, mp.weixin.qq.com, api.m.mi.com, shop-api.retail.mi.com, home.mi.com, wallet.95516.com    
+hostname = list-app-m.i4.cn, pan.baidu.com, api.douban.com, img3.doubanio.com, qnmob3.doubanio.com, hfapp-service.qweather.net, acs-m.freshippo.com, gab.122.gov.cn, p0.pipi.cn, flowplus.meituan.net, img.meituan.net, s3plus.meituan.net, osg-service.sgcc.com.cn, mp.weixin.qq.com, api.m.mi.com, shop-api.retail.mi.com, home.mi.com    
