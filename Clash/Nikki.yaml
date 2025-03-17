@@ -37,7 +37,7 @@ sniffer:
     QUIC:
       ports: [443, 8443]
   skip-domain: # 忽略嗅探
-    - 'rule-set:cn_domain,private_domain'
+    - 'rule-set:CN_domain'
     - 'Mijia Cloud'
     - '+.push.apple.com'
     - '+.wechat.com'
@@ -64,7 +64,7 @@ dns:
   default-nameserver: ['119.29.29.29', '180.184.1.1', '223.5.5.5']
   nameserver: ['https://doh.pub/dns-query', 'https://dns.alidns.com/dns-query']
   fake-ip-filter:
-    - 'rule-set:cn_domain,private_domain,fix-direct'
+    - 'rule-set:CN_domain'
     - '*.lan'
     - '*.local'
     - '*.home.arpa'
