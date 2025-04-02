@@ -28,6 +28,8 @@ geox-url:
   geo-auto-update: true
   geo-update-interval: 24
 
+  unified-delay: true
+
   
 sniffer:
   enable: true
