@@ -264,6 +264,7 @@ rules:
   - RULE-SET,Outside,全球加速
   - RULE-SET,Github,全球加速
   - RULE-SET,ProxyLite,全球加速
+  
   - RULE-SET,SpeedTest,DIRECT
   - RULE-SET,Microsoft,DIRECT
   - RULE-SET,Apple,DIRECT
@@ -274,5 +275,7 @@ rules:
   - RULE-SET,Lan,DIRECT
   - RULE-SET,CN_domain,DIRECT
   - RULE-SET,CN_ip,DIRECT,no-resolve
+  - GEOSITE,CN,DIRECT
   - GEOIP,CN,DIRECT
+  - GEOSITE,geolocation-!cn,全球加速
   - MATCH,全球加速
