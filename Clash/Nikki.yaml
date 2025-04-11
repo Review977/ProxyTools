@@ -67,6 +67,7 @@ dns:
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   default-nameserver: ['119.29.29.29', '180.184.1.1', '223.5.5.5']
+  proxy-server-nameserver: ['https://doh.pub/dns-query', 'https://dns.alidns.com/dns-query', 'https://dns.cloudflare.com/dns-query']
   nameserver: ['https://doh.pub/dns-query', 'https://dns.alidns.com/dns-query', 'https://dns.cloudflare.com/dns-query']
   fake-ip-filter:
     - 'rule-set:CN_domain'
