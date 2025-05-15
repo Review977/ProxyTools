@@ -1,6 +1,6 @@
 ! Title: Huawei Mate50E AdGuard DNS抱歉规则
-! Description: 特殊为华为Mate50E分析装备，减少背景DNS请求量，保持基础功能不变
-! Version: v20250428
+! Description: 特殊为华为Mate50E分析装备，屏蔽日志与打点请求，保留天气与商城功能
+! Version: v20250515
 
 ||metrics1.data.hicloud.com^
 ||metrics1-drcn.dt.dbankcloud.cn^
@@ -17,11 +17,6 @@
 ||dnkeeper.platform.dbankcloud.cn^
 ||update-drcn.platform.hicloud.com^
 ||configserver.platform.hicloud.com^
-||store-drcn.hispace.dbankcloud.com^
-||store-drcn.hispace.dbankcloud.cn^
-||appdl-drcn.dbankcdn.com^
-||appimg.dbankcdn.com^
-||contentcenter-drcn.dbankcdn.cn^
 
 ||weather-drcn.weather.dbankcloud.cn^
 ||weather-drcn.music.dbankcloud.cn^
