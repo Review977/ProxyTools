@@ -1,6 +1,9 @@
 # > 中国联通
 
 
+[Rule]
+DOMAIN-SUFFIX,m1.ad.10010.com,REJECT
+
 
 [Rewrite]
 # hostname = m.client.10010.com, m1.ad.10010.com, res.mall.10010.cn
