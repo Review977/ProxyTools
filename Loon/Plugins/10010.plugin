@@ -1,12 +1,11 @@
-# > 中国联通
-
+#!name = 中国联通去广告
+#!icon = https://raw.githubusercontent.com/Keywos/Qure/main/China_Unicom.png
 
 [Rule]
 DOMAIN-SUFFIX,m1.ad.10010.com,REJECT
 
 
 [Rewrite]
-# hostname = m.client.10010.com, m1.ad.10010.com, res.mall.10010.cn
 ^https?:\/\/m\.client\.10010\.com\/mobileService\/(activity|customer)\/(accountListData|get_client_adv|get_startadv) reject-img
 ^https?:\/\/m\.client\.10010\.com\/mobileService\/customer\/getclientconfig\.htm reject-dict
 ^https?:\/\/m\.client\.10010\.com\/uniAdmsInterface\/(getHomePageAd|getWelcomeAd) reject-img
