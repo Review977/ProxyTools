@@ -1,6 +1,6 @@
 #!name = 中国联通去广告
 #!icon = https://raw.githubusercontent.com/Keywos/Qure/main/China_Unicom.png
-
+#!desc = 中国联通App去除广告
 [Rule]
 DOMAIN-SUFFIX,m1.ad.10010.com,REJECT
 
