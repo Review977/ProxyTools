@@ -1,15 +1,16 @@
-#!name = 彩云天气 Pro
-#!desc = 只是为了看个天气而已。app版本 ≤ 7.20.2
-#!author = RuCu6
-#!icon = https://raw.githubusercontent.com/Orz-3/mini/master/Color/caiyun.png
-#!date = 2024-09-28 10:30
+
+#!name= 彩云天气 Pro
+#!desc= 只是为了看个天气而已。app版本 ≤ 7.20.2
+#!author= RuCu6
+#!logtime=2025-06-25 08:43:18
+
 
 [Rule]
 DOMAIN, abyss.cyapi.cn, REJECT
 DOMAIN, ad.cyapi.cn, REJECT
 DOMAIN, gather.colorfulclouds.net, REJECT
 
-[Rewrite]
+[URL Rewrite]
 ^https:\/\/biz\.cyapi\.cn\/(p\/v1\/entries|p\/v1\/trial_card\/info|v2\/product) reject-dict
 ^https:\/\/starplucker\.cyapi\.cn\/v3\/(config\/cypage\/\w+\/conditions|notification\/message_center|operation\/homefeatures) reject-dict
 
@@ -23,4 +24,4 @@ http-response ^https:\/\/biz\.cyapi\.cn\/(api\/v1\/user_detail|p\/v1\/vip_info|v
 http-response ^https:\/\/wrapper\.cyapi\.cn\/v1\/activity\? script-path = https://raw.githubusercontent.com/Review977/ProxyTools/refs/heads/main/Loon/Scripts/cy.js, requires-body = true, tag = cy_tab2
 
 [MITM]
-hostname = api.caiyunapp.com, *.cyapi.cn
+hostname = %APPEND% api.caiyunapp.com, *.cyapi.cn
