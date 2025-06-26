@@ -1,29 +1,33 @@
-! Title: Huawei Mate50E AdGuard DNS抱歉规则
-! Description: 特殊为华为Mate50E分析装备，屏蔽日志与打点请求，保留天气与商城功能
-! Version: v20250515
+! Title: Huawei Mate50E AdGuard DNS规则（兼容手表系统更新）
+! Description: 专为华为Mate50E设备定制，屏蔽日志与打点请求，保留天气、商城与运动健康手表系统更新功能
+! Version: v20250626
+! Maintainer: @ssly2977
 
+! ✅ 屏蔽日志与打点相关接口
 ||metrics1.data.hicloud.com^
 ||metrics1-drcn.dt.dbankcloud.cn^
-||grs.dbankcloud.com^
-||grs.dbankcloud.cn^
-||grs.dbankcloud.asia^
-||grs.dbankcloud.eu^
-||grs.platform.dbankcloud.ru^
-||hicloud.com^
-
-||connectivitycheck.platform.hicloud.com^
-||connect-drcn.dbankcloud.cn^
-||openlocation-drcn.platform.dbankcloud.com^
-||dnkeeper.platform.dbankcloud.cn^
-||update-drcn.platform.hicloud.com^
-||configserver.platform.hicloud.com^
-
-||weather-drcn.weather.dbankcloud.cn^
-||weather-drcn.music.dbankcloud.cn^
-||hw.zuimeitianqi.com^
-
+||events-drcn.op.dbankcloud.cn^
 ||forum-api-drcn.jos.dbankcloud.com^
 ||forum-api-drcn.jos.dbankcloud.cn^
-||events-drcn.op.dbankcloud.cn^
+
+! ✅ 解除会影响系统更新的关键服务限制
+@@||grs.dbankcloud.com^
+@@||grs.dbankcloud.cn^
+@@||grs.dbankcloud.asia^
+@@||grs.dbankcloud.eu^
+@@||grs.platform.dbankcloud.ru^
+@@||update-drcn.platform.hicloud.com^
+@@||configserver.platform.hicloud.com^
+@@||connect-drcn.dbankcloud.cn^
+@@||dnkeeper.platform.dbankcloud.cn^
+
+! ✅ 保留天气服务
+@@||weather-drcn.weather.dbankcloud.cn^
+@@||weather-drcn.music.dbankcloud.cn^
+@@||hw.zuimeitianqi.com^
+
+! ❗ 特别说明：原始规则中拦截 `hicloud.com^` 会误伤太广，已移除
+! 若你确认希望拦截所有 `*.hicloud.com`，请手动启用下行规则（⚠️ 可能影响更新和商城）：
+! ||hicloud.com^
 
 ! End of rules.
