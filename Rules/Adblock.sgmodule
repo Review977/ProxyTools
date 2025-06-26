@@ -1,3 +1,7 @@
+#!name=自用APP去广告
+#!desc=去除部分自用APP广告！
+
+
 [Rule]
 # 屏蔽 HikMall 开屏广告图片（精确匹配 hash 路径）
 URL-REGEX,"^https:\/\/file\.hikmall\.com\/prod\/image\/77c2e6cd398043d980ece986b042bbd4\.jpeg$",REJECT
