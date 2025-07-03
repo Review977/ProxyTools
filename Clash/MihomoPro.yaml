@@ -101,10 +101,11 @@ proxy-groups:
 
   # 手动选择
   - {name: 香港, <<: *Select, filter: *FilterHK , icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/HK.png}
+  - {name: 美国, <<: *Select, filter: *FilterUS , icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/US.png}
   - {name: 日本, <<: *Select, filter: *FilterJP , icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/JP.png}
   - {name: 新加坡, <<: *Select, filter: *FilterSG , icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/SG.png}
   - {name: 台湾, <<: *Select, filter: *FilterTW , icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/TW.png}
-  - {name: 美国, <<: *Select, filter: *FilterUS , icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/US.png}
+  
   - {name: 低倍率, <<: *Select, filter: *FilterDB, icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/shadowrocket.png}
   - {name: 自建, <<: *Select, filter: *FilterZJ, icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/shadowrocket.png}
 
