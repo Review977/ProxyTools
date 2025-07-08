@@ -1,8 +1,24 @@
-
+port: 7890
+socks-port: 7891     # SOCKS5 代理端口
+redir-port: 7892     # 透明代理端口，用于 Linux 和 MacOS
+mixed-port: 7893     # HTTP(S) 和 SOCKS 代理混合端口
+tproxy-port: 7894
+allow-lan: true      # 允许局域网连接
 mode: rule
 log-level: info
 ipv6: false
 unified-delay: true
+
+# =============================== GEO 数据库配置 ===============================
+# 该配置用于加载地理位置信息数据库，包括 IP 和域名的地理位置数据
+# 在不同的规则配置中，可以使用地理信息进行更精确的流量路由
+
+# GEO 数据库模式配置，启用该功能以获取和使用地理位置信息
+geodata-mode: true
+
+# GEO 数据库加载模式，选择合适的内存占用策略
+# 'memconservative' 适用于较低内存占用，保证系统性能
+geodata-loader: memconservative
 geo-auto-update: true
 geo-update-interval: 24
 # 自定 GEO 下载地址
@@ -83,8 +99,10 @@ dns:
     - 1.1.1.1                            # Cloudflare DNS备用
     - 8.8.8.8                            # Google DNS备用
 #   - 9.9.9.9                            # Quad9 (备选，更注重隐私和安全性)
+
   fake-ip-filter:
     - 'rule-set:CN_domain'
+    - "geosite:private"
     - '*.lan'
     - '*.local'
     - '*.local.lan'
