@@ -74,7 +74,6 @@ dns:
   default-nameserver:
     - 223.5.5.5                 # 阿里（国内）
     - 119.29.29.29              # 腾讯（国内）
-    - system                    # 系统 DNS (保留以防万一)
 
   proxy-server-nameserver:      # 当请求通过代理（即国外站）时使用
     - https://1.1.1.1/dns-query            # Cloudflare，DoH3
