@@ -72,32 +72,16 @@ dns:
   fake-ip-range: 198.18.0.1/16
   
   default-nameserver:
-    - 223.5.5.5                 # 阿里（国内）
-    - 119.29.29.29              # 腾讯（国内）
-
-  proxy-server-nameserver:      # 当请求通过代理（即国外站）时使用
-    - https://1.1.1.1/dns-query            # Cloudflare，DoH3
-    - https://dns.google/dns-query         # Google，DoH3
-    - 1.1.1.1
-    - 8.8.8.8
-
-  nameserver:                   # 默认 DNS，供所有请求使用，支持 DoH3 的在前面
-    - https://1.1.1.1/dns-query             # Cloudflare（支持 H3）
-    - https://dns.google/dns-query          # Google（支持 H3）
-    - https://dns.alidns.com/dns-query      # 阿里（国内稳定）
-    - https://doh.pub/dns-query             # 腾讯 (境内，DoH，可作为备选)          
-
-  nameserver-policy:
-    "geosite:cn,private":                # 国内域名和私有域名强制走国内 DNS
-      - https://223.5.5.5/dns-query      # 阿里
-      - https://doh.pub/dns-query        # 腾讯
-    "geo:cn":                            # 也可以用 geo:cn 匹配 IP
-      - https://223.5.5.5/dns-query
-
-  fallback: 
-    - 1.1.1.1                            # Cloudflare DNS备用
-    - 8.8.8.8                            # Google DNS备用
-#   - 9.9.9.9                            # Quad9 (备选，更注重隐私和安全性)
+    - 223.5.5.5
+    - 119.29.29.29
+  nameserver:
+    - 'https://doh.pub/dns-query'
+    - 'https://dns.alidns.com/dns-query'
+    - 'https://dns.cloudflare.com/dns-query'
+  proxy-server-nameserver:
+    - 'https://doh.pub/dns-query'
+    - 'https://dns.alidns.com/dns-query'
+    - 'https://dns.cloudflare.com/dns-query'
 
   fake-ip-filter:
     - 'rule-set:CN_domain'
