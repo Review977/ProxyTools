@@ -174,6 +174,11 @@ rule-providers:
     <<: *RuleSet_classical
     path: './ruleset/Emby.yaml'
     url: 'https://raw.githubusercontent.com/Review977/ProxyTools/main/Rules/Emby.yaml'
+
+  JHYS:
+    <<: *RuleSet_classical
+    path: './ruleset/Ys.yaml'
+    url: 'https://raw.githubusercontent.com/Review977/ProxyTools/refs/heads/main/Rules/Ys.yaml'
   
   SpeedTest: 
     <<: *RuleSet_classical
@@ -241,6 +246,7 @@ rules:
   - RULE-SET,Outside,全球加速
   - RULE-SET,Github,全球加速
   - RULE-SET,ProxyLite,全球加速
+  - RULE-SET,JHYS,DIRECT
   - RULE-SET,SpeedTest,DIRECT
   - RULE-SET,Microsoft,DIRECT
   - RULE-SET,Apple,DIRECT
