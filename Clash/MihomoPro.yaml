@@ -82,7 +82,7 @@ dns:
   fallback: 
     - 1.1.1.1                            # Cloudflare DNS备用
     - 8.8.8.8                            # Google DNS备用
-#    - 9.9.9.9                            # Quad9 (备选，更注重隐私和安全性)
+#   - 9.9.9.9                            # Quad9 (备选，更注重隐私和安全性)
   fake-ip-filter:
     - 'rule-set:CN_domain'
     - '*.lan'
