@@ -178,7 +178,7 @@ rule-providers:
   JHYS:
     <<: *RuleSet_classical
     path: './ruleset/Ys.yaml'
-    url: 'https://raw.githubusercontent.com/Review977/ProxyTools/refs/heads/main/Rules/Ys.yaml'
+    url: 'https://raw.githubusercontent.com/Review977/ProxyTools/main/Rules/Ys.yaml'
   
   SpeedTest: 
     <<: *RuleSet_classical
