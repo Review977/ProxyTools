@@ -1,9 +1,4 @@
-port: 7890
-socks-port: 7891     # SOCKS5 代理端口
-redir-port: 7892     # 透明代理端口，用于 Linux 和 MacOS
-mixed-port: 7893     # HTTP(S) 和 SOCKS 代理混合端口
-tproxy-port: 7894
-allow-lan: true      # 允许局域网连接
+
 mode: rule
 log-level: info
 ipv6: false
