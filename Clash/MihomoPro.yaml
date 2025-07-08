@@ -171,33 +171,8 @@ rule-providers:
   Outside:
     <<: *RuleSet_classical
     path: './ruleset/Outside.yaml'
-    url: 'https://raw.githubusercontent.com/Review977/ProxyTools/main/Rules/Proxy.yaml'                                          
-  
-  Telegram:   
-    <<: *RuleSet_classical
-    path: './ruleset/Telegram.yaml'
-    url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram_No_Resolve.yaml'
-     
-  YouTube:
-    <<: *RuleSet_classical
-    path: './ruleset/YouTube.yaml'
-    url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/YouTube/YouTube.yaml'
-    
-  OpenAi:
-    <<: *RuleSet_classical
-    path: './ruleset/OpenAi.yaml'
-    url: 'https://kelee.one/Tool/Clash/Rule/AI.yaml'
-    
-  Google:
-    <<: *RuleSet_classical
-    path: './ruleset/Google.yaml'
-    url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google.yaml'        
-  
-  Github:
-    <<: *RuleSet_classical
-    path: './ruleset/Github.yaml'
-    url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GitHub/GitHub.yaml'                  
-  
+    url: 'https://raw.githubusercontent.com/Review977/ProxyTools/main/Rules/Proxy.yaml' 
+
   Emby:
     <<: *RuleSet_classical
     path: './ruleset/Emby.yaml'
@@ -208,20 +183,45 @@ rule-providers:
     path: './ruleset/Ys.yaml'
     url: 'https://raw.githubusercontent.com/Review977/ProxyTools/main/Rules/Ys.yaml'
   
+  Telegram:   
+    <<: *RuleSet_classical
+    path: './ruleset/Telegram.yaml'
+    url: 'https://rule.kelee.one/Clash/Telegram.yaml'
+     
+  YouTube:
+    <<: *RuleSet_classical
+    path: './ruleset/YouTube.yaml'
+    url: 'https://rule.kelee.one/Clash/YouTube.yaml'
+    
+  OpenAi:
+    <<: *RuleSet_classical
+    path: './ruleset/OpenAi.yaml'
+    url: 'https://kelee.one/Tool/Clash/Rule/AI.yaml'
+    
+  Google:
+    <<: *RuleSet_classical
+    path: './ruleset/Google.yaml'
+    url: 'https://rule.kelee.one/Clash/Google.yaml'        
+  
+  Github:
+    <<: *RuleSet_classical
+    path: './ruleset/Github.yaml'
+    url: 'https://rule.kelee.one/Clash/GitHub.yaml'                  
+  
   SpeedTest: 
     <<: *RuleSet_classical
     path: './ruleset/SpeedTest.yaml'
-    url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Speedtest/Speedtest.yaml'
+    url: 'https://rule.kelee.one/Clash/Speedtest.yaml'
   
   Microsoft:
     <<: *RuleSet_classical
     path: './ruleset/Microsoft.yaml'
-    url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Microsoft/Microsoft.yaml' 
+    url: 'https://rule.kelee.one/Clash/Microsoft.yaml' 
   
   Apple:
     <<: *RuleSet_classical
     path: './ruleset/Apple.yaml'
-    url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple_Classical.yaml'
+    url: 'https://rule.kelee.one/Clash/Apple.yaml'
   
   iCloudChina:
     <<: *RuleSet_classical
@@ -231,28 +231,28 @@ rule-providers:
   Game:
     <<: *RuleSet_classical
     path: './ruleset/Game.yaml'
-    url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Game/Game.yaml' 
+    url: 'https://rule.kelee.one/Clash/Game.yaml' 
   
   ProxyLite:
     <<: *RuleSet_classical
     path: './ruleset/ProxyLite.yaml'
-    url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ProxyLite/ProxyLite.yaml'
+    url: 'https://rule.kelee.one/Clash/ProxyLite.yaml'
   
   Direct:
     <<: *RuleSet_classical
     path: './ruleset/Direct.yaml'
-    url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Direct/Direct.yaml' 
+    url: 'https://rule.kelee.one/Clash/Direct.yaml' 
   
     
   Download: 
     <<: *RuleSet_classical
     path: './ruleset/Download.yaml'
-    url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Download/Download.yaml'  
+    url: 'https://rule.kelee.one/Clash/Download.yaml'  
 
   Lan:
     <<: *RuleSet_classical
     path: './ruleset/Lan.yaml'
-    url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Lan/Lan.yaml'   
+    url: 'https://kelee.one/Tool/Clash/Rule/LAN_SPLITTER.yaml'   
      
   CN_domain:
     <<: *RuleSet_domain
