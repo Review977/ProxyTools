@@ -1,83 +1,86 @@
 /**
- * 九号出行签到脚本
- * 配合 Loon 定时任务使用
- * 变量名：NINEBOT，格式：Bearer token1 & Bearer token2
+ * @fileoverview 九号出行自动签到脚本
+ * @cron 0 9 * * *
+ * @env NINEBOT（支持格式：deviceId#Bearer token & deviceId#Bearer token）
+ * @notify 签到结果
  */
 
-const ACC_KEY = "NINEBOT";
-const BASE_URL = "https://cn-cbu-gateway.ninebot.com/portal/api/user-sign/v2";
+const accounts = ($persistentStore.read("NINEBOT") || "").split("&").filter(Boolean);
 
-const tokensEnv = typeof $argument !== "undefined" ? $argument : $persistentStore.read(ACC_KEY);
-
-if (!tokensEnv) {
-  console.log("未找到环境变量 NINEBOT");
-  $done();
+function logNotify(title, msg) {
+  console.log(`${title}\n${msg}`);
+  $notification.post(title, "", msg);
 }
 
-const tokens = tokensEnv.split("&").map(token => token.trim());
-let resultMsg = "";
-
-function sign(token, index, callback) {
+async function sign(account) {
+  const [deviceId, token] = account.split("#");
   const headers = {
     "Authorization": token,
     "Content-Type": "application/json",
     "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Segway v6 C 609033420",
     "Origin": "https://h5-bj.ninebot.com",
-    "Referer": "https://h5-bj.ninebot.com/"
+    "Referer": "https://h5-bj.ninebot.com/",
   };
 
-  // 先查询状态
-  const checkUrl = `${BASE_URL}/status?t=${Date.now()}`;
-  $httpClient.get({ url: checkUrl, headers }, (err, resp, data) => {
-    if (err) {
-      resultMsg += `账号${index + 1}：查询失败 ❌\n${err}\n`;
-      callback();
-      return;
+  // 查询签到状态
+  const statusUrl = `https://cn-cbu-gateway.ninebot.com/portal/api/user-sign/v2/status?t=${Date.now()}`;
+  const signUrl = `https://cn-cbu-gateway.ninebot.com/portal/api/user-sign/v2/sign`;
+
+  try {
+    const statusResp = await httpGet(statusUrl, headers);
+    const statusData = JSON.parse(statusResp.body);
+
+    if (statusData.code !== 0) {
+      return `账号 [${deviceId}] 查询状态失败 ❌：${statusData.msg}`;
     }
 
-    const json = JSON.parse(data);
-    if (json.code === 0 && json.data) {
-      const signed = json.data.currentSignStatus === 1;
-      const days = json.data.consecutiveDays || "未知";
+    const signed = statusData.data.currentSignStatus === 1;
+    const days = statusData.data.consecutiveDays || 0;
 
-      resultMsg += `账号${index + 1}：\n连续签到天数：${days}\n今日状态：${signed ? "✅ 已签到" : "❌ 未签到"}\n`;
-
-      if (!signed) {
-        // 发起签到
-        const signUrl = `${BASE_URL}/sign`;
-        $httpClient.post({ url: signUrl, headers, body: "{}" }, (err2, resp2, body2) => {
-          if (err2) {
-            resultMsg += `签到失败：${err2}\n\n`;
-          } else {
-            const res = JSON.parse(body2);
-            resultMsg += res.code === 0 ? "签到成功 ✅\n\n" : `签到失败 ❌：${res.msg || "未知"}\n\n`;
-          }
-          callback();
-        });
-      } else {
-        resultMsg += `\n`;
-        callback();
-      }
+    if (signed) {
+      return `账号 [${deviceId}] ✅ 已签到，连续 ${days} 天`;
     } else {
-      resultMsg += `账号${index + 1}：查询状态失败 ❌：${json.msg || "未知错误"}\n\n`;
-      callback();
+      const signResp = await httpPost(signUrl, headers, { deviceId });
+      const signData = JSON.parse(signResp.body);
+
+      if (signData.code === 0) {
+        return `账号 [${deviceId}] ✨ 签到成功，连续 ${days + 1} 天`;
+      } else {
+        return `账号 [${deviceId}] ❌ 签到失败：${signData.msg}`;
+      }
     }
+  } catch (e) {
+    return `账号 [${deviceId}] ❌ 异常：${e}`;
+  }
+}
+
+function httpGet(url, headers) {
+  return new Promise((resolve, reject) => {
+    $httpClient.get({ url, headers }, (err, resp, body) => {
+      if (err) reject(err);
+      else resolve({ status: resp.status, body });
+    });
   });
 }
 
-// 串行执行多账号签到
-let i = 0;
-function next() {
-  if (i >= tokens.length) {
-    $notification.post("九号出行签到完成", "", resultMsg.trim());
-    console.log(resultMsg);
+function httpPost(url, headers, data) {
+  return new Promise((resolve, reject) => {
+    $httpClient.post({ url, headers, body: JSON.stringify(data) }, (err, resp, body) => {
+      if (err) reject(err);
+      else resolve({ status: resp.status, body });
+    });
+  });
+}
+
+(async () => {
+  if (accounts.length === 0) {
+    logNotify("九号出行 ❌", "未检测到 NINEBOT 变量");
     $done();
     return;
   }
-  sign(tokens[i], i, () => {
-    i++;
-    next();
-  });
-}
 
-next();
+  const results = await Promise.all(accounts.map(sign));
+  const finalMsg = results.join("\n");
+  logNotify("九号出行签到结果 ✅", finalMsg);
+  $done();
+})();
