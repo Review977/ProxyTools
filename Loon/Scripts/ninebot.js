@@ -1,5 +1,5 @@
 /**
- * 九号出行签到脚本（单账号版 / 修复连续签到天数统计）
+ * 九号出行签到脚本（单账号版 / 修复连续签到天数统计11）
  * cron: 0 9 * * *
  * 环境变量 NINEBOT = deviceId#Bearer token
  */
@@ -52,15 +52,16 @@ function httpPost(url, data) {
   const calRes = await httpGet(`${url_base}/calendar?t=${now}`);
   try {
     const calData = JSON.parse(calRes.body);
-    const info = calData.data.calendarInfo || [];
-    const currentDay = calData.data.currentTimestamp;
+    const info = Array.isArray(calData.data?.calendarInfo) ? calData.data.calendarInfo : [];
+    const currentDay = calData.data?.currentTimestamp;
 
-    signed = info.some(i => i.timestamp === currentDay && i.sign === 1);
+    // 判断今日是否签到（sign = 1 或 2 都算）
+    signed = info.some(i => i.timestamp === currentDay && (i.sign === 1 || i.sign === 2));
     output.push(signed ? "✅ 今日已签到" : "⚠️ 今日未签到");
 
-    // 计算连续签到天数
+    // 连续签到天数判断（倒序按天统计）
     const sorted = info
-      .filter(i => i.sign === 1 && i.timestamp <= currentDay)
+      .filter(i => (i.sign === 1 || i.sign === 2) && i.timestamp <= currentDay)
       .sort((a, b) => b.timestamp - a.timestamp);
 
     let count = 0;
@@ -68,7 +69,7 @@ function httpPost(url, data) {
     for (let item of sorted) {
       if (item.timestamp === expected) {
         count++;
-        expected -= 86400000; // 前一天
+        expected -= 86400000;
       } else {
         break;
       }
