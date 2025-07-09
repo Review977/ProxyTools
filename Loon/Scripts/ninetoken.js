@@ -1,30 +1,44 @@
-const TOKEN_KEY = "NINEBOT";
+/**
+ * @fileoverview 九号出行 token 抓取脚本
+ * @target https://cn-cbu-gateway.ninebot.com/portal/api/user-sign/v2/calendar
+ * @cron 不需要，作为 HTTP-REQUEST 脚本使用
+ * @env NINEBOT
+ * @format deviceId#Bearer token
+ */
 
 const headers = $request.headers || {};
 let token = "";
+let deviceId = "";
 
-// 从 headers 或 cookie 中提取 token
-if (headers["access_token"]) {
-  token = headers["access_token"];
-} else if (headers["cookie"]?.includes("access_token")) {
-  const match = headers["cookie"].match(/access_token=([^;\s]+)/);
-  if (match) token = match[1];
-}
-
-if (!token) {
-  console.log("❌ 未获取到 token");
-  $notification.post("抓取失败", "", "access_token 不存在");
-  $done();
-} else {
-  const bearerToken = `Bearer ${token}`;
-  const old = $persistentStore.read(TOKEN_KEY);
-  const merged = old && !old.includes(bearerToken) ? `${old}&${bearerToken}` : bearerToken;
-
-  const success = $persistentStore.write(merged, TOKEN_KEY);
-  if (success) {
-    $notification.post("✅ 抓取成功", "", bearerToken);
-  } else {
-    $notification.post("❌ 写入失败", "", "请检查权限");
+// 提取 authorization 字段
+if (headers["authorization"]) {
+  token = headers["authorization"].trim();
+  if (!token.startsWith("Bearer ")) {
+    token = "Bearer " + token;
   }
-  $done();
 }
+
+// 提取 device_id 字段
+if (headers["device_id"]) {
+  deviceId = headers["device_id"].trim();
+}
+
+if (token && deviceId) {
+  const newToken = `${deviceId}#${token}`;
+  const old = $persistentStore.read("NINEBOT") || "";
+  let updated = old;
+
+  if (!old.includes(newToken)) {
+    updated = old ? old + "&" + newToken : newToken;
+    $persistentStore.write(updated, "NINEBOT");
+    $notification.post("✅ 九号出行 token 抓取成功", "", `${deviceId}\n${token.slice(0, 30)}...`);
+    console.log("✅ Token 更新成功:", newToken);
+  } else {
+    console.log("✅ 已存在，无需更新:", newToken);
+  }
+} else {
+  $notification.post("❌ 抓取失败", "", "未能获取 token 或 device_id");
+  console.log("❌ headers:", JSON.stringify(headers));
+}
+
+$done({});
