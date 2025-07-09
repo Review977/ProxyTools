@@ -1,5 +1,5 @@
 /**
- * 九号出行签到脚本（单账号版）1
+ * 九号出行签到脚本（单账号版2）
  * cron: 0 9 * * *
  * 环境变量 NINEBOT = deviceId#Bearer token
  */
@@ -22,78 +22,86 @@ const headers = {
   "language": "zh"
 };
 
-const now = Date.now();
-const today = new Date().toISOString().split("T")[0];
-const url_base = "https://cn-cbu-gateway.ninebot.com/portal/api/user-sign/v2";
-
-function httpGet(url) {
-  return new Promise(resolve => {
-    $httpClient.get({ url, headers }, (err, resp, body) => {
-      resolve({ err, status: resp?.status, body });
-    });
-  });
+function get(url) {
+  return new Promise(resolve =>
+    $httpClient.get({ url, headers }, (err, resp, body) =>
+      resolve({ err, status: resp?.status || 0, body })
+    )
+  );
 }
 
-function httpPost(url, data) {
-  return new Promise(resolve => {
-    $httpClient.post({ url, headers, body: JSON.stringify(data) }, (err, resp, body) => {
-      resolve({ err, status: resp?.status, body });
-    });
-  });
+function post(url, data) {
+  return new Promise(resolve =>
+    $httpClient.post({ url, headers, body: JSON.stringify(data) }, (err, resp, body) =>
+      resolve({ err, status: resp?.status || 0, body })
+    )
+  );
 }
 
 (async () => {
-  let output = [`账号 [${deviceId}]`];
+  const now = Date.now();
+  let log = [`账号 [${deviceId}]`];
 
-  // 查询签到状态
-  const cal = await httpGet(`${url_base}/calendar?t=${now}`);
-  let signed = false;
-  let days = "未知";
+  // 查询日历
+  const calResp = await get(`https://cn-cbu-gateway.ninebot.com/portal/api/user-sign/v2/calendar?t=${now}`);
+  let signed = false, consecutive = 0, rewardInfo = null;
 
   try {
-    const calData = JSON.parse(cal.body);
-    const list = calData.data?.calendar || [];
-    const todayData = list.find(i => i.day === today) || {};
-    signed = todayData.signed || false;
-    days = calData.data?.consecutiveDays ?? "未知";
-    output.push(signed ? "✅ 今日已签到" : "⚠️ 今日未签到");
+    const json = JSON.parse(calResp.body);
+    const cal = json.data?.calendarInfo || [];
+    const currentTs = json.data?.currentTimestamp;
+
+    const today = cal.find(i => i.timestamp === currentTs);
+    signed = today?.sign === 1;
+    rewardInfo = today?.rewardInfo;
+
+    // 连续签到计算
+    const oneDay = 86400000;
+    let ts = currentTs;
+    while (cal.some(i => i.timestamp === ts && i.sign === 1)) {
+      consecutive++;
+      ts -= oneDay;
+    }
+
+    log.push(signed ? "✅ 今日已签到" : "⚠️ 今日未签到");
+
   } catch {
-    output.push("⚠️ 签到状态获取失败");
+    log.push("⚠️ 签到状态获取失败");
   }
 
-  // 如果未签到，则尝试签到
+  // 执行签到（如果未签）
   if (!signed) {
-    const res = await httpPost(`${url_base}/sign`, { deviceId });
+    const signRes = await post("https://cn-cbu-gateway.ninebot.com/portal/api/user-sign/v2/sign", { deviceId });
     try {
-      const json = JSON.parse(res.body);
-      if (json.code === 0) output.push("✨ 签到成功");
-      else output.push(`❌ 签到失败：${json.msg || "未知"}`);
+      const res = JSON.parse(signRes.body);
+      if (res.code === 0) {
+        log.push("✨ 签到成功");
+        signed = true;
+      } else {
+        log.push(`❌ 签到失败：${res.msg || "未知错误"}`);
+      }
     } catch {
-      output.push("❌ 签到接口异常");
+      log.push("❌ 签到失败（解析错误）");
     }
   }
 
-  // 查询盲盒状态
-  const box = await httpGet(`${url_base}/blind-box/list?t=${now}`);
+  // 查询盲盒
+  const boxRes = await get(`https://cn-cbu-gateway.ninebot.com/portal/api/user-sign/v2/blind-box/list?t=${now}`);
   try {
-    const boxData = JSON.parse(box.body);
-    const current = boxData.data?.[0];
-    if (current) {
-      const stage = current.phase ?? "?";
-      const nowDays = current.currentSignDays ?? "?";
-      const targetDays = current.targetSignDays ?? "?";
-      const status = current.rewardReceived ? "🎁 已领取" : "📦 未领取";
-      output.push(`盲盒阶段 ${stage}：${nowDays}/${targetDays} 天｜${status}`);
+    const boxData = JSON.parse(boxRes.body);
+    const unopened = boxData.data?.notOpenedBoxes?.[0];
+    const opened = boxData.data?.openedBoxes?.length || 0;
+    if (unopened) {
+      log.push(`📦 盲盒：${unopened.leftDaysToOpen} 天后可领（目标${unopened.awardDays}天）`);
     } else {
-      output.push("📦 无盲盒数据");
+      log.push("📦 无盲盒数据");
     }
   } catch {
-    output.push("📦 盲盒数据解析失败");
+    log.push("📦 盲盒数据解析失败");
   }
 
-  // 连续签到天数
-  output.push(`连续签到：${days} 天`);
+  log.push(`连续签到：${consecutive || "未知"} 天`);
 
-  $notification.post("九号出行签到 ✅", "", output.join("\n"));
+  $notification.post("九号出行签到 ✅", "", log.join("\n"));
   $done();
 })();
