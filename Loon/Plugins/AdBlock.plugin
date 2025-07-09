@@ -3,10 +3,14 @@
 
 [Rule]
 
+DOMAIN,api.iturrit.com,Telegram
+IP-CIDR,95.161.76.100/31,REJECT-NO-DROP,no-resolve
+
+
+
 # 屏蔽 HikMall 开屏广告图片（精确匹配 hash 路径）
 URL-REGEX,"^https:\/\/file\.hikmall\.com\/prod\/image\/77c2e6cd398043d980ece986b042bbd4\.jpeg$",REJECT
-# 海康互联去开屏
-# DOMAIN-SUFFIX,magicacid.cn,REJECT
+
 # NB助手去开屏
 DOMAIN,api-dsp.8ziben.com,REJECT
 DOMAIN,sdk.zhangyuyidong.cn,REJECT
@@ -22,8 +26,7 @@ DOMAIN,s3plus.meituan.net,REJECT
 DOMAIN,cdn.1rtb.com,REJECT
 DOMAIN,qh-material.taobao.com,REJECT
 
-DOMAIN,api.iturrit.com,Telegram
-IP-CIDR,95.161.76.100/31,REJECT-NO-DROP,no-resolve
+
 
 
 
