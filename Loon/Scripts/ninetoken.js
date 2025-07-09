@@ -1,55 +1,46 @@
 /**
- * @file 九号出行 token 抓取脚本（仅在成功提取后通知）
+ * @script 九号出行 Token 抓取脚本（适配 Loon）
  * @type HTTP-REQUEST
  * @match ^https:\/\/cn-cbu-gateway\.ninebot\.com\/portal\/api\/user-sign\/v2\/calendar
  */
 
-const name = "九号出行 Token";
 const ENV_KEY = "NINEBOT";
+const name = "九号出行 token 抓取";
 
-function notify(title, msg) {
-  $notification.post(title, "", msg);
-}
+try {
+  const headers = $request.headers || {};
+  const token = headers["authorization"] || "";
+  const deviceId = headers["device_id"] || "";
 
-function getHeaders($request) {
-  const auth = $request.headers?.authorization || "";
-  const deviceId = $request.headers?.device_id || "";
-  return { auth, deviceId };
-}
-
-(function () {
-  if (!$request?.headers) return $done();
-
-  const { auth, deviceId } = getHeaders($request);
-
-  if (!auth || !deviceId) {
-    console.log(`❌ 抓取失败 → token: ${!!auth}, deviceId: ${!!deviceId}`);
-    return $done();
+  if (!token || !deviceId) {
+    console.log("❌ token 或 deviceId 缺失");
+    $done({});
+    return;
   }
 
-  const newAccount = `${deviceId}#${auth}`;
-  const oldVal = $persistentStore.read(ENV_KEY) || "";
-  const list = oldVal.split("&").filter(Boolean);
+  const newAccount = `${deviceId}#${token}`;
+  const raw = $persistentStore.read(ENV_KEY) || "";
+  const list = raw.split("&").filter(Boolean);
 
-  // 是否已存在
-  const exists = list.some(item => item === newAccount);
-  if (exists) {
-    console.log("⚠️ 当前账号 token 已存在，无需重复写入");
-    return $done();
+  if (list.includes(newAccount)) {
+    console.log("✅ token 已存在，无需重复写入");
+    $done({});
+    return;
   }
 
-  // 添加新账号
   list.push(newAccount);
-  const finalVal = list.join("&");
-  const saved = $persistentStore.write(finalVal, ENV_KEY);
+  const final = list.join("&");
+  const ok = $persistentStore.write(final, ENV_KEY);
 
-  if (saved) {
-    console.log("✅ Token 更新成功！");
-    notify(name, `✅ 成功写入账号：\n${deviceId}`);
+  if (ok) {
+    console.log(`✅ token 写入成功：${deviceId}`);
+    $notification.post(name, "", `✅ token 写入成功：\n${deviceId}`);
   } else {
-    console.log("❌ 写入失败");
-    notify(name, "❌ 写入失败");
+    console.log("❌ token 写入失败");
+    $notification.post(name, "", "❌ token 写入失败");
   }
-
-  $done();
-})();
+} catch (e) {
+  console.log("❌ 脚本异常：" + e.message);
+} finally {
+  $done({});
+}
