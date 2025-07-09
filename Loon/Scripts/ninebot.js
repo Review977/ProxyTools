@@ -1,5 +1,5 @@
 /**
- * 九号出行签到脚本（单账号版 / 修复连续签到天数统计11）
+ * 九号出行签到脚本（单账号，修复连续签到逻辑12）
  * cron: 0 9 * * *
  * 环境变量 NINEBOT = deviceId#Bearer token
  */
@@ -23,8 +23,6 @@ const headers = {
 };
 
 const now = Date.now();
-const today = new Date();
-today.setHours(0, 0, 0, 0);
 const url_base = "https://cn-cbu-gateway.ninebot.com/portal/api/user-sign/v2";
 
 function httpGet(url) {
@@ -53,23 +51,23 @@ function httpPost(url, data) {
   try {
     const calData = JSON.parse(calRes.body);
     const info = Array.isArray(calData.data?.calendarInfo) ? calData.data.calendarInfo : [];
-    const currentDay = calData.data?.currentTimestamp;
+    const currentTs = calData.data?.currentTimestamp ?? now;
 
-    // 判断今日是否签到（sign = 1 或 2 都算）
-    signed = info.some(i => i.timestamp === currentDay && (i.sign === 1 || i.sign === 2));
+    // 判断今日是否已签到
+    signed = info.some(i => i.timestamp === currentTs && (i.sign === 1 || i.sign === 2));
     output.push(signed ? "✅ 今日已签到" : "⚠️ 今日未签到");
 
-    // 连续签到天数判断（倒序按天统计）
-    const sorted = info
-      .filter(i => (i.sign === 1 || i.sign === 2) && i.timestamp <= currentDay)
-      .sort((a, b) => b.timestamp - a.timestamp);
+    // 提取已签到记录（含 sign: 1 和 2，按时间升序排列）
+    const signedList = info
+      .filter(i => i.sign === 1 || i.sign === 2)
+      .map(i => i.timestamp)
+      .sort((a, b) => a - b);
 
-    let count = 0;
-    let expected = currentDay;
-    for (let item of sorted) {
-      if (item.timestamp === expected) {
+    // 连续天数判断：从末尾向前检查连续性
+    let count = 1;
+    for (let i = signedList.length - 1; i > 0; i--) {
+      if (signedList[i] - signedList[i - 1] === 86400000) {
         count++;
-        expected -= 86400000;
       } else {
         break;
       }
@@ -79,7 +77,7 @@ function httpPost(url, data) {
     output.push("⚠️ 签到状态获取失败");
   }
 
-  // 若未签到，执行签到
+  // 未签到则尝试执行签到
   if (!signed) {
     const res = await httpPost(`${url_base}/sign`, { deviceId });
     try {
