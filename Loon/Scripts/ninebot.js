@@ -1,5 +1,5 @@
 /**
- * 九号出行签到脚本（单账号，修复连续签到逻辑12）
+ * 九号出行签到脚本（单账号，统计连续与累计签到）
  * cron: 0 9 * * *
  * 环境变量 NINEBOT = deviceId#Bearer token
  */
@@ -45,6 +45,7 @@ function httpPost(url, data) {
   let output = [`账号 [${deviceId}]`];
   let signed = false;
   let signDays = 0;
+  let totalDays = 0;
 
   // 获取签到日历
   const calRes = await httpGet(`${url_base}/calendar?t=${now}`);
@@ -57,13 +58,15 @@ function httpPost(url, data) {
     signed = info.some(i => i.timestamp === currentTs && (i.sign === 1 || i.sign === 2));
     output.push(signed ? "✅ 今日已签到" : "⚠️ 今日未签到");
 
-    // 提取已签到记录（含 sign: 1 和 2，按时间升序排列）
+    // 已签到日期（含 sign=1 和 2）
     const signedList = info
       .filter(i => i.sign === 1 || i.sign === 2)
       .map(i => i.timestamp)
       .sort((a, b) => a - b);
 
-    // 连续天数判断：从末尾向前检查连续性
+    totalDays = signedList.length;
+
+    // 连续天数计算
     let count = 1;
     for (let i = signedList.length - 1; i > 0; i--) {
       if (signedList[i] - signedList[i - 1] === 86400000) {
@@ -77,7 +80,7 @@ function httpPost(url, data) {
     output.push("⚠️ 签到状态获取失败");
   }
 
-  // 未签到则尝试执行签到
+  // 未签到则尝试签到
   if (!signed) {
     const res = await httpPost(`${url_base}/sign`, { deviceId });
     try {
@@ -103,7 +106,10 @@ function httpPost(url, data) {
     output.push("📦 盲盒数据解析失败");
   }
 
-  output.push(`连续签到：${signDays} 天`);
+  // 展示连续/累计天数
+  output.push(`✅ 累计签到：${totalDays} 天`);
+  output.push(`📆 连续签到：${signDays} 天`);
+
   $notification.post("九号出行签到 ✅", "", output.join("\n"));
   console.log(output.join("\n"));
   $done();
