@@ -1,12 +1,12 @@
 /**
- * 九号出行签到脚本（单账号，统计连续与累计签到）
+ * 九台出行签到脚本（单账号＋精确统计综合版）
  * cron: 0 9 * * *
  * 环境变量 NINEBOT = deviceId#Bearer token
  */
 
 const ENV = $persistentStore.read("NINEBOT");
 if (!ENV || !ENV.includes("#")) {
-  $notification.post("九号出行 ❌", "", "未配置 NINEBOT 环境变量");
+  $notification.post("九台出行 ❌", "", "未配置 NINEBOT 环境变量");
   $done();
 }
 
@@ -51,36 +51,29 @@ function httpPost(url, data) {
   const calRes = await httpGet(`${url_base}/calendar?t=${now}`);
   try {
     const calData = JSON.parse(calRes.body);
-    const info = Array.isArray(calData.data?.calendarInfo) ? calData.data.calendarInfo : [];
-    const currentTs = calData.data?.currentTimestamp ?? now;
+    const info = calData.data.calendarInfo || [];
+    const currentDay = calData.data.currentTimestamp;
 
-    // 判断今日是否已签到
-    signed = info.some(i => i.timestamp === currentTs && (i.sign === 1 || i.sign === 2));
+    signed = info.some(i => i.timestamp === currentDay && (i.sign === 1 || i.sign === 2));
     output.push(signed ? "✅ 今日已签到" : "⚠️ 今日未签到");
 
-    // 已签到日期（含 sign=1 和 2）
-    const signedList = info
-      .filter(i => i.sign === 1 || i.sign === 2)
-      .map(i => i.timestamp)
-      .sort((a, b) => a - b);
+    const signedSet = new Set(
+      info.filter(i => i.sign === 1 || i.sign === 2).map(i => i.timestamp)
+    );
+    totalDays = signedSet.size;
 
-    totalDays = signedList.length;
-
-    // 连续天数计算
-    let count = 1;
-    for (let i = signedList.length - 1; i > 0; i--) {
-      if (signedList[i] - signedList[i - 1] === 86400000) {
-        count++;
-      } else {
-        break;
-      }
+    let streak = 0;
+    let day = currentDay;
+    while (signedSet.has(day)) {
+      streak++;
+      day -= 86400000;
     }
-    signDays = count;
+    signDays = streak;
   } catch {
     output.push("⚠️ 签到状态获取失败");
   }
 
-  // 未签到则尝试签到
+  // 如未签到，执行签到
   if (!signed) {
     const res = await httpPost(`${url_base}/sign`, { deviceId });
     try {
@@ -106,11 +99,10 @@ function httpPost(url, data) {
     output.push("📦 盲盒数据解析失败");
   }
 
-  // 展示连续/累计天数
-  output.push(`✅ 累计签到：${totalDays} 天`);
-  output.push(`📆 连续签到：${signDays} 天`);
+  output.push(`累计签到：${totalDays} 天`);
+  output.push(`连续签到：${signDays} 天`);
 
-  $notification.post("九号出行签到 ✅", "", output.join("\n"));
+  $notification.post("九台出行签到 ✅", "", output.join("\n"));
   console.log(output.join("\n"));
   $done();
 })();
