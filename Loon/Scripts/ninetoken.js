@@ -1,44 +1,55 @@
 /**
- * @fileoverview 九号出行 token 抓取脚本
- * @target https://cn-cbu-gateway.ninebot.com/portal/api/user-sign/v2/calendar
- * @cron 不需要，作为 HTTP-REQUEST 脚本使用
- * @env NINEBOT
- * @format deviceId#Bearer token
+ * @file 九号出行 token 抓取脚本（仅在成功提取后通知）
+ * @type HTTP-REQUEST
+ * @match ^https:\/\/cn-cbu-gateway\.ninebot\.com\/portal\/api\/user-sign\/v2\/calendar
  */
 
-const headers = $request.headers || {};
-let token = "";
-let deviceId = "";
+const name = "九号出行 Token";
+const ENV_KEY = "NINEBOT";
 
-// 提取 authorization 字段
-if (headers["authorization"]) {
-  token = headers["authorization"].trim();
-  if (!token.startsWith("Bearer ")) {
-    token = "Bearer " + token;
+function notify(title, msg) {
+  $notification.post(title, "", msg);
+}
+
+function getHeaders($request) {
+  const auth = $request.headers?.authorization || "";
+  const deviceId = $request.headers?.device_id || "";
+  return { auth, deviceId };
+}
+
+(function () {
+  if (!$request?.headers) return $done();
+
+  const { auth, deviceId } = getHeaders($request);
+
+  if (!auth || !deviceId) {
+    console.log(`❌ 抓取失败 → token: ${!!auth}, deviceId: ${!!deviceId}`);
+    return $done();
   }
-}
 
-// 提取 device_id 字段
-if (headers["device_id"]) {
-  deviceId = headers["device_id"].trim();
-}
+  const newAccount = `${deviceId}#${auth}`;
+  const oldVal = $persistentStore.read(ENV_KEY) || "";
+  const list = oldVal.split("&").filter(Boolean);
 
-if (token && deviceId) {
-  const newToken = `${deviceId}#${token}`;
-  const old = $persistentStore.read("NINEBOT") || "";
-  let updated = old;
+  // 是否已存在
+  const exists = list.some(item => item === newAccount);
+  if (exists) {
+    console.log("⚠️ 当前账号 token 已存在，无需重复写入");
+    return $done();
+  }
 
-  if (!old.includes(newToken)) {
-    updated = old ? old + "&" + newToken : newToken;
-    $persistentStore.write(updated, "NINEBOT");
-    $notification.post("✅ 九号出行 token 抓取成功", "", `${deviceId}\n${token.slice(0, 30)}...`);
-    console.log("✅ Token 更新成功:", newToken);
+  // 添加新账号
+  list.push(newAccount);
+  const finalVal = list.join("&");
+  const saved = $persistentStore.write(finalVal, ENV_KEY);
+
+  if (saved) {
+    console.log("✅ Token 更新成功！");
+    notify(name, `✅ 成功写入账号：\n${deviceId}`);
   } else {
-    console.log("✅ 已存在，无需更新:", newToken);
+    console.log("❌ 写入失败");
+    notify(name, "❌ 写入失败");
   }
-} else {
-  $notification.post("❌ 抓取失败", "", "未能获取 token 或 device_id");
-  console.log("❌ headers:", JSON.stringify(headers));
-}
 
-$done({});
+  $done();
+})();
