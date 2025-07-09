@@ -28,12 +28,12 @@ IP-CIDR,95.161.76.100/31,REJECT-NO-DROP,no-resolve
 
 
 [Script]
-http-response ^https:\/\/ads\.magicacid\.cn\/.+/splash_ad$ requires-body=true, script-path=https://raw.githubusercontent.com/Review977/ProxyTools/main/Loon/Scripts/ad-empty.js, timeout=10, tag=海康互联去开屏
+
 
 
 
 [MITM]
-hostname = file.hikmall.com,ads.magicacid.cn
+hostname = file.hikmall.com
 
 
 
