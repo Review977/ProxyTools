@@ -106,5 +106,6 @@ function httpPost(url, data) {
 
   output.push(`连续签到：${signDays} 天`);
   $notification.post("九号出行签到 ✅", "", output.join("\n"));
+  console.log(output.join("\n"));
   $done();
 })();
