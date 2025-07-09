@@ -1,5 +1,5 @@
 /**
- * @script 九号出行自动签到（展示积分 + 盲盒）
+ * @script 九号出行签到（显示积分+盲盒进度）
  * @cron 0 9 * * *
  * @env NINEBOT
  */
@@ -58,14 +58,16 @@ async function run(account) {
     // 获取签到状态
     const calResp = await httpGet(calendarURL, headers);
     const calData = JSON.parse(calResp.body);
-    if (calData.code !== 0) {
-      return `账号 [${deviceId}] 查询失败 ❌：${calData.msg || "未知错误"}`;
+
+    if (calData.code !== 0 || !calData.data) {
+      return `账号 [${deviceId}] 查询失败 ❌：${calData.msg || "无返回 data"}`;
     }
 
+    const calendarArr = calData.data.calendar || [];
+    const todayData = calendarArr.find(x => x.day === today) || {};
+    const signed = todayData.signed || false;
     const score = calData.data.score ?? "未知";
     const days = calData.data.consecutiveDays ?? "未知";
-    const todayData = calData.data.calendar.find(x => x.day === today);
-    const signed = todayData?.signed || false;
 
     let signResult = "";
     if (signed) {
@@ -82,15 +84,19 @@ async function run(account) {
 
     // 获取盲盒进度
     const boxResp = await httpGet(blindBoxURL, headers);
-    const boxData = JSON.parse(boxResp.body);
-    let boxInfo = "";
-    if (boxData.code === 0 && boxData.data?.length > 0) {
-      const current = boxData.data[0];
-      const stage = current.phase || "未知阶段";
-      const currentDays = current.currentSignDays || 0;
-      const targetDays = current.targetSignDays || "?";
-      const received = current.rewardReceived ? "已领取" : "未领取";
-      boxInfo = `盲盒进度：阶段 ${stage}（${currentDays}/${targetDays} 天）｜${received}`;
+    let boxInfo = "盲盒信息获取失败";
+    try {
+      const boxData = JSON.parse(boxResp.body);
+      if (boxData.code === 0 && Array.isArray(boxData.data) && boxData.data.length > 0) {
+        const current = boxData.data[0];
+        const stage = current.phase || "?";
+        const currentDays = current.currentSignDays || 0;
+        const targetDays = current.targetSignDays || "?";
+        const received = current.rewardReceived ? "🎁 已领取" : "📦 未领取";
+        boxInfo = `盲盒阶段 ${stage}：${currentDays}/${targetDays} 天｜${received}`;
+      }
+    } catch (e) {
+      boxInfo = "盲盒数据解析失败";
     }
 
     return [
@@ -99,7 +105,7 @@ async function run(account) {
       `连续签到：${days} 天`,
       `当前积分：${score} 分`,
       boxInfo
-    ].filter(Boolean).join("\n");
+    ].join("\n");
 
   } catch (e) {
     return `账号 [${deviceId}] ❌ 异常：${e.message}`;
