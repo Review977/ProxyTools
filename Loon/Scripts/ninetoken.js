@@ -1,22 +1,35 @@
 const TOKEN_KEY = "NINEBOT";
 
 const headers = $request.headers || {};
-const token = headers["access_token"] || headers["Access_Token"] || "";
+const rawBody = $request.body || "";
 
-let deviceId = "";
-let rawBody = $request.body || "";
+// ---- 打印日志以调试 ----
+console.log("请求头 >>>", JSON.stringify(headers, null, 2));
+console.log("请求体 >>>", rawBody);
 
-try {
-  const jsonBody = JSON.parse(rawBody);
-  console.log("请求体内容：", JSON.stringify(jsonBody, null, 2));
-  deviceId = jsonBody.deviceId || jsonBody.data?.deviceId || "";
-} catch (e) {
-  console.log("请求体解析失败:", e);
+// 🔍 提取 token
+let token = "";
+
+// 情况 1：access_token 在 headers 里（常规）
+if (headers["access_token"]) {
+  token = headers["access_token"];
 }
 
+// 情况 2：access_token 在 cookie 里
+if (!token && headers["cookie"]?.includes("access_token")) {
+  const match = headers["cookie"].match(/access_token=([^;\s]+)/);
+  if (match) token = match[1];
+}
+
+// 🔍 提取 deviceId（从 HTML 或 raw text 中）
+let deviceId = "";
+const matchDev = rawBody.match(/"deviceId"\s*:\s*"([^"]+)"/) || rawBody.match(/deviceId["']?\s*[:=]\s*["']([^"']+)/);
+if (matchDev) deviceId = matchDev[1];
+
+// ✅ 写入变量
 if (!token || !deviceId) {
-  console.log("抓取失败 ❌：token:", token ? "有" : "无", "deviceId:", deviceId ? "有" : "无");
-  $notification.post("九号出行抓取失败", "", `token: ${!!token} | deviceId: ${!!deviceId}`);
+  console.log(`❌ 抓取失败 → token: ${token ? '✔️' : '❌'}, deviceId: ${deviceId ? '✔️' : '❌'}`);
+  $notification.post("九号出行抓取失败", "", `token: ${token ? '✔️' : '❌'} | deviceId: ${deviceId ? '✔️' : '❌'}`);
   $done();
 } else {
   const result = `${deviceId}#Bearer ${token}`;
