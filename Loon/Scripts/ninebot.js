@@ -1,6 +1,5 @@
 /**
- * 九号出行单账号签到脚本（含盲盒显示）
- * 适用平台：Loon
+ * 九号出行签到脚本（单账号版）1
  * cron: 0 9 * * *
  * 环境变量 NINEBOT = deviceId#Bearer token
  */
@@ -46,7 +45,7 @@ function httpPost(url, data) {
 (async () => {
   let output = [`账号 [${deviceId}]`];
 
-  // 获取签到状态
+  // 查询签到状态
   const cal = await httpGet(`${url_base}/calendar?t=${now}`);
   let signed = false;
   let days = "未知";
@@ -57,37 +56,24 @@ function httpPost(url, data) {
     const todayData = list.find(i => i.day === today) || {};
     signed = todayData.signed || false;
     days = calData.data?.consecutiveDays ?? "未知";
+    output.push(signed ? "✅ 今日已签到" : "⚠️ 今日未签到");
   } catch {
     output.push("⚠️ 签到状态获取失败");
   }
 
-  // 若未签到则执行签到
+  // 如果未签到，则尝试签到
   if (!signed) {
     const res = await httpPost(`${url_base}/sign`, { deviceId });
     try {
       const json = JSON.parse(res.body);
-      if (json.code === 0) {
-        output.push("✨ 签到成功");
-        // 重新拉取状态
-        const cal2 = await httpGet(`${url_base}/calendar?t=${Date.now()}`);
-        const calData2 = JSON.parse(cal2.body);
-        const list2 = calData2.data?.calendar || [];
-        const today2 = list2.find(i => i.day === today) || {};
-        signed = today2.signed || false;
-        days = calData2.data?.consecutiveDays ?? "未知";
-      } else {
-        output.push(`❌ 签到失败：${json.msg || "未知"}`);
-      }
+      if (json.code === 0) output.push("✨ 签到成功");
+      else output.push(`❌ 签到失败：${json.msg || "未知"}`);
     } catch {
       output.push("❌ 签到接口异常");
     }
   }
 
-  // 最终状态
-  output.push(signed ? "✅ 今日已签到" : "⚠️ 今日未签到");
-  output.push(`连续签到：${days} 天`);
-
-  // 获取盲盒数据
+  // 查询盲盒状态
   const box = await httpGet(`${url_base}/blind-box/list?t=${now}`);
   try {
     const boxData = JSON.parse(box.body);
@@ -104,6 +90,9 @@ function httpPost(url, data) {
   } catch {
     output.push("📦 盲盒数据解析失败");
   }
+
+  // 连续签到天数
+  output.push(`连续签到：${days} 天`);
 
   $notification.post("九号出行签到 ✅", "", output.join("\n"));
   $done();
