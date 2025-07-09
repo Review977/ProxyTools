@@ -1,45 +1,33 @@
-/**
- * @fileoverview 九号出行抓取 deviceId 和 token
- * Loon 配置:
- *
- * [Script]
- * http-request ^https:\/\/cn-cbu-gateway\.ninebot\.com\/portal\/api\/user-sign\/v2\/status script-path=https://your.cdn.com/ninebot-capture.js,tag=抓取九号出行账号
-
- */
-
 const TOKEN_KEY = "NINEBOT";
 
-const authorization = $request.headers["Authorization"] || $request.headers["authorization"];
-let body = $request.body || "";
+const headers = $request.headers || {};
+const token = headers["access_token"] || headers["Access_Token"] || "";
 let deviceId = "";
 
+// 尝试从 body 中提取 deviceId
 try {
-  const json = JSON.parse(body);
-  deviceId = json.deviceId || "";
+  if ($request.body) {
+    const body = JSON.parse($request.body);
+    deviceId = body.deviceId || "";
+  }
 } catch (e) {
   console.log("请求体解析失败:", e);
 }
 
-if (!authorization || !deviceId) {
-  console.log("未成功获取 token 或 deviceId");
+if (!token || !deviceId) {
+  console.log("抓取失败 ❌：token 或 deviceId 缺失");
+  $notification.post("九号出行抓取失败", "", "未获取到 token 或 deviceId");
   $done();
 } else {
-  const current = `${deviceId}#${authorization}`;
-
+  const result = `${deviceId}#Bearer ${token}`;
   const old = $persistentStore.read(TOKEN_KEY);
-  let merged = current;
-
-  // 自动去重追加（可选）
-  if (old && !old.includes(current)) {
-    merged = `${old}&${current}`;
-  }
+  const merged = old && !old.includes(result) ? `${old}&${result}` : result;
 
   const success = $persistentStore.write(merged, TOKEN_KEY);
   if (success) {
-    $notification.post("九号出行", "账号获取成功 ✅", `${deviceId}\n已写入变量 NINEBOT`);
+    $notification.post("✅ 九号账号抓取成功", "", result);
   } else {
-    $notification.post("九号出行", "写入变量失败 ❌", "请检查权限");
+    $notification.post("❌ 变量写入失败", "", "请检查权限");
   }
-
   $done();
 }
