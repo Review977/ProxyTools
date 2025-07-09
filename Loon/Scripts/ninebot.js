@@ -1,8 +1,7 @@
 /**
- * @file 九号出行自动签到
- * @env NINEBOT
+ * @file 九号出行自动签到脚本（使用 /calendar 接口判断）
  * @cron 0 9 * * *
- * @version 20240709
+ * @env NINEBOT
  */
 
 const accounts = ($persistentStore.read("NINEBOT") || "").split("&").filter(Boolean);
@@ -39,7 +38,7 @@ async function sign(account) {
   const headers = {
     "Authorization": token.trim(),
     "Content-Type": "application/json",
-    "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Segway v6 C 609053420",
+    "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Segway v6 C 609053474",
     "Origin": "https://h5-bj.ninebot.com",
     "Referer": "https://h5-bj.ninebot.com/",
     "Host": "cn-cbu-gateway.ninebot.com",
@@ -47,35 +46,37 @@ async function sign(account) {
     "language": "zh"
   };
 
+  const today = new Date().toISOString().split("T")[0];
   const t = Date.now();
-  const statusUrl = `https://cn-cbu-gateway.ninebot.com/portal/api/user-sign/v2/status?t=${t}`;
+  const calendarUrl = `https://cn-cbu-gateway.ninebot.com/portal/api/user-sign/v2/calendar?t=${t}`;
   const signUrl = "https://cn-cbu-gateway.ninebot.com/portal/api/user-sign/v2/sign";
 
   try {
-    const statusResp = await httpGet(statusUrl, headers);
-    const statusData = JSON.parse(statusResp.body);
+    const calResp = await httpGet(calendarUrl, headers);
+    const calData = JSON.parse(calResp.body);
 
-    if (statusData.code !== 0) {
-      return `账号 [${deviceId}] 查询状态失败 ❌：${statusData.msg || "未知错误"}`;
+    if (calData.code !== 0) {
+      return `账号 [${deviceId}] 查询失败 ❌：${calData.msg || "未知错误"}`;
     }
 
-    const signed = statusData.data.currentSignStatus === 1;
-    const days = statusData.data.consecutiveDays || 0;
+    const list = calData.data.calendar || [];
+    const todayItem = list.find(x => x.day === today);
+    const signed = todayItem?.signed || false;
 
     if (signed) {
-      return `账号 [${deviceId}] ✅ 已签到，连续 ${days} 天`;
+      return `账号 [${deviceId}] ✅ 已签到`;
     } else {
       const signResp = await httpPost(signUrl, headers, { deviceId });
       const signData = JSON.parse(signResp.body);
 
       if (signData.code === 0) {
-        return `账号 [${deviceId}] ✨ 签到成功，连续 ${days + 1} 天`;
+        return `账号 [${deviceId}] ✨ 签到成功`;
       } else {
         return `账号 [${deviceId}] ❌ 签到失败：${signData.msg || "未知错误"}`;
       }
     }
   } catch (e) {
-    return `账号 [${deviceId}] ❌ 异常：${e}`;
+    return `账号 [${deviceId}] ❌ 请求异常：${e.message}`;
   }
 }
 
