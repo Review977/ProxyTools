@@ -22,7 +22,7 @@ DOMAIN-SUFFIX,adkwai.com,REJECT
 
 # 得力e+去开屏
 DOMAIN,img1.360buyimg.com,REJECT
-DOMAIN,s3plus.meituan.net,REJECT
+#DOMAIN,s3plus.meituan.net,REJECT
 DOMAIN,cdn.1rtb.com,REJECT
 DOMAIN,qh-material.taobao.com,REJECT
 
