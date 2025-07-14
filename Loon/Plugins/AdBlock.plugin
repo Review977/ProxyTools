@@ -28,7 +28,7 @@ DOMAIN,qh-material.taobao.com,REJECT
 
 [Rewrite]
 
-^https:\/\/file\.hikmall\.com\/prod\/image\/c6966c776aec46698967d463adaa82d3\.png$ REJECT
+^https:\/\/file\.hikmall\.com\/prod\/image\/c6966c776aec46698967d463adaa82d3\.png$ reject
 
 [Script]
 
