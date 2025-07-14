@@ -8,8 +8,7 @@ IP-CIDR,95.161.76.100/31,REJECT-NO-DROP,no-resolve
 
 
 
-# 屏蔽 HikMall 开屏广告图片（精确匹配 hash 路径）
-URL-REGEX,"^https:\/\/file\.hikmall\.com\/prod\/image\/77c2e6cd398043d980ece986b042bbd4\.jpeg$",REJECT
+
 
 # NB助手去开屏
 DOMAIN,api-dsp.8ziben.com,REJECT
@@ -27,8 +26,9 @@ DOMAIN,cdn.1rtb.com,REJECT
 DOMAIN,qh-material.taobao.com,REJECT
 
 
+[Rewrite]
 
-
+^https:\/\/file\.hikmall\.com\/prod\/image\/c6966c776aec46698967d463adaa82d3\.png$ REJECT
 
 [Script]
 
