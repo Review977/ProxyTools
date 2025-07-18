@@ -51,7 +51,12 @@ sniffer:
 tun:
   enable: true
   stack: system
-  dns-hijack: [any:53]
+  auto-route: true
+  auto-redirect: true
+  auto-detect-interface: true
+  dns-hijack:
+    - any:53
+    - tcp://any:53
 
 dns:
   enable: true
@@ -59,12 +64,14 @@ dns:
   listen: 0.0.0.0:1053    # 监听地址和端口
   prefer-h3: true         # 如果DNS服务器支持DoH3会优先使用h3，提升性能
   respect-rules: true     # 让 DNS 解析遵循 Clash 的路由规则
-  enhanced-mode: fake-ip
+  
   cache-algorithm: arc    # 使用性能更优的 ARC 缓存算法
   cache-size: 2048        # 限制缓存大小，避免占用过多内存
   use-hosts: false        # 使用hosts
   use-system-hosts: false # 使用系统hosts
+  enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
+  fake-ip-filter-mode: blacklist
   
   default-nameserver:
     - 223.5.5.5
