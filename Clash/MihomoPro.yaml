@@ -61,14 +61,12 @@ tun:
 dns:
   enable: true
   ipv6: false
-  listen: 0.0.0.0:1053    # 监听地址和端口
-  prefer-h3: true         # 如果DNS服务器支持DoH3会优先使用h3，提升性能
-  respect-rules: true     # 让 DNS 解析遵循 Clash 的路由规则
-  
-  cache-algorithm: arc    # 使用性能更优的 ARC 缓存算法
-  cache-size: 2048        # 限制缓存大小，避免占用过多内存
-  use-hosts: false        # 使用hosts
-  use-system-hosts: false # 使用系统hosts
+  listen: 0.0.0.0:1053
+  respect-rules: true
+  cache-algorithm: arc
+  cache-size: 2048
+  use-hosts: false
+  use-system-hosts: false
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter-mode: blacklist
