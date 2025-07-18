@@ -56,7 +56,7 @@ tun:
 dns:
   enable: true
   ipv6: false
-  listen: 0.0.0.0:53    # 监听地址和端口
+  listen: 0.0.0.0:1053    # 监听地址和端口
   prefer-h3: true         # 如果DNS服务器支持DoH3会优先使用h3，提升性能
   respect-rules: true     # 让 DNS 解析遵循 Clash 的路由规则
   enhanced-mode: fake-ip
