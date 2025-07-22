@@ -113,17 +113,18 @@ FilterOthers: &FilterOthers '^(?!.*(🇭🇰|HK|Hong|香港|🇹🇼|TW|Taiwan|W
 FilterAll: &FilterAll '^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author)\b|(\d{4}-\d{2}-\d{2}|\d+G)))).*$'
 
 Select: &Select {type: select, url: 'https://cp.cloudflare.com/generate_204', disable-udp: false, hidden: false, include-all: true}
-
 Auto: &Auto {type: url-test, url: 'https://cp.cloudflare.com/generate_204', interval: 300, tolerance: 50, disable-udp: false, hidden: true, include-all: true}
+
+Smart: &Smart {type: smart, interval: 200, lazy: true, url: 'https://cp.cloudflare.com/generate_204', hidden: true, uselightgbm: true}
 
 
 proxy-groups:
 # 分流分组
 
 
-  - {name: 全球加速, type: select, proxies: [香港, 日本, 新加坡, 美国, 自建, Proxy], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png }
-  - {name: Telegram, type: select, proxies: [香港, 日本, 新加坡, 自建, 媒体, Proxy], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Telegram.png }
-  - {name: YouTube, type: select, proxies: [香港, 日本, 新加坡, 美国, 媒体, Proxy], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/YouTube.png }
+  - {name: 全球加速, type: select, proxies: [香港, 香港Smart, 日本, 新加坡, 美国, 自建, Proxy], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png }
+  - {name: Telegram, type: select, proxies: [香港, 香港Smart, 日本, 新加坡, 自建, 媒体, Proxy], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Telegram.png }
+  - {name: YouTube, type: select, proxies: [香港, 香港Smart, 日本, 新加坡, 美国, 媒体, Proxy], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/YouTube.png }
   - {name: 智能助理,   type: select, proxies: [自建, 美国, 日本, 新加坡, Proxy], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/OpenAI.png }
   - {name: 谷歌服务, type: select, proxies: [自建, 美国, 日本, Proxy], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Google.png }
   - {name: Emby,   type: select, proxies: [DIRECT, 媒体, Proxy], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Emby.png }
@@ -144,7 +145,8 @@ proxy-groups:
   - {name: 媒体, <<: *Select, filter: *FilterDB, icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/shadowrocket.png}
   - {name: 自建, <<: *Select, filter: *FilterZJ, icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/shadowrocket.png}
 
-  
+
+  - {name: 香港Smart, <<: *Smart, filter: *FilterHK , icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/HK.png}
   # 自动选择
   #- {name: 香港自动, <<: *Auto, filter: *FilterHK , icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/HK.png}
   #- {name: 日本自动, <<: *Auto, filter: *FilterJP , icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/JP.png}
