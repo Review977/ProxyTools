@@ -1,4 +1,4 @@
 payload:
-  - DOMIX-SUFFIX,pppad.xyz
-  - IP-CIDR,45.12.53.63/32
-  - IP-CIDR,151.241.88.112/32
+ - DOMIX-SUFFIX,pppad.xyz
+ - IP-CIDR,45.12.53.63/32
+ - IP-CIDR,151.241.88.112/32
