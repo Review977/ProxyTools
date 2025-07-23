@@ -1,11 +1,13 @@
 #!name = 自用APP去广告
-#!desc = 去除自用APP开屏广告
+#!desc = 去除自用APP开屏广告,及部分分流规则
 
 [Rule]
 
 DOMAIN,api.iturrit.com,Telegram
 IP-CIDR,95.161.76.100/31,REJECT-NO-DROP,no-resolve
-
+DOMAIN-SUFFIX,pppad.xyz,DIRECT
+IP-CIDR,45.12.53.63/32,DIRECT
+IP-CIDR,151.241.88.112/32,DIRECT
 
 
 
