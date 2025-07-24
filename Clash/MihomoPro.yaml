@@ -114,6 +114,7 @@ FilterAll: &FilterAll '^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客�
 
 Select: &Select {type: select, url: 'https://cp.cloudflare.com/generate_204', disable-udp: false, hidden: false, include-all: true}
 Auto: &Auto {type: url-test, url: 'https://cp.cloudflare.com/generate_204', interval: 300, tolerance: 50, disable-udp: false, hidden: true, include-all: true}
+Fallback: &Fallback {type: fallback, interval: 200, lazy: true, url: 'https://cp.cloudflare.com/generate_204'}
 
 #Smart: &Smart {type: smart, interval: 200, lazy: true, url: 'https://cp.cloudflare.com/generate_204', hidden: true, uselightgbm: true}
 
