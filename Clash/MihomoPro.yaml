@@ -20,6 +20,12 @@ geox-url:
   asn: https://github.com/xishang0128/geoip/releases/download/latest/GeoLite2-ASN.mmdb
   
   
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+
+
 sniffer:
   enable: true
   sniff:
