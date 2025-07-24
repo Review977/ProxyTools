@@ -4,10 +4,6 @@ log-level: info
 ipv6: false
 unified-delay: true
 
-# =============================== GEO 数据库配置 ===============================
-# 该配置用于加载地理位置信息数据库，包括 IP 和域名的地理位置数据
-# 在不同的规则配置中，可以使用地理信息进行更精确的流量路由
-
 # GEO 数据库模式配置，启用该功能以获取和使用地理位置信息
 geodata-mode: true
 
@@ -61,28 +57,15 @@ tun:
 dns:
   enable: true
   ipv6: false
-  listen: 0.0.0.0:1053
-  respect-rules: true
-  cache-algorithm: arc
-  cache-size: 2048
-  use-hosts: false
-  use-system-hosts: false
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
-  fake-ip-filter-mode: blacklist
-  
   default-nameserver:
-    - 223.5.5.5
     - 119.29.29.29
+    - 180.184.1.1
+    - 223.5.5.5
   nameserver:
-    - 'https://doh.pub/dns-query'
-    - 'https://dns.alidns.com/dns-query'
-    - 'https://dns.cloudflare.com/dns-query'
-  proxy-server-nameserver:
-    - 'https://doh.pub/dns-query'
-    - 'https://dns.alidns.com/dns-query'
-    - 'https://dns.cloudflare.com/dns-query'
-
+    - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
   fake-ip-filter:
     - 'rule-set:CN_domain'
     - "geosite:private"
