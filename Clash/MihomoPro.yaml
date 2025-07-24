@@ -97,9 +97,8 @@ FilterAll: &FilterAll '^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客�
 
 Select: &Select {type: select, url: 'https://cp.cloudflare.com/generate_204', disable-udp: false, hidden: false, include-all: true}
 Auto: &Auto {type: url-test, url: 'https://cp.cloudflare.com/generate_204', interval: 300, tolerance: 50, disable-udp: false, hidden: true, include-all: true}
-Fallback: &Fallback {type: fallback, interval: 200, lazy: true, url: 'https://cp.cloudflare.com/generate_204'}
-
-#Smart: &Smart {type: smart, interval: 200, lazy: true, url: 'https://cp.cloudflare.com/generate_204', hidden: true, uselightgbm: true}
+Fallback: &Fallback {type: fallback, url: 'https://cp.cloudflare.com/generate_204', interval: 200, lazy: true, include-all: true}
+Smart: &Smart {type: smart, url: 'https://cp.cloudflare.com/generate_204', interval: 200, lazy: true, hidden: true, include-all: true, uselightgbm: true}
 
 
 proxy-groups:
@@ -130,7 +129,7 @@ proxy-groups:
   - {name: 自建, <<: *Select, filter: *FilterZJ, icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/shadowrocket.png}
 
 
-  #- {name: 香港智能,  <<: *BaseSmart, filter: *FilterHK, include-all: true, policy-priority: '优:2;中:1;备:0.5', icon: https://git.imee.me/https://github.com/Koolson/Qure/raw/master/IconSet/Color/Hong_Kong.png}
+  #- {name: 香港智能,  <<: *BaseSmart, filter: *FilterHK, policy-priority: '优:2;中:1;备:0.5', icon: https://git.imee.me/https://github.com/Koolson/Qure/raw/master/IconSet/Color/Hong_Kong.png}
   # 自动选择
   #- {name: 香港自动, <<: *Auto, filter: *FilterHK , icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/HK.png}
   #- {name: 日本自动, <<: *Auto, filter: *FilterJP , icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/JP.png}
