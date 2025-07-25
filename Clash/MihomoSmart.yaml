@@ -108,7 +108,7 @@ FilterAll: &FilterAll '^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客�
 Select: &Select {type: select, url: 'https://cp.cloudflare.com/generate_204', disable-udp: false, hidden: false, include-all: true}
 Auto: &Auto {type: url-test, url: 'https://cp.cloudflare.com/generate_204', interval: 300, tolerance: 50, disable-udp: false, hidden: true, include-all: true}
 Fallback: &Fallback {type: fallback, url: 'https://cp.cloudflare.com/generate_204', interval: 200, lazy: true, include-all: true}
-Smart: &Smart {type: smart, url: 'https://cp.cloudflare.com/generate_204', interval: 200, lazy: true, hidden: true, include-all: true, uselightgbm: true}
+Smart: &Smart {type: smart, url: 'https://cp.cloudflare.com/generate_204', interval: 200, lazy: true, hidden: false, include-all: true, uselightgbm: true}
 
 
 proxy-groups:
