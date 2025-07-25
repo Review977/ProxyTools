@@ -184,11 +184,6 @@ rule-providers:
     <<: *RuleSet_classical
     path: './ruleset/Emby.yaml'
     url: 'https://raw.githubusercontent.com/Review977/ProxyTools/main/Rules/Emby.yaml'
-
-  JHYS:
-    <<: *RuleSet_classical
-    path: './ruleset/Ys.yaml'
-    url: 'https://raw.githubusercontent.com/Review977/ProxyTools/main/Rules/Ys.yaml'
     
   Telegram:   
     <<: *RuleSet_classical
@@ -203,7 +198,7 @@ rule-providers:
   OpenAi:
     <<: *RuleSet_classical
     path: './ruleset/OpenAi.yaml'
-    url: 'https://gist.githubusercontent.com/ddgksf2013/cb4121e8b5c5d865cc949cb8120320c4/raw/Ai.yaml'
+    url: 'https://kelee.one/Tool/Clash/Rule/AI.yaml'
     
   Google:
     <<: *RuleSet_classical
@@ -282,7 +277,6 @@ rules:
   - RULE-SET,Outside,全球加速
   - RULE-SET,Github,全球加速
   - RULE-SET,ProxyLite,全球加速
-  - RULE-SET,JHYS,DIRECT
   - RULE-SET,SpeedTest,DIRECT
   - RULE-SET,Microsoft,DIRECT
   - RULE-SET,Apple,DIRECT
