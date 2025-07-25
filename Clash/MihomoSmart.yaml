@@ -1,0 +1,297 @@
+mode: rule
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+tproxy-port: 7895
+ipv6: false
+log-level: info
+unified-delay: true
+
+# GEO 数据库模式配置，启用该功能以获取和使用地理位置信息
+geodata-mode: true
+
+# GEO 数据库加载模式，选择合适的内存占用策略
+# 'memconservative' 适用于较低内存占用，保证系统性能
+geodata-loader: memconservative
+geo-auto-update: true
+geo-update-interval: 24
+# 自定 GEO 下载地址
+geox-url:
+  geosite: https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat
+  mmdb: https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/country-lite.mmdb
+  geoip: https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip-lite.dat
+  asn: https://github.com/xishang0128/geoip/releases/download/latest/GeoLite2-ASN.mmdb
+  
+  
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+
+
+sniffer:
+  enable: true
+  sniff:
+    HTTP:
+      ports: [80, 8080-8880]
+      override-destination: true
+    TLS:
+      ports: [443, 8443]
+    QUIC:
+      ports: [443, 8443]
+  skip-domain: # 忽略嗅探
+    - 'rule-set:CN_domain'
+    - 'Mijia Cloud'
+    - '+.push.apple.com'
+    - '+.wechat.com'
+    - '+.qpic.cn'
+    - '+.qq.com'
+    - '+.wechatapp.com'
+    #  语音通信
+    - '+.vivox.com'
+    # 向日葵服务
+    - '+.oray.com'
+    - '+.sunlogin.net'
+
+tun:
+  enable: true
+  stack: mixed
+  auto-route: true
+  auto-redirect: true
+  auto-detect-interface: true
+  strict-route: true
+  dns-hijack:
+    - any:53
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  default-nameserver:
+    - 119.29.29.29
+    - 180.184.1.1
+    - 223.5.5.5
+  nameserver:
+    - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
+  fake-ip-filter:
+    - 'rule-set:CN_domain'
+    - "geosite:private"
+    - '*.lan'
+    - '*.local'
+    - '*.local.lan'
+    - '*.internal'
+    - '*.localdomain'
+    - +.miwifi.com
+    - +.docker.io
+    - +.market.xiaomi.com
+    - +.push.apple.com
+
+    
+# 节点筛选
+FilterHK: &FilterHK '^(?=.*(香港|HK|Hong|🇭🇰))^(?!.*(网站|地址|剩余|过期|时间|有效|网址|禁止|邮箱|发布|客服|订阅|节点)).*$'
+FilterJP: &FilterJP '^(?=.*(日本|JP|Japan|🇯🇵))^(?!.*(网站|地址|剩余|过期|时间|有效|网址|禁止|邮箱|发布|客服|订阅|节点)).*$'
+FilterKR: &FilterKR '^(?=.*(韩国|韓|KR|Korea|🇰🇷))^(?!.*(网站|地址|剩余|过期|时间|有效|网址|禁止|邮箱|发布|客服|订阅|节点)).*$'
+FilterSG: &FilterSG '^(?=.*(新加坡|狮城|SG|Singapore|🇸🇬))^(?!.*(网站|地址|剩余|过期|时间|有效|网址|禁止|邮箱|发布|客服|订阅|节点)).*$'
+FilterUS: &FilterUS '^(?=.*(美国|US|United States|America|🇺🇸))^(?!.*(网站|地址|剩余|过期|时间|有效|网址|禁止|邮箱|发布|客服|订阅|节点)).*$'
+FilterUK: &FilterUK '^(?=.*(英国|UK|United Kingdom|🇬🇧))^(?!.*(网站|地址|剩余|过期|时间|有效|网址|禁止|邮箱|发布|客服|订阅|节点)).*$'
+FilterFR: &FilterFR '^(?=.*(法国|FR|France|🇫🇷))^(?!.*(网站|地址|剩余|过期|时间|有效|网址|禁止|邮箱|发布|客服|订阅|节点)).*$'
+FilterDE: &FilterDE '^(?=.*(德国|DE|Germany|🇩🇪))^(?!.*(网站|地址|剩余|过期|时间|有效|网址|禁止|邮箱|发布|客服|订阅|节点)).*$'
+FilterTW: &FilterTW '^(?=.*(台湾|TW|Taiwan|Wan|🇹🇼|🇨🇳))^(?!.*(网站|地址|剩余|过期|时间|有效|网址|禁止|邮箱|发布|客服|订阅|节点)).*$'
+FilterZJ: &FilterZJ '^(?=.*(自建))^(?!.*(网站|地址|剩余|过期|时间|有效|网址|禁止|邮箱|发布|客服|订阅|节点)).*$'
+FilterDB: &FilterDB '^(?=.*(0.1|0.01|0.2|自建))^(?!.*(网站|地址|剩余|过期|时间|有效|网址|禁止|邮箱|发布|客服|订阅|节点)).*$'
+FilterOthers: &FilterOthers '^(?!.*(🇭🇰|HK|Hong|香港|🇹🇼|TW|Taiwan|Wan|🇯🇵|JP|Japan|日本|🇸🇬|SG|Singapore|狮城|🇺🇸|US|United States|America|美国|🇩🇪|DE|Germany|德国|🇬🇧|UK|United Kingdom|英国|🇰🇷|KR|Korea|韩国|韓|🇫🇷|FR|France|法国)).*$'
+FilterAll: &FilterAll '^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author)\b|(\d{4}-\d{2}-\d{2}|\d+G)))).*$'
+
+Select: &Select {type: select, url: 'https://cp.cloudflare.com/generate_204', disable-udp: false, hidden: false, include-all: true}
+Auto: &Auto {type: url-test, url: 'https://cp.cloudflare.com/generate_204', interval: 300, tolerance: 50, disable-udp: false, hidden: true, include-all: true}
+Fallback: &Fallback {type: fallback, url: 'https://cp.cloudflare.com/generate_204', interval: 200, lazy: true, include-all: true}
+Smart: &Smart {type: smart, url: 'https://cp.cloudflare.com/generate_204', interval: 200, lazy: true, hidden: true, include-all: true, uselightgbm: true}
+
+
+proxy-groups:
+# 分流分组
+
+
+  - {name: 全球加速, type: select, proxies: [香港, 日本, 新加坡, 美国, 自建, Proxy], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png }
+  - {name: Telegram, type: select, proxies: [香港, 日本, 新加坡, 自建, 媒体, Proxy], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Telegram.png }
+  - {name: YouTube, type: select, proxies: [香港, 日本, 新加坡, 美国, 媒体, Proxy], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/YouTube.png }
+  - {name: 智能助理,   type: select, proxies: [自建, 美国, 日本, 新加坡, Proxy], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/OpenAI.png }
+  - {name: 谷歌服务, type: select, proxies: [自建, 美国, 日本, Proxy], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Google.png }
+  - {name: Emby,   type: select, proxies: [DIRECT, 媒体, Proxy], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Emby.png }
+  
+  #- {name: 微软服务, type: select, proxies: [DIRECT, 香港, 日本, 新加坡, 美国, Proxy], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Microsoft.png }
+  #- {name: 苹果服务, type: select, proxies: [DIRECT, 香港, 日本, 新加坡, 美国, Proxy], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Apple.png }
+  #- {name: 游戏平台, type: select, proxies: [DIRECT, 香港, 日本, 新加坡, 美国, Proxy], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/GAME.png }
+  
+ 
+
+  # 手动选择
+  - {name: 香港, <<: *Select, filter: *FilterHK , icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/HK.png}
+  - {name: 日本, <<: *Select, filter: *FilterJP , icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/JP.png}
+  - {name: 新加坡, <<: *Select, filter: *FilterSG , icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/SG.png}
+  - {name: 美国, <<: *Select, filter: *FilterUS , icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/US.png}
+  #- {name: 台湾, <<: *Select, filter: *FilterTW , icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/TW.png}
+  
+  - {name: 媒体, <<: *Select, filter: *FilterDB, icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/shadowrocket.png}
+  - {name: 自建, <<: *Select, filter: *FilterZJ, icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/shadowrocket.png}
+
+
+  - {name: 香港智能,  <<: *BaseSmart, filter: *FilterHK, policy-priority: '优:2;中:1;备:0.5', icon: https://git.imee.me/https://github.com/Koolson/Qure/raw/master/IconSet/Color/Hong_Kong.png}
+  # 自动选择
+  #- {name: 香港自动, <<: *Auto, filter: *FilterHK , icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/HK.png}
+  #- {name: 日本自动, <<: *Auto, filter: *FilterJP , icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/JP.png}
+  #- {name: 新加坡自动, <<: *Auto, filter: *FilterSG , icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/SG.png}
+  #- {name: 台湾自动, <<: *Auto, filter: *FilterTW , icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/TW.png}
+
+  
+  # 全部节点
+  - {name: Proxy, <<: *Select, filter: *FilterAll, icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/shadowrocket.png}
+
+
+rule-anchor:
+# 锚点 - 规则参数 [每小时更新一次订阅规则，更新规则时使用代理策略]
+
+  RuleSet_classical: &RuleSet_classical {type: http, behavior: classical, interval: 86400, format: yaml, proxy: 全球加速}
+  RuleSet_domain: &RuleSet_domain {type: http, behavior: domain, interval: 86400, format: mrs, proxy: 全球加速}
+  RuleSet_ipcidr: &RuleSet_ipcidr {type: http, behavior: ipcidr, interval: 86400, format: mrs, proxy: 全球加速}
+
+
+
+  ip: &ip {type: http, interval: 86400, behavior: ipcidr, format: yaml, proxy: 全球加速}
+  domain: &domain {type: http, interval: 86400, behavior: domain, format: yaml, proxy: 全球加速}
+  domaintxt: &domaintxt {type: http, interval: 86400, behavior: domain, format: text, proxy: 全球加速}
+  classicaltxt: &classicaltxt {type: http, interval: 86400, behavior: classical, format: text, proxy: 全球加速}
+
+
+
+# 分流规则 
+rule-providers:
+  
+  Outside:
+    <<: *RuleSet_classical
+    path: './ruleset/Outside.yaml'
+    url: 'https://raw.githubusercontent.com/Review977/ProxyTools/main/Rules/Proxy.yaml' 
+
+  Inside:
+    <<: *RuleSet_classical
+    path: './ruleset/Inside.yaml'
+    url: 'https://raw.githubusercontent.com/Review977/ProxyTools/main/Rules/Direct.yaml'
+
+  Emby:
+    <<: *RuleSet_classical
+    path: './ruleset/Emby.yaml'
+    url: 'https://raw.githubusercontent.com/Review977/ProxyTools/main/Rules/Emby.yaml'
+
+  JHYS:
+    <<: *RuleSet_classical
+    path: './ruleset/Ys.yaml'
+    url: 'https://raw.githubusercontent.com/Review977/ProxyTools/main/Rules/Ys.yaml'
+    
+  Telegram:   
+    <<: *RuleSet_classical
+    path: './ruleset/Telegram.yaml'
+    url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.yaml'
+     
+  YouTube:
+    <<: *RuleSet_classical
+    path: './ruleset/YouTube.yaml'
+    url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/YouTube/YouTube.yaml'
+    
+  OpenAi:
+    <<: *RuleSet_classical
+    path: './ruleset/OpenAi.yaml'
+    url: 'https://kelee.one/Tool/Clash/Rule/AI.yaml'
+    
+  Google:
+    <<: *RuleSet_classical
+    path: './ruleset/Google.yaml'
+    url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google.yaml'        
+  
+  Github:
+    <<: *RuleSet_classical
+    path: './ruleset/Github.yaml'
+    url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GitHub/GitHub.yaml'                  
+  
+  SpeedTest: 
+    <<: *RuleSet_classical
+    path: './ruleset/SpeedTest.yaml'
+    url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Speedtest/Speedtest.yaml'
+  
+  Microsoft:
+    <<: *RuleSet_classical
+    path: './ruleset/Microsoft.yaml'
+    url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Microsoft/Microsoft.yaml' 
+  
+  Apple:
+    <<: *RuleSet_classical
+    path: './ruleset/Apple.yaml'
+    url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple_Classical.yaml'
+  
+  iCloudChina:
+    <<: *RuleSet_classical
+    path: './ruleset/iCloudChina.yaml'
+    url: 'https://kelee.one/Tool/Clash/Rule/iCloudChina.yaml'  
+  
+  Game:
+    <<: *RuleSet_classical
+    path: './ruleset/Game.yaml'
+    url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Game/Game.yaml' 
+  
+  ProxyLite:
+    <<: *RuleSet_classical
+    path: './ruleset/ProxyLite.yaml'
+    url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ProxyLite/ProxyLite.yaml'
+  
+  Direct:
+    <<: *RuleSet_classical
+    path: './ruleset/Direct.yaml'
+    url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Direct/Direct.yaml' 
+  
+    
+  Download: 
+    <<: *RuleSet_classical
+    path: './ruleset/Download.yaml'
+    url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Download/Download.yaml'  
+
+  Lan:
+    <<: *RuleSet_classical
+    path: './ruleset/Lan.yaml'
+    url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Lan/Lan.yaml'   
+     
+  CN_domain:
+    <<: *RuleSet_domain
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs"
+
+  CN_ip:
+    <<: *RuleSet_ipcidr
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs"
+    
+    
+  
+# 分流Policy 
+rules:
+  - RULE-SET,Telegram,Telegram
+  - RULE-SET,YouTube,YouTube
+  - RULE-SET,OpenAi,智能助理
+  - RULE-SET,Google,谷歌服务
+  - RULE-SET,Emby,Emby
+  - RULE-SET,Inside,DIRECT
+  - RULE-SET,Outside,全球加速
+  - RULE-SET,Github,全球加速
+  - RULE-SET,ProxyLite,全球加速
+  - RULE-SET,JHYS,DIRECT
+  - RULE-SET,SpeedTest,DIRECT
+  - RULE-SET,Microsoft,DIRECT
+  - RULE-SET,Apple,DIRECT
+  - RULE-SET,iCloudChina,DIRECT
+  - RULE-SET,Game,DIRECT
+  - RULE-SET,Direct,DIRECT
+  - RULE-SET,Download,DIRECT
+  - RULE-SET,Lan,DIRECT
+  - RULE-SET,CN_domain,DIRECT
+  - RULE-SET,CN_ip,DIRECT,no-resolve
+  - GEOIP,CN,DIRECT
+  - MATCH,全球加速
