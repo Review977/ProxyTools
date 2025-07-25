@@ -204,7 +204,7 @@ rule-providers:
   OpenAi:
     <<: *RuleSet_classical
     path: './ruleset/OpenAi.yaml'
-    url: 'https://kelee.one/Tool/Clash/Rule/AI.yaml'
+    url: 'https://gist.githubusercontent.com/ddgksf2013/cb4121e8b5c5d865cc949cb8120320c4/raw/Ai.yaml'
     
   Google:
     <<: *RuleSet_classical
