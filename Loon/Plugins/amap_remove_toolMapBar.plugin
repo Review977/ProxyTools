@@ -7,5 +7,5 @@
 #!date = 2025-08-06 12:00
 
 [Script]
-^https:\/\/m5-zb\.amap\.com\/ws\/boss\/car\/order\/content_info url script-response-body https://raw.githubusercontent.com/Review977/ProxyTools/refs/heads/main/Loon/Scripts/amap_remove_toolMapBar.js
+http-response ^https:\/\/m5-zb\.amap\.com\/ws\/boss\/car\/order\/content_info script-path = https://raw.githubusercontent.com/Review977/ProxyTools/main/Loon/Scripts/amap_remove_toolMapBar.js, requires-body = true, tag = [高德地图]移除右上角分享地址图标
 
