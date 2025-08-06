@@ -31,8 +31,16 @@ DOMAIN,qh-material.taobao.com,REJECT
 
 
 [Rewrite]
-
+# 海康云商开屏
 ^https:\/\/file\.hikmall\.com\/prod\/image\/cab297e371944c90bbf5069cde1fb264\.jpeg$ reject
+
+
+# 掌上生活开屏广告
+^https?:\/\/mbasecc\.(bas|bcs)\.cmbchina\.com\/Edge\/api\/mlife\.clientface\.clientservice\.api\.advertiseService\/preCacheAdvertiseSec reject-dict
+# 设置栏目内广告
+^https?:\/\/intellicc\.bas\.cmbchina\.com\/Edge\/api\/mlife\.intelli\.render\.api\.render\/getDynamicDataSec reject
+# 首页随机弹窗
+^https?:\/\/intellicc\.bcs\.cmbchina\.com\/Edge\/api\/mlife\.intelli\.adrender\.api\.AdWork\/getAdsBySlotId reject-dict
 
 [Script]
 
