@@ -9,5 +9,3 @@
 [Script]
 ^https:\/\/m5-zb\.amap\.com\/ws\/boss\/car\/order\/content_info url script-response-body https://raw.githubusercontent.com/Review977/ProxyTools/refs/heads/main/Loon/Scripts/amap_remove_toolMapBar.js
 
-[MitM]
-hostname = m5-zb.amap.com
