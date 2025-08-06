@@ -1,0 +1,16 @@
+#!name = 高德地图 - 右上角分享地址图标去除
+#!desc = 去除高德地图打车页面右上角分享地址图标
+#!author = ChatGPT + Review977
+#!tag = 去广告
+#!system = 
+#!system_version = 
+#!loon_version = 3.3.2(877)
+#!homepage = https://www.amap.com/
+#!icon = https://webapi.amap.com/images/amap_logo.png
+#!date = 2025-08-06 12:00
+
+[Script]
+^https:\/\/m5-zb\.amap\.com\/ws\/boss\/car\/order\/content_info url script-response-body https://raw.githubusercontent.com/Review977/ProxyTools/refs/heads/main/Loon/Scripts/amap_remove_toolMapBar.js
+
+[MitM]
+hostname = m5-zb.amap.com
