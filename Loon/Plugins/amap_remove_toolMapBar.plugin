@@ -2,10 +2,7 @@
 #!desc = 去除高德地图打车页面右上角分享地址图标
 #!author = ChatGPT + Review977
 #!tag = 去广告
-#!system = 
-#!system_version = 
 #!loon_version = 3.3.2(877)
-#!homepage = https://www.amap.com/
 #!icon = https://webapi.amap.com/images/amap_logo.png
 #!date = 2025-08-06 12:00
 
