@@ -35,7 +35,7 @@ DOMAIN,qh-material.taobao.com,REJECT
 ^https:\/\/file\.hikmall\.com\/prod\/image\/cab297e371944c90bbf5069cde1fb264\.jpeg$ reject
 
 
-# 掌上生活开屏广告
+# 掌上生活开屏广告,主机名mbasecc.bas.cmbchina.com, mbasecc.bcs.cmbchina.com, intellicc.bas.cmbchina.com, intellicc.bcs.cmbchina.com
 ^https?:\/\/mbasecc\.(bas|bcs)\.cmbchina\.com\/Edge\/api\/mlife\.clientface\.clientservice\.api\.advertiseService\/preCacheAdvertiseSec reject-dict
 # 设置栏目内广告
 ^https?:\/\/intellicc\.bas\.cmbchina\.com\/Edge\/api\/mlife\.intelli\.render\.api\.render\/getDynamicDataSec reject
@@ -48,7 +48,7 @@ DOMAIN,qh-material.taobao.com,REJECT
 
 
 [MITM]
-hostname = file.hikmall.com
+hostname = file.hikmall.com,mbasecc.bas.cmbchina.com, mbasecc.bcs.cmbchina.com, intellicc.bas.cmbchina.com, intellicc.bcs.cmbchina.com
 
 
 
