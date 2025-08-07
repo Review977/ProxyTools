@@ -172,25 +172,25 @@ rule-anchor:
 # 分流规则 
 rule-providers:
   
-Outside:      {<<: *RuleSet_classical, url: 'https://raw.githubusercontent.com/Review977/ProxyTools/main/Rules/Proxy.yaml'}
-Inside:       {<<: *RuleSet_classical, url: 'https://raw.githubusercontent.com/Review977/ProxyTools/main/Rules/Direct.yaml'}
-Emby:         {<<: *RuleSet_classical, url: 'https://raw.githubusercontent.com/Review977/ProxyTools/main/Rules/Emby.yaml'}
-Telegram:     {<<: *RuleSet_classical, url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.yaml'}
-YouTube:      {<<: *RuleSet_classical, url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/YouTube/YouTube.yaml'}
-OpenAi:       {<<: *RuleSet_classical, url: 'https://gist.githubusercontent.com/ddgksf2013/cb4121e8b5c5d865cc949cb8120320c4/raw/Ai.yaml'}
-Google:       {<<: *RuleSet_classical, url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google.yaml'}
-Github:       {<<: *RuleSet_classical, url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GitHub/GitHub.yaml'}
-SpeedTest:    {<<: *RuleSet_classical, url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Speedtest/Speedtest.yaml'}
-Microsoft:    {<<: *RuleSet_classical, url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Microsoft/Microsoft.yaml'}
-Apple:        {<<: *RuleSet_classical, url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple_Classical.yaml'}
-iCloudChina:  {<<: *RuleSet_classical, url: 'https://kelee.one/Tool/Clash/Rule/iCloudChina.yaml'}
-Game:         {<<: *RuleSet_classical, url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Game/Game.yaml'}
-ProxyLite:    {<<: *RuleSet_classical, url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ProxyLite/ProxyLite.yaml'}
-Direct:       {<<: *RuleSet_classical, url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Direct/Direct.yaml'}
-Download:     {<<: *RuleSet_classical, url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Download/Download.yaml'}
-Lan:          {<<: *RuleSet_classical, url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Lan/Lan.yaml'}
-CN_domain:    {<<: *RuleSet_domain, url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs'}
-CN_ip:        {<<: *RuleSet_ipcidr, url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs'}
+  Outside:      {<<: *RuleSet_classical, url: 'https://raw.githubusercontent.com/Review977/ProxyTools/main/Rules/Proxy.yaml'}
+  Inside:       {<<: *RuleSet_classical, url: 'https://raw.githubusercontent.com/Review977/ProxyTools/main/Rules/Direct.yaml'}
+  Emby:         {<<: *RuleSet_classical, url: 'https://raw.githubusercontent.com/Review977/ProxyTools/main/Rules/Emby.yaml'}
+  Telegram:     {<<: *RuleSet_classical, url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.yaml'}
+  YouTube:      {<<: *RuleSet_classical, url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/YouTube/YouTube.yaml'}
+  OpenAi:       {<<: *RuleSet_classical, url: 'https://gist.githubusercontent.com/ddgksf2013/cb4121e8b5c5d865cc949cb8120320c4/raw/Ai.yaml'}
+  Google:       {<<: *RuleSet_classical, url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google.yaml'}
+  Github:       {<<: *RuleSet_classical, url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GitHub/GitHub.yaml'}
+  SpeedTest:    {<<: *RuleSet_classical, url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Speedtest/Speedtest.yaml'}
+  Microsoft:    {<<: *RuleSet_classical, url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Microsoft/Microsoft.yaml'}
+  Apple:        {<<: *RuleSet_classical, url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple_Classical.yaml'}
+  iCloudChina:  {<<: *RuleSet_classical, url: 'https://kelee.one/Tool/Clash/Rule/iCloudChina.yaml'}
+  Game:         {<<: *RuleSet_classical, url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Game/Game.yaml'}
+  ProxyLite:    {<<: *RuleSet_classical, url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ProxyLite/ProxyLite.yaml'}
+  Direct:       {<<: *RuleSet_classical, url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Direct/Direct.yaml'}
+  Download:     {<<: *RuleSet_classical, url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Download/Download.yaml'}
+  Lan:          {<<: *RuleSet_classical, url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Lan/Lan.yaml'}
+  CN_domain:    {<<: *RuleSet_domain, url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs'}
+  CN_ip:        {<<: *RuleSet_ipcidr, url: 'https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs'}
     
     
   
