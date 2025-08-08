@@ -31,7 +31,8 @@ DOMAIN,qh-material.taobao.com,REJECT
 # 番茄小说去除阅读中视频
 DOMAIN,v26-reading-video.fqnovelvod.com,REJECT
 DOMAIN,v5-hl-ali-reading-video.fqnovelvod.com,REJECT
-DOMAIN-SUFFIX,reading-video,REJECT
+DOMAIN,v5-hl-hw-reading-video.fqnovelvod.com,REJECT
+DOMAIN-SUFFIX,reading-video.fqnovelvod.com,REJECT
 
 [Rewrite]
 # 海康云商开屏
