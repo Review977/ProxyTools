@@ -32,7 +32,7 @@ DOMAIN,qh-material.taobao.com,REJECT
 #DOMAIN,v26-reading-video.fqnovelvod.com,REJECT
 #DOMAIN,v5-hl-ali-reading-video.fqnovelvod.com,REJECT
 #DOMAIN,v5-hl-hw-reading-video.fqnovelvod.com,REJECT
-DOMAIN-KEYWORD,reading-video.fqnovelvod,REJECT
+#DOMAIN-KEYWORD,reading-video.fqnovelvod,REJECT
 
 [Rewrite]
 # 海康云商开屏
