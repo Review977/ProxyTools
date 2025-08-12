@@ -4,7 +4,6 @@
 [Rule]
 
 DOMAIN,api.iturrit.com,Telegram
-IP-CIDR,95.161.76.100/31,REJECT-NO-DROP,no-resolve
 DOMAIN-SUFFIX,pppad.xyz,DIRECT
 DOMAIN-SUFFIX,linux.do,DIRECT
 IP-CIDR,45.12.53.63/32,DIRECT
