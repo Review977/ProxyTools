@@ -62,6 +62,7 @@ dns:
   fake-ip-filter:
     - 'rule-set:CN_domain'
     - "geosite:private"
+    - "geosite:cn"
     - '*.lan'
     - '*.local'
     - '*.local.lan'
