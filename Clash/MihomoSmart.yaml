@@ -118,20 +118,21 @@ proxy-groups:
   - {name: 日本, <<: *Select, filter: *FilterJP , icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/JP.png}
   - {name: 新加坡, <<: *Select, filter: *FilterSG , icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/SG.png}
   - {name: 美国, <<: *Select, filter: *FilterUS , icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/US.png}
-  #- {name: 台湾, <<: *Select, filter: *FilterTW , icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/TW.png}
   
-  - {name: 媒体, <<: *Select, filter: *FilterDB, icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/shadowrocket.png}
+
   - {name: 自建, <<: *Select, filter: *FilterZJ, icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/shadowrocket.png}
+  - {name: 媒体, <<: *Select, filter: *FilterDB, icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/shadowrocket.png}
+  
 
 
   - {name: 香港智能,  <<: *Smart, filter: *FilterHK, icon: https://git.imee.me/https://github.com/Koolson/Qure/raw/master/IconSet/Color/Hong_Kong.png}
   - {name: 新加坡智能,  <<: *Smart, filter: *FilterSG, icon: https://git.imee.me/https://github.com/Koolson/Qure/raw/master/IconSet/Color/Singapore.png}
   - {name: 日本智能,  <<: *Smart, filter: *FilterJP, icon: https://git.imee.me/https://github.com/Koolson/Qure/raw/master/IconSet/Color/Japan.png}
+  
   # 自动选择
   #- {name: 香港自动, <<: *Auto, filter: *FilterHK , icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/HK.png}
   #- {name: 日本自动, <<: *Auto, filter: *FilterJP , icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/JP.png}
   #- {name: 新加坡自动, <<: *Auto, filter: *FilterSG , icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/SG.png}
-  #- {name: 台湾自动, <<: *Auto, filter: *FilterTW , icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/TW.png}
 
   
   # 全部节点
