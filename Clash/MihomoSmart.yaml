@@ -99,24 +99,24 @@ proxy-groups:
 # 分流分组
 
 
-  - {name: 全球加速, type: select, proxies: [香港智能, 日本智能, 新加坡智能, 香港, 日本, 新加坡, 美国, 自建, Proxy], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png }
-  - {name: Telegram, type: select, proxies: [新加坡智能, 香港智能, 新加坡, 香港, 媒体, Proxy], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Telegram.png }
-  - {name: 智能助理,   type: select, proxies: [自建, 美国, 日本, 新加坡, Proxy], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/OpenAI.png }
+  - {name: 全球加速, type: select, proxies: [香港智能, 日本智能, 新加坡智能, 香港, 日本, 狮城, 美国, 自建, Proxy], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png }
+  - {name: Telegram, type: select, proxies: [狮城智能, 香港智能, 狮城, 香港, 媒体, Proxy], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Telegram.png }
+  - {name: 智能助理,   type: select, proxies: [自建, 美国, 日本, 狮城, Proxy], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/OpenAI.png }
   
   - {name: YouTube, type: select, proxies: [日本智能, 香港智能, 香港, 日本, 美国, 媒体, Proxy], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/YouTube.png }
   - {name: 谷歌服务, type: select, proxies: [自建, 美国, 日本, Proxy], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Google.png }
   - {name: Emby,   type: select, proxies: [DIRECT, 媒体, Proxy], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Emby.png }
   
-  #- {name: 微软服务, type: select, proxies: [DIRECT, 香港, 日本, 新加坡, 美国, Proxy], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Microsoft.png }
-  #- {name: 苹果服务, type: select, proxies: [DIRECT, 香港, 日本, 新加坡, 美国, Proxy], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Apple.png }
-  #- {name: 游戏平台, type: select, proxies: [DIRECT, 香港, 日本, 新加坡, 美国, Proxy], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/GAME.png }
+  #- {name: 微软服务, type: select, proxies: [DIRECT, 香港, 日本, 狮城, 美国, Proxy], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Microsoft.png }
+  #- {name: 苹果服务, type: select, proxies: [DIRECT, 香港, 日本, 狮城, 美国, Proxy], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/Apple.png }
+  #- {name: 游戏平台, type: select, proxies: [DIRECT, 香港, 日本, 狮城, 美国, Proxy], icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/GAME.png }
   
  
 
   # 手动选择
   - {name: 香港, <<: *Select, filter: *FilterHK , icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/HK.png}
   - {name: 日本, <<: *Select, filter: *FilterJP , icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/JP.png}
-  - {name: 新加坡, <<: *Select, filter: *FilterSG , icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/SG.png}
+  - {name: 狮城, <<: *Select, filter: *FilterSG , icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/SG.png}
   - {name: 美国, <<: *Select, filter: *FilterUS , icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/US.png}
   
 
@@ -126,13 +126,13 @@ proxy-groups:
 
 
   - {name: 香港智能,  <<: *Smart, filter: *FilterHK, icon: https://git.imee.me/https://github.com/Koolson/Qure/raw/master/IconSet/Color/Hong_Kong.png}
-  - {name: 新加坡智能,  <<: *Smart, filter: *FilterSG, icon: https://git.imee.me/https://github.com/Koolson/Qure/raw/master/IconSet/Color/Singapore.png}
+  - {name: 狮城智能,  <<: *Smart, filter: *FilterSG, icon: https://git.imee.me/https://github.com/Koolson/Qure/raw/master/IconSet/Color/Singapore.png}
   - {name: 日本智能,  <<: *Smart, filter: *FilterJP, icon: https://git.imee.me/https://github.com/Koolson/Qure/raw/master/IconSet/Color/Japan.png}
   
   # 自动选择
   #- {name: 香港自动, <<: *Auto, filter: *FilterHK , icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/HK.png}
   #- {name: 日本自动, <<: *Auto, filter: *FilterJP , icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/JP.png}
-  #- {name: 新加坡自动, <<: *Auto, filter: *FilterSG , icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/SG.png}
+  #- {name: 狮城自动, <<: *Auto, filter: *FilterSG , icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/SG.png}
 
   
   # 全部节点
@@ -182,8 +182,8 @@ rule-providers:
 # 分流Policy 
 rules:
   - RULE-SET,Telegram,Telegram
-  - RULE-SET,YouTube,YouTube
   - RULE-SET,OpenAi,智能助理
+  - RULE-SET,YouTube,YouTube
   - RULE-SET,Google,谷歌服务
   - RULE-SET,Emby,Emby
   - RULE-SET,Inside,DIRECT
