@@ -4,7 +4,7 @@ socks-port: 7891
 redir-port: 7892
 mixed-port: 7893
 tproxy-port: 7895
-ipv6: false
+ipv6: true
 log-level: info
 unified-delay: true
 
@@ -49,7 +49,7 @@ tun:
 
 dns:
   enable: true
-  ipv6: false
+  ipv6: true
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   default-nameserver:
