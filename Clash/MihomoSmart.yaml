@@ -9,6 +9,8 @@ mixed-port: 7893
 tproxy-port: 7895
 ipv6: true
 log-level: info
+external-controller: 127.0.0.1:9090
+secret: "666888"
 unified-delay: true
 
 # GEO 数据库模式配置，启用该功能以获取和使用地理位置信息
