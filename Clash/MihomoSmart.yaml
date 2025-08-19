@@ -59,7 +59,6 @@ dns:
   nameserver:
     - https://dns.alidns.com/dns-query
     - https://doh.pub/dns-query
-    - https://2400:3200::1/dns-query
   fake-ip-filter:
     - 'rule-set:CN_domain'
     - "geosite:private"
