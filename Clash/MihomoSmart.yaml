@@ -138,10 +138,6 @@ proxy-groups:
   - {name: 狮城智能,  <<: *Smart, filter: *FilterSG, icon: https://git.imee.me/https://github.com/Koolson/Qure/raw/master/IconSet/Color/Singapore.png}
   - {name: 日本智能,  <<: *Smart, filter: *FilterJP, icon: https://git.imee.me/https://github.com/Koolson/Qure/raw/master/IconSet/Color/Japan.png}
   
-  # 自动选择
-  #- {name: 香港自动, <<: *Auto, filter: *FilterHK , icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/HK.png}
-  #- {name: 日本自动, <<: *Auto, filter: *FilterJP , icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/JP.png}
-  #- {name: 狮城自动, <<: *Auto, filter: *FilterSG , icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/SG.png}
 
   
   # 全部节点
@@ -179,7 +175,7 @@ rule-providers:
   Microsoft:    {<<: *RuleSet_classical, url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Microsoft/Microsoft.yaml'}
   Apple:        {<<: *RuleSet_classical, url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple_Classical.yaml'}
   Game:         {<<: *RuleSet_classical, url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Game/Game.yaml'}
-  ProxyLite:    {<<: *RuleSet_classical, url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ProxyLite/ProxyLite.yaml'}
+  Proxy:        {<<: *RuleSet_classical, url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Proxy/Proxy_Classical.yaml'}
   Direct:       {<<: *RuleSet_classical, url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Direct/Direct.yaml'}
   Download:     {<<: *RuleSet_classical, url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Download/Download.yaml'}
   Lan:          {<<: *RuleSet_classical, url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Lan/Lan.yaml'}
@@ -198,7 +194,7 @@ rules:
   - RULE-SET,Inside,DIRECT
   - RULE-SET,Outside,全球加速
   - RULE-SET,Github,全球加速
-  - RULE-SET,ProxyLite,全球加速
+  - RULE-SET,Proxy,全球加速
   - RULE-SET,SpeedTest,DIRECT
   - RULE-SET,Microsoft,DIRECT
   - RULE-SET,Apple,DIRECT
