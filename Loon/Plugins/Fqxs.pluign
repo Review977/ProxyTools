@@ -3,7 +3,7 @@
 #!openUrl=
 #!author=zqzess
 #!homepage=https://github.com/zqzess/rule_for_quantumultX
-#!icon=
+#!icon=https://raw.githubusercontent.com/lige47/QuanX-icon-rule/main/icon/fanqiexiaoshuo.png
 [Rule]
 # 番茄小说 version = 3.1
 DOMAIN,p6-ad-sign.byteimg.com,REJECT
