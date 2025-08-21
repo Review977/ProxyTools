@@ -52,6 +52,7 @@ sniffer:
   skip-domain:
     - "Mijia Cloud"
     - "+.push.apple.com"
+    - "+.pppad.xyz"
 
 
 tun:
@@ -89,6 +90,7 @@ dns:
     - +.docker.io
     - +.market.xiaomi.com
     - +.push.apple.com
+    - +.pppad.xyz
 
     
 # 节点筛选
