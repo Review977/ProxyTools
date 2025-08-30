@@ -4,24 +4,27 @@
 #!tag = 去广告
 #!loon_version = 3.3.2(877)
 #!icon = https://raw.githubusercontent.com/lige47/QuanX-icon-rule/main/icon/meituan(1).png
-#!date = 2025-08-05 16:00
+#!date = 2025-08-30 16:00
 
 [Rule]
-DOMAIN, flowplus.meituan.net
-DOMAIN-SUFFIX, analytics.meituan.net
-DOMAIN-SUFFIX, meituan.xn
-DOMAIN-SUFFIX, meituan.yoga
-DOMAIN-SUFFIX, meituangov.cn
-DOMAIN-SUFFIX, report.meituan.com
-DOMAIN-SUFFIX, wmlog.meituan.com
-DOMAIN-SUFFIX, ad.e.waimai.sankuai.com
-DOMAIN-SUFFIX, mads.meituan.com
-DOMAIN-SUFFIX, dreport.meituan.net
-DOMAIN-SUFFIX, d.meituan.net
+# > 美团
+DOMAIN,flowplus.meituan.net
+DOMAIN-SUFFIX,analytics.meituan.net
+DOMAIN-SUFFIX,meituan.xn
+DOMAIN-SUFFIX,meituan.yoga
+DOMAIN-SUFFIX,meituangov.cn
+DOMAIN-SUFFIX,report.meituan.com
+DOMAIN-SUFFIX,wmlog.meituan.com
+DOMAIN-SUFFIX,ad.e.waimai.sankuai.com
+DOMAIN-SUFFIX,mads.meituan.com
+DOMAIN-SUFFIX,dreport.meituan.net
+DOMAIN-SUFFIX,d.meituan.net
 
 
 
 [Rewrite]
+# > 美团 & 美团外卖
+# hostname = img.meituan.net, s3plus.meituan.net, flowplus.meituan.net
 ^https?:\/\/wmapi\.meituan\.com\/api\/v7\/(loadInfo|openscreen|startpicture)\? reject-dict
 ^https?:\/\/(s3plus|flowplus)\.meituan\.net\/v\d\/\w+\/linglong\/\w+\.(gif|jpg|mp4) reject-img
 ^https?:\/\/img\.meituan\.net\/bizad\/bizad_brandCpt_\d+\.jpg reject-img
@@ -29,11 +32,22 @@ DOMAIN-SUFFIX, d.meituan.net
 ^https?:\/\/s3plus\.meituan\.net\/ocean-blk-index\/index\/blk_conf_73\.json reject-dict
 ^https?:\/\/s3plus\.meituan\.net\/v1\/mss_\w+\/(brandcpt-vedio|waimai-alita)\/\w+\.zip$ reject-dict
 ^http:\/\/59\.82\.113\.10\/amdc\/mobileDispatch\?appkey=213807& reject-dict
+# 美团订单详情页更多推荐
 ^https?:\/\/apimobile\.meituan\.com\/group\/v1\/recommend\/unity\/recommends reject-dict
+
+# > 美团众包
+# hostname = peisongapi.meituan.com
 ^https?:\/\/peisongapi\.meituan\.com\/client\/getInitiateImage reject-200
+
+# > 美团充电宝小程序
+# hostname = cdb.meituan.com
 ^https?:\/\/cdb\.meituan\.com\/marketing\/source\/getPageSlotList reject-dict
 
 
 
+
+
 [MitM]
-hostname = wmapi.meituan.com, s3plus.meituan.net, img.meituan.net, apimobile.meituan.com, peisongapi.meituan.com, cdb.meituan.com
+hostname = img.meituan.net, s3plus.meituan.net, flowplus.meituan.net, peisongapi.meituan.com, cdb.meituan.com
+
+
