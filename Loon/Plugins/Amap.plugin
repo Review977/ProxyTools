@@ -6,7 +6,8 @@
 #!tag = 去广告
 #!loon_version = 3.3.2(877)
 #!icon = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/App-Icon/Amap.png
-
+[Rule]
+host-suffix, optimus-ads.amap.com, direct
 [Rewrite]
 # 高德地图_路线规划下方广告
 ^https?:\/\/.*\.amap\.com\/ws\/faas\/amap-navigation\/card-service-route-plan\? reject-dict
