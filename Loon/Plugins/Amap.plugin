@@ -17,6 +17,8 @@
 ^https?:\/\/.*\.amap\.com\/uploadimg\/\w+\.gif reject-img
 # 高德地图_左下天气
 ^https?:\/\/.*\.amap\.com\/ws\/valueadded\/weather reject-dict
+# 新开屏广告
+^https:\/\/amap-aos-info-nogw\.amap\.com\/ws\/aos\/alimama\/splash_screen_rt url reject-dict
 
 [Script]
 # 高德地图_amdc处理
