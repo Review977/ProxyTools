@@ -22,25 +22,26 @@
 
 [Script]
 # 高德地图_amdc处理
-http-response ^http:\/\/amdc\.m\.taobao\.com script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/amdc.js, requires-body=true, tag=高德_amdc处理
+http-response ^http:\/\/amdc\.m\.taobao\.com script-path = https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/amdc.js, requires-body = true, tag = [高德地图]amdc处理
 # 高德地图_底部tab栏角标
-http-response ^https?:\/\/.*\.amap\.com\/ws\/message\/notice\/list script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/amap.js, requires-body=true, tag=高德_tab栏角标
+http-response ^https?:\/\/.*\.amap\.com\/ws\/message\/notice\/list script-path = https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/amap.js, requires-body = true, tag = [高德地图]tab栏角标
 # 高德地图_首页右中广告
-http-response ^https?:\/\/.*\.amap\.com\/ws\/shield\/frogserver\/aocs\/updatable script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/amap.js, requires-body=true, tag=高德首页右中广告
+http-response ^https?:\/\/.*\.amap\.com\/ws\/shield\/frogserver\/aocs\/updatable script-path = https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/amap.js, requires-body = true, tag = [高德地图]首页右中广告
 # 高德地图_附近页面
-http-response ^https?:\/\/.*\.amap\.com\/ws\/shield\/search\/nearbyrec_smart script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/amap.js, requires-body=true, tag=高德附近页面
+http-response ^https?:\/\/.*\.amap\.com\/ws\/shield\/search\/nearbyrec_smart script-path = https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/amap.js, requires-body = true, tag = [高德地图]附近页面
 # 高德地图_打车页面处理
-http-response ^https?:\/\/.*\.amap\.com\/ws\/promotion-web\/resource script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/amap.js, requires-body=true, tag=高德打车页面
+http-response ^https?:\/\/.*\.amap\.com\/ws\/promotion-web\/resource script-path = https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/amap.js, requires-body = true, tag = [高德地图]打车页面
 # 高德地图_首页底部处理
-http-response ^https?:\/\/.*\.amap\.com\/ws\/faas\/amap-navigation\/main-page script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/amap.js, requires-body=true, tag=高德首页底部
+http-response ^https?:\/\/.*\.amap\.com\/ws\/faas\/amap-navigation\/main-page script-path = https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/amap.js, requires-body = true, tag = [高德地图]首页底部
 # 高德地图_开屏广告
-http-response ^https?:\/\/.*\.amap\.com\/ws\/valueadded\/alimama\/splash_screen script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/amap.js, requires-body=true, tag=高德开屏广告
+http-response ^https?:\/\/.*\.amap\.com\/ws\/valueadded\/alimama\/splash_screen script-path = https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/amap.js, requires-body = true, tag = [高德地图]开屏广告
 # 高德地图_首页顶部推广
-http-response ^https?:\/\/.*\.amap\.com\/ws\/msgbox\/pull script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/amap.js, requires-body=true, tag=高德首页顶部推广
+http-response ^https?:\/\/.*\.amap\.com\/ws\/msgbox\/pull script-path = https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/amap.js, requires-body = true, tag = [高德地图]首页顶部推广
 # 高德地图_我的页面
-http-response ^https?:\/\/.*\.amap\.com\/ws\/shield\/dsp\/profile\/index\/nodefaas script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/amap.js, requires-body=true, tag=高德我的页面
+http-response ^https?:\/\/.*\.amap\.com\/ws\/shield\/dsp\/profile\/index\/nodefaas script-path = https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/amap.js, requires-body = true, tag = [高德地图]我的页面
 # 高德地图_搜索框热词
-http-response ^https?:\/\/.*\.amap\.com\/ws\/shield\/search\/new_hotword script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/amap.js, requires-body=true, tag=高德搜索热词
-
+http-response ^https?:\/\/.*\.amap\.com\/ws\/shield\/search\/new_hotword script-path = https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/amap.js, requires-body = true, tag = [高德地图]搜索热词
+# 高德地图_打车页右上角分享地址
+http-response ^https:\/\/m5-zb\.amap\.com\/ws\/boss\/car\/order\/content_info script-path = https://raw.githubusercontent.com/Review977/ProxyTools/main/Loon/Scripts/amap_remove_toolMapBar.js, requires-body = true, tag = [高德地图]移除右上角分享地址图标
 [MITM]
 hostname = *.amap.com
