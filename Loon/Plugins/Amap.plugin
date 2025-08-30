@@ -3,6 +3,9 @@
 #!author=ddgksf2013
 #!update=2025-08-22
 #!version=1.0.24
+#!tag = 去广告
+#!loon_version = 3.3.2(877)
+#!icon = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/App-Icon/Amap.png
 
 [Rewrite]
 # 高德地图_路线规划下方广告
