@@ -3,7 +3,6 @@
 
 [Rule]
 
-DOMAIN,api.iturrit.com,Telegram
 DOMAIN-SUFFIX,pppad.xyz,DIRECT
 DOMAIN-SUFFIX,linux.do,DIRECT
 IP-CIDR,45.12.53.63/32,DIRECT
