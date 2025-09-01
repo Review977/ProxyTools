@@ -49,7 +49,7 @@ DOMAIN,qh-material.taobao.com,REJECT
 
 
 [MITM]
-hostname = file.hikmall.com, m.clent.10010.com, mbasecc.bas.cmbchina.com, mbasecc.bcs.cmbchina.com, intellicc.bas.cmbchina.com, intellicc.bcs.cmbchina.com
+hostname = file.hikmall.com, m.client.10010.com, mbasecc.bas.cmbchina.com, mbasecc.bcs.cmbchina.com, intellicc.bas.cmbchina.com, intellicc.bcs.cmbchina.com
 
 
 
