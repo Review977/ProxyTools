@@ -1,8 +1,8 @@
 #!name=高德地图净化[墨鱼版]
 #!desc=去除高德地图广告，来自@ddgksf2013
 #!author=ddgksf2013
-#!update=2025-08-30
-#!version=1.0.25
+#!update=2025-09-01
+#!version=1.0.26
 #!tag = 去广告
 #!loon_version = 3.3.2(877)
 #!icon = https://raw.githubusercontent.com/sooyaaabo/Loon/main/Icon/App-Icon/Amap.png
