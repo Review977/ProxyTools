@@ -1,5 +1,6 @@
 #!name = 自用APP去广告
 #!desc = 去除自用APP开屏广告,及部分分流规则
+#!icon = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Advertising.png
 
 [Rule]
 
