@@ -48,4 +48,4 @@ http-response ^https?:\/\/.*\.amap\.com\/ws\/shield\/search\/new_hotword script-
 # 高德地图_打车页右上角分享地址
 http-response ^https:\/\/m5-zb\.amap\.com\/ws\/boss\/car\/order\/content_info script-path = https://raw.githubusercontent.com/Review977/ProxyTools/main/Loon/Scripts/amap_remove_toolMapBar.js, requires-body = true, tag = [高德地图]移除右上角分享地址图标
 [MITM]
-hostname = m5.amap.com, m5-zb.amap.com, center.amap.com
+hostname = m5.amap.com, m5-zb.amap.com, center.amap.com, amap-aos-info-nogw.amap.com
