@@ -40,11 +40,11 @@ DOMAIN-SUFFIX,adkwai.com,REJECT
 
 [Script]
 
-
+http-response ^https?:\/\/v2-app\.delicloud\.com\/api\/v3\.0\/disposal\/banner\/query script-path = https://raw.githubusercontent.com/Review977/2333/refs/heads/main/Loon/Scripts/Deli.js, requires-body=true, tag=Delicloud去广告
 
 
 [MITM]
-hostname = file.hikmall.com, m.client.10010.com, mbasecc.bas.cmbchina.com, mbasecc.bcs.cmbchina.com, intellicc.bas.cmbchina.com, intellicc.bcs.cmbchina.com
+hostname = file.hikmall.com, m.client.10010.com, mbasecc.bas.cmbchina.com, mbasecc.bcs.cmbchina.com, intellicc.bas.cmbchina.com, intellicc.bcs.cmbchina.com, v2-app.delicloud.com
 
 
 
