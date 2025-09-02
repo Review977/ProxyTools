@@ -39,7 +39,7 @@ DOMAIN-SUFFIX,adkwai.com,REJECT
 ^https?:\/\/intellicc\.bcs\.cmbchina\.com\/Edge\/api\/mlife\.intelli\.adrender\.api\.AdWork\/getAdsBySlotId reject-dict
 
 [Script]
-
+# 得力e+首页banner
 http-response ^https?:\/\/v2-app\.delicloud\.com\/api\/v3\.0\/disposal\/banner\/query script-path = https://raw.githubusercontent.com/Review977/2333/refs/heads/main/Loon/Scripts/Deli.js, requires-body=true, tag=Delicloud去广告
 
 
