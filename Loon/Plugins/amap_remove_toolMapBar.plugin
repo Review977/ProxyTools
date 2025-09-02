@@ -12,5 +12,5 @@
 ^https:\/\/amap-aos-info-nogw\.amap\.com\/ws\/aos\/alimama\/splash_screen_rt url reject-dict
 
 [Script]
-http-response ^https:\/\/m5-zb\.amap\.com\/ws\/boss\/car\/order\/content_info script-path = https://raw.githubusercontent.com/Review977/ProxyTools/main/Loon/Scripts/amap_remove_toolMapBar.js, requires-body = true, tag = [高德地图]移除右上角分享地址图标
+http-response ^https:\/\/m5-zb\.amap\.com\/ws\/boss\/car\/order\/content_info script-path = https://raw.githubusercontent.com/Review977/2333/main/Loon/Scripts/amap_remove_toolMapBar.js, requires-body = true, tag = [高德地图]移除右上角分享地址图标
 
