@@ -1,10 +1,9 @@
-#!name=京东去广告
-#!desc=京东去广告规则（部分需要清缓存或重装生效）
-#!author=奶思
-#!homepage=https://github.com/fmz200/wool_scripts
-#!icon=https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/gif/naisi-01.gif
-#!date=2025-08-21 22:37:00
-#!tg-group=https://t.me/lanjieguanggao
+#!name= 京东去广告
+#!desc= 京东去广告规则（部分需要清缓存或重装生效）
+#!author= 奶思
+#!homepage= https://github.com/fmz200/wool_scripts
+#!icon= https://raw.githubusercontent.com/Orz-3/mini/refs/heads/master/Color/jd.png
+#!date= 2025-08-21 22:37:00
 
 [Rule]
 DOMAIN-SUFFIX,jzt.jd.com,REJECT
