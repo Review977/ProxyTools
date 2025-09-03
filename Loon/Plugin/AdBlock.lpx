@@ -40,7 +40,7 @@ DOMAIN-SUFFIX,adkwai.com,REJECT
 
 [Script]
 # 得力e+首页banner
-http-response ^https?:\/\/v2-app\.delicloud\.com\/api\/v3\.0\/disposal\/banner\/query script-path = https://raw.githubusercontent.com/Review977/2333/refs/heads/main/Loon/Scripts/Deli.js, requires-body=true, tag=Delicloud去广告
+http-response ^https?:\/\/v2-app\.delicloud\.com\/api\/v3\.0\/disposal\/banner\/query script-path = https://raw.githubusercontent.com/Review977/2333/main/Loon/Script/Deli.js, requires-body=true, tag=Delicloud去广告
 
 
 [MITM]
