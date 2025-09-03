@@ -41,10 +41,11 @@ DOMAIN-SUFFIX,adkwai.com,REJECT
 [Script]
 # 得力e+首页banner
 http-response ^https?:\/\/v2-app\.delicloud\.com\/api\/v3\.0\/disposal\/banner\/query script-path = https://raw.githubusercontent.com/Review977/2333/main/Loon/Script/Deli.js, requires-body=true, tag=Delicloud去广告
-
+# 建行生活广告净化
+http-response ^https?:\/\/yunbusiness\.ccb\.com\/(?>basic_service|clp_service)\/txCtrl\?txcode=A3341(?>SB16|C147|MB22|A009|A120|AB03|AB04|A068|A095|AB08) script-path=https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/ccblife.js, requires-body=true, tag=建行生活去广告
 
 [MITM]
-hostname = file.hikmall.com, m.client.10010.com, mbasecc.bas.cmbchina.com, mbasecc.bcs.cmbchina.com, intellicc.bas.cmbchina.com, intellicc.bcs.cmbchina.com, v2-app.delicloud.com
+hostname = file.hikmall.com, m.client.10010.com, mbasecc.bas.cmbchina.com, mbasecc.bcs.cmbchina.com, intellicc.bas.cmbchina.com, intellicc.bcs.cmbchina.com, v2-app.delicloud.com, yunbusiness.ccb.com
 
 
 
