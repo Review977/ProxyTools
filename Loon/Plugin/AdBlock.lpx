@@ -46,7 +46,8 @@ DOMAIN-SUFFIX,adkwai.com,REJECT
 ^https?:\/\/mrp\.mcloud\.139\.com\/mc\/mc-client-service\/openapi\/letter\/query reject-dict
 
 # 工银E生活
-^https?:\/\/pv\.elife\.icbc\.com\.cn\/OFSTPV\/utm\.gif url reject-200
+^https?:\/\/image1\.elife\.icbc\.com\.cn\/filepath\/elife\/\d{4}\/\d{2}\/\d{2}\/\d{2}\/\w+\.jpg$ reject-img
+
 [Script]
 # 得力e+首页banner
 http-response ^https?:\/\/v2-app\.delicloud\.com\/api\/v3\.0\/disposal\/banner\/query script-path = https://raw.githubusercontent.com/Review977/2333/main/Loon/Script/Deli.js, requires-body=true, tag=Delicloud去广告
@@ -54,7 +55,7 @@ http-response ^https?:\/\/v2-app\.delicloud\.com\/api\/v3\.0\/disposal\/banner\/
 http-response ^https?:\/\/yunbusiness\.ccb\.com\/(?>basic_service|clp_service)\/txCtrl\?txcode=A3341(?>SB16|C147|MB22|A009|A120|AB03|AB04|A068|A095|AB08) script-path=https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/ccblife.js, requires-body=true, tag=建行生活去广告
 
 [MITM]
-hostname = file.hikmall.com, m.client.10010.com, mbasecc.bas.cmbchina.com, mbasecc.bcs.cmbchina.com, intellicc.bas.cmbchina.com, intellicc.bcs.cmbchina.com, v2-app.delicloud.com, yunbusiness.ccb.com, mcmm.caiyun.feixin.10086.cn, mrp.mcloud.139.com, ad.mcloud.139.com, middle.yun.139.com, pv.elife.icbc.com.cn
+hostname = file.hikmall.com, m.client.10010.com, mbasecc.bas.cmbchina.com, mbasecc.bcs.cmbchina.com, intellicc.bas.cmbchina.com, intellicc.bcs.cmbchina.com, v2-app.delicloud.com, yunbusiness.ccb.com, mcmm.caiyun.feixin.10086.cn, mrp.mcloud.139.com, ad.mcloud.139.com, middle.yun.139.com, image1.elife.icbc.com.cn
 
 
 
