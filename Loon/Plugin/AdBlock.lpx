@@ -1,5 +1,5 @@
 #!name = 自用APP广告净化
-#!desc = 以下APP广告净化-中国联通,海康云商,掌上生活,建行生活,得力e+,NB助手
+#!desc = 以下APP广告净化-中国联通,海康云商,掌上生活,建行生活,得力e+,NB助手,中国移动云盘
 #!icon = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Advertising.png
 
 [Rule]
