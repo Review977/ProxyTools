@@ -43,14 +43,9 @@ DOMAIN-SUFFIX,d.meituan.net
 # hostname = cdb.meituan.com
 ^https?:\/\/cdb\.meituan\.com\/marketing\/source\/getPageSlotList reject-dict
 
-# > 美团首页浮动图标
-^https?://p1\.meituan\.net/linglong/44511b4495269f320aea5e60948c1b8c108829\.gif reject-img
-^https?://p0\.meituan\.net/linglong/7ae4f2836035e4b439e58476985592142777\.png\.webp@1284w_1l reject-img
-^https?://p0\.meituan\.net/linglong/b0d88fec8fa5b2f322d094fbfe56bb1c69578\.gif reject-img
-^https?://p0\.meituan\.net/travelcube/7b1797f1a0e9dd936ee134657470507f2067\.png\.webp.* reject-img
 
 
 [MitM]
-hostname = img.meituan.net, s3plus.meituan.net, flowplus.meituan.net, peisongapi.meituan.com, cdb.meituan.com, p1.meituan.net, p0.meituan.net
+hostname = img.meituan.net, s3plus.meituan.net, flowplus.meituan.net, peisongapi.meituan.com, cdb.meituan.com
 
 
