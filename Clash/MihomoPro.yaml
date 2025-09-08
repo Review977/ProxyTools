@@ -10,11 +10,6 @@ tproxy-port: 7895
 ipv6: false
 log-level: info
 unified-delay: true
-external-ui-url: https://github.com/Zephyruso/zashboard/releases/latest/download/dist.zip
-external-ui-name: zashboard
-external-ui: ui
-external-controller: 0.0.0.0:9090
-secret: "666888"
 
 
 # GEO 数据库模式配置，启用该功能以获取和使用地理位置信息
@@ -179,7 +174,7 @@ rule-providers:
   OpenAi:       {<<: *RuleSet_classical, url: 'https://gist.githubusercontent.com/ddgksf2013/cb4121e8b5c5d865cc949cb8120320c4/raw/Ai.yaml'}
   Google:       {<<: *RuleSet_classical, url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google.yaml'}
   Github:       {<<: *RuleSet_classical, url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GitHub/GitHub.yaml'}
-  SpeedTest:    {<<: *RuleSet_classical, url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Speedtest/Speedtest.yaml'}
+  SpeedTest:    {<<: *RuleSet_classical, url: 'https://kelee.one/Tool/Clash/Rule/SpeedtestChina.yaml'}
   Microsoft:    {<<: *RuleSet_classical, url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Microsoft/Microsoft.yaml'}
   Apple:        {<<: *RuleSet_classical, url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple_Classical.yaml'}
   Game:         {<<: *RuleSet_classical, url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Game/Game.yaml'}
