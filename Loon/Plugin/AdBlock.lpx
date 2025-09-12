@@ -22,14 +22,25 @@ DOMAIN,api-events.8ziben.com,REJECT
 DOMAIN-SUFFIX,yximgs.com,REJECT
 DOMAIN-SUFFIX,adkwai.com,REJECT
 
+# 中国联通移除开屏广告
+DOMAIN, m1.ad.10010.com,REJECT
 
 [Rewrite]
 # 海康云商开屏
 ^https:\/\/file\.hikmall\.com\/prod\/image\/cab297e371944c90bbf5069cde1fb264\.jpeg$ reject
 
 # 中国联通
-^https?:\/\/m\.client\.10010\.com\/mobileService\/(activity|customer)\/(accountListData|get_client_adv|get_startadv) reject-200
-^https?:\/\/m\.client\.10010\.com\/uniAdmsInterface\/(getHomePageAd|getWelcomeAd) reject-200
+#^https?:\/\/m\.client\.10010\.com\/mobileService\/(activity|customer)\/(accountListData|get_client_adv|get_startadv) reject-200
+#^https?:\/\/m\.client\.10010\.com\/uniAdmsInterface\/(getHomePageAd|getWelcomeAd) reject-200
+# 移除主页几个小按钮
+^https:\/\/m\.client\.10010\.com\/clientIndex\/v1\/api\/navHome response-body-json-jq '.datas.homeTopMenuItems |= map(select(.menuName != "通通" and .menuName != "签到"))'
+# 移除主页浮窗和底部推广
+^https:\/\/m\.client\.10010\.com\/clientIndex\/homefusion\/fuInter response-body-json-jq 'del(.["HomeFusion.fuchuangAdv_A8"], .["HomeFusion.bottomLabel"])'
+# 移除搜索框推广
+^https:\/\/m\.client\.10010\.com\/search_service\/tyfbSearch\/searchDiscoverListExpress response-body-json-jq '.data = []'
+^https:\/\/m\.client\.10010\.com\/search_service\/search\/searchScrollWord response-body-json-jq '.["113000004"] = []'
+
+
 
 # 掌上生活开屏广告,主机名mbasecc.bas.cmbchina.com, mbasecc.bcs.cmbchina.com, intellicc.bas.cmbchina.com, intellicc.bcs.cmbchina.com
 ^https?:\/\/mbasecc\.(bas|bcs)\.cmbchina\.com\/Edge\/api\/mlife\.clientface\.clientservice\.api\.advertiseService\/preCacheAdvertiseSec reject-dict
